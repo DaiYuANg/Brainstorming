@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "datafaker"
+version = "0.1.0"
+description = ""
+authors = ["DaiYuANg <dai_yuang@icloud.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+customtkinter = "^5.0.5"
+pyinstaller = "^5.7.0"
+faker = "^16.6.1"
+black = "^23.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
