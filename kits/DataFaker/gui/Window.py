@@ -1,11 +1,10 @@
 import customtkinter
+from PySide6.QtGui import QRasterWindow
 
 
-class Window:
+class Window(QRasterWindow):
     def __init__(self):
-        self.app = customtkinter.CTk()
-        self.app.geometry("400x240")
-        self.app.title("DataFaker")
+        super().__init__()
+        self.setTitle("Analog Clock")
+        self.resize(200, 200)
 
-    def run(self):
-        self.app.mainloop()

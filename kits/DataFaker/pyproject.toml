@@ -7,11 +7,14 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.12"
-customtkinter = "^5.0.5"
-pyinstaller = "^5.7.0"
 faker = "^16.6.1"
-black = "^23.1.0"
+pyside6 = "^6.4.2"
+mysql-connector-python = "^8.0.32"
+pypika = "^0.48.9"
 
+[tool.poetry.dev-dependencies]
+black = "^23.1.0"
+pyinstaller = "^5.7.0"
 
 [build-system]
 requires = ["poetry-core"]

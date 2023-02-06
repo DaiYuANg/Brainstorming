@@ -1,24 +1,37 @@
-import tkinter
+import sys
 
-import customtkinter
+from PySide6.QtWidgets import QApplication, QPushButton, QLabel, QMainWindow, QWidget, QVBoxLayout
 
 
-def button_function():
-    print("button pressed")
+class MainWindow(QMainWindow):
+
+    def __init__(self):
+        super().__init__()
+        self.button = QPushButton("Push for Window")
+        self.button.clicked.connect(self.show_new_window)
+        self.setCentralWidget(self.button)
+
+    def show_new_window(self, checked):
+        w = AnotherWindow()
+        w.show()
+
+
+class AnotherWindow(QWidget):
+    """
+    This "window" is a QWidget. If it has no parent, it
+    will appear as a free-floating window as we want.
+    """
+
+    def __init__(self):
+        super().__init__()
+        layout = QVBoxLayout()
+        self.label = QLabel("Another Window")
+        layout.addWidget(self.label)
+        self.setLayout(layout)
 
 
 if __name__ == "__main__":
-    customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
-    customtkinter.set_default_color_theme(
-        "blue"
-    )  # Themes: blue (default), dark-blue, green
-
-    app = customtkinter.CTk()  # create CTk window like you do with the Tk window
-    app.geometry("400x240")
-    app.title("DataFaker")
-    # Use CTkButton instead of tkinter Button
-    button = customtkinter.CTkButton(
-        master=app, text="CTkButton", command=button_function
-    )
-    button.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
-    app.mainloop()
+    app = QApplication(sys.argv)
+    w = MainWindow()
+    w.show()
+    app.exec()

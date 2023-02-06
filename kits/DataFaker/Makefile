@@ -1,8 +1,9 @@
 clean:
-
+	rm -rf build
+	rm -rf dist
 
 build:
-	pyinstaller
+	poetry run pyinstaller main.py -F
 
 format:
 	poetry run black .

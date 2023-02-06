@@ -4,7 +4,7 @@
 name = "altgraph"
 version = "0.17.3"
 description = "Python graph (network) package"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 files = [
@@ -16,7 +16,7 @@ files = [
 name = "black"
 version = "23.1.0"
 description = "The uncompromising code formatter."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -66,7 +66,7 @@ uvloop = ["uvloop (>=0.15.2)"]
 name = "click"
 version = "8.1.3"
 description = "Composable command line interface toolkit"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -81,43 +81,13 @@ colorama = {version = "*", markers = "platform_system == \"Windows\""}
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
 ]
-
-[[package]]
-name = "customtkinter"
-version = "5.0.5"
-description = "Create modern looking GUIs with Python"
-category = "main"
-optional = false
-python-versions = ">=3.7"
-files = [
-    {file = "customtkinter-5.0.5-py3-none-any.whl", hash = "sha256:55980ce0fa8dc1bbe62959d417b98e32b135e258bba992449f9a57e237f019d0"},
-    {file = "customtkinter-5.0.5.tar.gz", hash = "sha256:e0928ed969de45c4734905969c56a55c7183173732def50ee57f3326b14c803a"},
-]
-
-[package.dependencies]
-darkdetect = "*"
-
-[[package]]
-name = "darkdetect"
-version = "0.8.0"
-description = "Detect OS Dark Mode from Python"
-category = "main"
-optional = false
-python-versions = ">=3.6"
-files = [
-    {file = "darkdetect-0.8.0-py3-none-any.whl", hash = "sha256:a7509ccf517eaad92b31c214f593dbcf138ea8a43b2935406bbd565e15527a85"},
-    {file = "darkdetect-0.8.0.tar.gz", hash = "sha256:b5428e1170263eb5dea44c25dc3895edd75e6f52300986353cd63533fe7df8b1"},
-]
-
-[package.extras]
-macos-listener = ["pyobjc-framework-Cocoa"]
 
 [[package]]
 name = "faker"
@@ -138,7 +108,7 @@ python-dateutil = ">=2.4"
 name = "future"
 version = "0.18.3"
 description = "Clean single-source support for Python 3 and 2"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 files = [
@@ -149,7 +119,7 @@ files = [
 name = "macholib"
 version = "1.16.2"
 description = "Mach-O header analysis and editing"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 files = [
@@ -164,7 +134,7 @@ altgraph = ">=0.17"
 name = "mypy-extensions"
 version = "1.0.0"
 description = "Type system extensions for programs checked with the mypy type checker."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 files = [
@@ -173,10 +143,53 @@ files = [
 ]
 
 [[package]]
+name = "mysql-connector-python"
+version = "8.0.32"
+description = "MySQL driver written in Python"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "mysql-connector-python-8.0.32.tar.gz", hash = "sha256:c2d20b29fd096a0633f9360c275bd2434d4bcf597281991c4b7f1c820cd07b84"},
+    {file = "mysql_connector_python-8.0.32-cp310-cp310-macosx_12_0_arm64.whl", hash = "sha256:4df11c683924ef34c177a54887dc4844ae735b01c8a29ce6ab92d6d3db7a2757"},
+    {file = "mysql_connector_python-8.0.32-cp310-cp310-macosx_12_0_x86_64.whl", hash = "sha256:4b2d00c9e2cb9e3d11c57ec411226f43aa627607085fbed661cfea1c4dc57f61"},
+    {file = "mysql_connector_python-8.0.32-cp310-cp310-manylinux1_i686.whl", hash = "sha256:992b7a464daa398e86df8c75f7d8cd6044f884ff9087e782120fc8beff96c638"},
+    {file = "mysql_connector_python-8.0.32-cp310-cp310-manylinux1_x86_64.whl", hash = "sha256:232095f0c36266510009b0f1214d2823a649efb8bc511dbab9ce8847f66ab08a"},
+    {file = "mysql_connector_python-8.0.32-cp310-cp310-win_amd64.whl", hash = "sha256:fd233c83daaf048c1f9827be984c2721576ae0adf50e139429a06ccd094987d9"},
+    {file = "mysql_connector_python-8.0.32-cp311-cp311-macosx_12_0_arm64.whl", hash = "sha256:ab13dd6ede0e0e99ba97c73946462c3420625ab6e63fe13b6fc350e30eb3298d"},
+    {file = "mysql_connector_python-8.0.32-cp311-cp311-macosx_12_0_x86_64.whl", hash = "sha256:e722b6ffa5b0d7188eebac792b18bc871643db505bf60d0e6bd2859f31e5ed79"},
+    {file = "mysql_connector_python-8.0.32-cp311-cp311-manylinux1_i686.whl", hash = "sha256:283fe6f647e9d684feb1b7c48fa6a46b1e72c59ecdd6ea2b62392cd80c1a6701"},
+    {file = "mysql_connector_python-8.0.32-cp311-cp311-manylinux1_x86_64.whl", hash = "sha256:1c0a11f3ffbf850f2ca7b39e6c82021e8de910ddaeffd856e53dca028d21c923"},
+    {file = "mysql_connector_python-8.0.32-cp311-cp311-win_amd64.whl", hash = "sha256:6cdba2779bcd16af0ceff0a6e50d33e6664a83f8d17d70524beb6f677a6d1fae"},
+    {file = "mysql_connector_python-8.0.32-cp37-cp37m-macosx_12_0_x86_64.whl", hash = "sha256:93b1eb3e07d19a23ccf2605d818aacee0d842b1820bbeef8d0022d8d3d014ab9"},
+    {file = "mysql_connector_python-8.0.32-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:d6b54656ca131a4f0f17b9d0adddc60f84fd982d64e06360026d5b06e5dbf865"},
+    {file = "mysql_connector_python-8.0.32-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:8c5bfedc979d7858402f39c20d66a6cf03ca4c960732a98318126c278535ddb2"},
+    {file = "mysql_connector_python-8.0.32-cp37-cp37m-win_amd64.whl", hash = "sha256:bdd716b1e162fe4b3887f6617e9ddcfa659ba96a9ddb22feeae208a72f43d22f"},
+    {file = "mysql_connector_python-8.0.32-cp38-cp38-macosx_12_0_x86_64.whl", hash = "sha256:bd52a462759aa324a60054c4b44dc8b32007187a328f72be6b58f193d5e32a91"},
+    {file = "mysql_connector_python-8.0.32-cp38-cp38-manylinux1_i686.whl", hash = "sha256:be82357cc7e7e1377e2f4f8c18aa89c8aab6c0117155cf9fcf18e3cd0eb6ac8e"},
+    {file = "mysql_connector_python-8.0.32-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:1f399f3c2599d2591854cd0e0a24c7c399dff21ac5accb6e52e06924de29f3f4"},
+    {file = "mysql_connector_python-8.0.32-cp38-cp38-win_amd64.whl", hash = "sha256:c8bba02501525e1fbbba094a6d8d391d1534e8be41be6396c3e1b9f7d9d13b1c"},
+    {file = "mysql_connector_python-8.0.32-cp39-cp39-macosx_12_0_arm64.whl", hash = "sha256:145aeb75eefb7425e0a7fb36a4f95ebfe79e06be7c69a4045d34cde95c666dc4"},
+    {file = "mysql_connector_python-8.0.32-cp39-cp39-macosx_12_0_x86_64.whl", hash = "sha256:c990f4c0702d1739076261c4dece1042e1eb18bf34e0d8516d19ec5166a205ce"},
+    {file = "mysql_connector_python-8.0.32-cp39-cp39-manylinux1_i686.whl", hash = "sha256:7f7a69db9e0c36764a6c65377f6174aee46e484520e48659e7aa674415b8e192"},
+    {file = "mysql_connector_python-8.0.32-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:677b5c6dcaec7e2a4bf95b991a869f4d371114f69a0d9a5bb236e988c8f4c376"},
+    {file = "mysql_connector_python-8.0.32-cp39-cp39-win_amd64.whl", hash = "sha256:8c334c41cd1c5bcfa3550340253ef7d9d3b962211f33327c20f69706a0bcce06"},
+    {file = "mysql_connector_python-8.0.32-py2.py3-none-any.whl", hash = "sha256:e0299236297b63bf6cbb61d81a9d400bc01cad4743d1abe5296ef349de15ee53"},
+]
+
+[package.dependencies]
+protobuf = ">=3.11.0,<=3.20.3"
+
+[package.extras]
+compression = ["lz4 (>=2.1.6,<=3.1.3)", "zstandard (>=0.12.0,<=0.19.0)"]
+dns-srv = ["dnspython (>=1.16.0,<=2.1.0)"]
+gssapi = ["gssapi (>=1.6.9,<=1.8.2)"]
+
+[[package]]
 name = "packaging"
 version = "23.0"
 description = "Core utilities for Python packages"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -188,7 +201,7 @@ files = [
 name = "pathspec"
 version = "0.11.0"
 description = "Utility library for gitignore style pattern matching of file paths."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -200,7 +213,7 @@ files = [
 name = "pefile"
 version = "2022.5.30"
 description = "Python PE parsing module"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6.0"
 files = [
@@ -214,7 +227,7 @@ future = "*"
 name = "platformdirs"
 version = "2.6.2"
 description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -227,10 +240,42 @@ docs = ["furo (>=2022.12.7)", "proselint (>=0.13)", "sphinx (>=5.3)", "sphinx-au
 test = ["appdirs (==1.4.4)", "covdefaults (>=2.2.2)", "pytest (>=7.2)", "pytest-cov (>=4)", "pytest-mock (>=3.10)"]
 
 [[package]]
+name = "protobuf"
+version = "3.20.3"
+description = "Protocol Buffers"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "protobuf-3.20.3-cp310-cp310-manylinux2014_aarch64.whl", hash = "sha256:f4bd856d702e5b0d96a00ec6b307b0f51c1982c2bf9c0052cf9019e9a544ba99"},
+    {file = "protobuf-3.20.3-cp310-cp310-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:9aae4406ea63d825636cc11ffb34ad3379335803216ee3a856787bcf5ccc751e"},
+    {file = "protobuf-3.20.3-cp310-cp310-win32.whl", hash = "sha256:28545383d61f55b57cf4df63eebd9827754fd2dc25f80c5253f9184235db242c"},
+    {file = "protobuf-3.20.3-cp310-cp310-win_amd64.whl", hash = "sha256:67a3598f0a2dcbc58d02dd1928544e7d88f764b47d4a286202913f0b2801c2e7"},
+    {file = "protobuf-3.20.3-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:899dc660cd599d7352d6f10d83c95df430a38b410c1b66b407a6b29265d66469"},
+    {file = "protobuf-3.20.3-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:e64857f395505ebf3d2569935506ae0dfc4a15cb80dc25261176c784662cdcc4"},
+    {file = "protobuf-3.20.3-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:d9e4432ff660d67d775c66ac42a67cf2453c27cb4d738fc22cb53b5d84c135d4"},
+    {file = "protobuf-3.20.3-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:74480f79a023f90dc6e18febbf7b8bac7508420f2006fabd512013c0c238f454"},
+    {file = "protobuf-3.20.3-cp37-cp37m-win32.whl", hash = "sha256:b6cc7ba72a8850621bfec987cb72623e703b7fe2b9127a161ce61e61558ad905"},
+    {file = "protobuf-3.20.3-cp37-cp37m-win_amd64.whl", hash = "sha256:8c0c984a1b8fef4086329ff8dd19ac77576b384079247c770f29cc8ce3afa06c"},
+    {file = "protobuf-3.20.3-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:de78575669dddf6099a8a0f46a27e82a1783c557ccc38ee620ed8cc96d3be7d7"},
+    {file = "protobuf-3.20.3-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:f4c42102bc82a51108e449cbb32b19b180022941c727bac0cfd50170341f16ee"},
+    {file = "protobuf-3.20.3-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:44246bab5dd4b7fbd3c0c80b6f16686808fab0e4aca819ade6e8d294a29c7050"},
+    {file = "protobuf-3.20.3-cp38-cp38-win32.whl", hash = "sha256:c02ce36ec760252242a33967d51c289fd0e1c0e6e5cc9397e2279177716add86"},
+    {file = "protobuf-3.20.3-cp38-cp38-win_amd64.whl", hash = "sha256:447d43819997825d4e71bf5769d869b968ce96848b6479397e29fc24c4a5dfe9"},
+    {file = "protobuf-3.20.3-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:398a9e0c3eaceb34ec1aee71894ca3299605fa8e761544934378bbc6c97de23b"},
+    {file = "protobuf-3.20.3-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:bf01b5720be110540be4286e791db73f84a2b721072a3711efff6c324cdf074b"},
+    {file = "protobuf-3.20.3-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:daa564862dd0d39c00f8086f88700fdbe8bc717e993a21e90711acfed02f2402"},
+    {file = "protobuf-3.20.3-cp39-cp39-win32.whl", hash = "sha256:819559cafa1a373b7096a482b504ae8a857c89593cf3a25af743ac9ecbd23480"},
+    {file = "protobuf-3.20.3-cp39-cp39-win_amd64.whl", hash = "sha256:03038ac1cfbc41aa21f6afcbcd357281d7521b4157926f30ebecc8d4ea59dcb7"},
+    {file = "protobuf-3.20.3-py2.py3-none-any.whl", hash = "sha256:a7ca6d488aa8ff7f329d4c545b2dbad8ac31464f1d8b1c87ad1346717731e4db"},
+    {file = "protobuf-3.20.3.tar.gz", hash = "sha256:2e3427429c9cffebf259491be0af70189607f365c2f41c7c3764af6f337105f2"},
+]
+
+[[package]]
 name = "pyinstaller"
 version = "5.7.0"
 description = "PyInstaller bundles a Python application and all its dependencies into a single package."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "<3.12,>=3.7"
 files = [
@@ -264,13 +309,84 @@ hook-testing = ["execnet (>=1.5.0)", "psutil", "pytest (>=2.7.3)"]
 name = "pyinstaller-hooks-contrib"
 version = "2022.15"
 description = "Community maintained hooks for PyInstaller"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
     {file = "pyinstaller-hooks-contrib-2022.15.tar.gz", hash = "sha256:73fd4051dc1620f3ae9643291cd9e2f47bfed582ade2eb05e3247ecab4a4f5f3"},
     {file = "pyinstaller_hooks_contrib-2022.15-py2.py3-none-any.whl", hash = "sha256:55c1def8066d0279d06cd67eea30c12ffcdb961a5edeeaf361adac0164baef30"},
 ]
+
+[[package]]
+name = "pypika"
+version = "0.48.9"
+description = "A SQL query builder API for Python"
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "PyPika-0.48.9.tar.gz", hash = "sha256:838836a61747e7c8380cd1b7ff638694b7a7335345d0f559b04b2cd832ad5378"},
+]
+
+[[package]]
+name = "pyside6"
+version = "6.4.2"
+description = "Python bindings for the Qt cross-platform application and UI framework"
+category = "main"
+optional = false
+python-versions = "<3.12,>=3.7"
+files = [
+    {file = "PySide6-6.4.2-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:e5f8f413743cc28b18e10b3d35a50f1410ed2874a376cd136ffa6030e5ed78fa"},
+    {file = "PySide6-6.4.2-cp37-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:b9f132133e0681c5d1d47d533108cc9d35f96486251a9f23bdac6f3b6aa53a1c"},
+    {file = "PySide6-6.4.2-cp37-abi3-win_amd64.whl", hash = "sha256:59dafe1f608d5363afa17d318377ac78d686907d6a1292754887b9229632f36e"},
+    {file = "PySide6-6.4.2-pp39-pypy39_pp73-macosx_10_9_universal2.whl", hash = "sha256:40830c2a5d1a19cedb33638f85b505831e172fa2630b95f11e993614187e8562"},
+    {file = "PySide6-6.4.2-pp39-pypy39_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:74b49be890662511eb8f279cf4862f7452c1ec7dbb61839f6a9baa0efdefce66"},
+    {file = "PySide6-6.4.2-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:0985a75aa5ff42f93e5e0a0034d2c00f4dfc9a5cda3d63a8f9c5da3096dc7e04"},
+]
+
+[package.dependencies]
+PySide6-Addons = "6.4.2"
+PySide6-Essentials = "6.4.2"
+shiboken6 = "6.4.2"
+
+[[package]]
+name = "pyside6-addons"
+version = "6.4.2"
+description = "Python bindings for the Qt cross-platform application and UI framework (Addons)"
+category = "main"
+optional = false
+python-versions = "<3.12,>=3.7"
+files = [
+    {file = "PySide6_Addons-6.4.2-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:e94d3d6385723c6c3c78b321498e6ab7331f67c77d6233d314c98b89cc629449"},
+    {file = "PySide6_Addons-6.4.2-cp37-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:5c06fa0e1bc6269b9e80e004f928eadc4c7f07bca51e41b375f79f3dc17c94ea"},
+    {file = "PySide6_Addons-6.4.2-cp37-abi3-win_amd64.whl", hash = "sha256:03245466c3844681cdd7d350c1c94444cafff4c86394b44b6bff32643a9668c6"},
+    {file = "PySide6_Addons-6.4.2-pp39-pypy39_pp73-macosx_10_9_universal2.whl", hash = "sha256:101bfe096a426eab15cc02f4d5755ace564ce53693cb44b3fc66223709d999b5"},
+    {file = "PySide6_Addons-6.4.2-pp39-pypy39_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:f5160f28cec8068f717150d7e9a054c6ae0034c75e404b9ae198f620e8bcc7c3"},
+    {file = "PySide6_Addons-6.4.2-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:9fddedee6d5d3c0c98677f421530402a4107f4b4ad773c596d5dd21366f88abf"},
+]
+
+[package.dependencies]
+PySide6-Essentials = "6.4.2"
+shiboken6 = "6.4.2"
+
+[[package]]
+name = "pyside6-essentials"
+version = "6.4.2"
+description = "Python bindings for the Qt cross-platform application and UI framework (Essentials)"
+category = "main"
+optional = false
+python-versions = "<3.12,>=3.7"
+files = [
+    {file = "PySide6_Essentials-6.4.2-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:8f208567e27c9caede517f07ec53cb6b3f9472d72866080393f3150393683c46"},
+    {file = "PySide6_Essentials-6.4.2-cp37-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:8c3d37cca6e27f6da12b50b20e741d593ccc857bdcdb82d97f8f7c8bfe53639a"},
+    {file = "PySide6_Essentials-6.4.2-cp37-abi3-win_amd64.whl", hash = "sha256:8061b68d7eb4ace0ad4443c66747ebac92f686ba704ac343f58e9e9eed8f1c0f"},
+    {file = "PySide6_Essentials-6.4.2-pp39-pypy39_pp73-macosx_10_9_universal2.whl", hash = "sha256:459202678a5217d1b1ad44ca6da2033e73082d702eafd842c1bf6952e243eb65"},
+    {file = "PySide6_Essentials-6.4.2-pp39-pypy39_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:7d01e1fd4136cbc3f5516d1c7187a694dd5b6d09a4be3de6e184d0845070ba85"},
+    {file = "PySide6_Essentials-6.4.2-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:0b00979a37a2cf0b848d5ac1eb595e4480687f0ddd34d82cbc738dfe7e8976bc"},
+]
+
+[package.dependencies]
+shiboken6 = "6.4.2"
 
 [[package]]
 name = "python-dateutil"
@@ -291,7 +407,7 @@ six = ">=1.5"
 name = "pywin32-ctypes"
 version = "0.2.0"
 description = ""
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 files = [
@@ -303,7 +419,7 @@ files = [
 name = "setuptools"
 version = "67.1.0"
 description = "Easily download, build, install, upgrade, and uninstall Python packages"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -315,6 +431,22 @@ files = [
 docs = ["furo", "jaraco.packaging (>=9)", "jaraco.tidelift (>=1.4)", "pygments-github-lexers (==0.0.5)", "rst.linker (>=1.9)", "sphinx (>=3.5)", "sphinx-favicon", "sphinx-hoverxref (<2)", "sphinx-inline-tabs", "sphinx-lint", "sphinx-notfound-page (==0.8.3)", "sphinx-reredirects", "sphinxcontrib-towncrier"]
 testing = ["build[virtualenv]", "filelock (>=3.4.0)", "flake8 (<5)", "flake8-2020", "ini2toml[lite] (>=0.9)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pip (>=19.1)", "pip-run (>=8.8)", "pytest (>=6)", "pytest-black (>=0.3.7)", "pytest-checkdocs (>=2.4)", "pytest-cov", "pytest-enabler (>=1.3)", "pytest-flake8", "pytest-mypy (>=0.9.1)", "pytest-perf", "pytest-timeout", "pytest-xdist", "tomli-w (>=1.0.0)", "virtualenv (>=13.0.0)", "wheel"]
 testing-integration = ["build[virtualenv]", "filelock (>=3.4.0)", "jaraco.envs (>=2.2)", "jaraco.path (>=3.2.0)", "pytest", "pytest-enabler", "pytest-xdist", "tomli", "virtualenv (>=13.0.0)", "wheel"]
+
+[[package]]
+name = "shiboken6"
+version = "6.4.2"
+description = "Python/C++ bindings helper module"
+category = "main"
+optional = false
+python-versions = "<3.12,>=3.7"
+files = [
+    {file = "shiboken6-6.4.2-cp37-abi3-macosx_10_9_universal2.whl", hash = "sha256:6131d32cce4114924dabea313fc345745f95ce567631349f2fad170ebff4bfee"},
+    {file = "shiboken6-6.4.2-cp37-abi3-manylinux_2_28_x86_64.whl", hash = "sha256:0616c1a12d1e51e680595b3940b986275c1df952a751416a0730a59e5b90105f"},
+    {file = "shiboken6-6.4.2-cp37-abi3-win_amd64.whl", hash = "sha256:2278f8d6ab6f3377e82f72b6305e06bd53e9e479729de489e7a5205296bdb74e"},
+    {file = "shiboken6-6.4.2-pp39-pypy39_pp73-macosx_10_9_universal2.whl", hash = "sha256:0c706fd0e6eeb49d807aaef08f078526eb35bee1d84209cf66cb1ff70508b93a"},
+    {file = "shiboken6-6.4.2-pp39-pypy39_pp73-manylinux_2_28_x86_64.whl", hash = "sha256:58511b2d0f77f3153b0371e0da2730db38195cb72e5d450e32a52db25c6af06d"},
+    {file = "shiboken6-6.4.2-pp39-pypy39_pp73-win_amd64.whl", hash = "sha256:d66bfdd80bbb3c8f9165afad4bb8786434a75456a36f8ee90b583c31ef311a50"},
+]
 
 [[package]]
 name = "six"
@@ -332,7 +464,7 @@ files = [
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -344,7 +476,7 @@ files = [
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -355,4 +487,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.12"
-content-hash = "c9a03a69fb0b6866d46cfad03bfb0d4ac2db9434ff30e77088bd167a3c54cac5"
+content-hash = "ee592d06a6395934b98093509cf8f83bdec95fb516ce1bd3734964631926f2fe"

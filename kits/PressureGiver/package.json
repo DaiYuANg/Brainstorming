@@ -7,21 +7,31 @@
     "dev": "vite",
     "dev:desktop": "tauri dev",
     "build": "tsc && vite build",
+    "build:desktop": "tauri build",
     "preview": "vite preview",
     "tauri": "tauri"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.7",
+    "@tauri-apps/api": "^1.2.0",
+    "i18next": "^22.4.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@tauri-apps/api": "^1.2.0"
+    "react-i18next": "^12.1.5"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^1.2.2",
     "@types/node": "^18.7.10",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^3.0.0",
+    "react-devtools": "^4.27.1",
     "typescript": "^4.6.4",
     "vite": "^4.0.0",
-    "@tauri-apps/cli": "^1.2.2"
+    "prettier":"2.8.3",
+    "eslint":"8.33.0"
   }
 }
