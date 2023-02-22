@@ -1,6 +1,7 @@
-# DKits
+# 4Fun
 
-Small tools for developer
+Make some awesome staff for fun
 
-- [DataFaker](./kits/DataFaker/README.md): Fake Data Generator with GUI build by python custom-tk and faker
-- [Pressurer](kits/press/README.md): Pressure Test tools
+- [press](apps/press/README.md): press test for apu
+- [quicker](apps/quicker/README.md): cross-platform spotlight like tools
+- [cookie](kits/cookie): server of http/grpc

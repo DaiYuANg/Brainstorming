@@ -1,0 +1,12 @@
+[package]
+name = "press"
+version = "0.1.0"
+worksapce.edition = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+adw = { version = "0.3.1", package = "libadwaita" }
+gtk = { version = "0.6.1", package = "gtk4", features = ["v4_8"] }
+clap.workspace = true
+figment.workspace = true
