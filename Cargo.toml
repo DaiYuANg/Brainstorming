@@ -5,7 +5,9 @@ members = [
     "kits/*"
 ]
 [workspace.dependencies]
-clap = { version = "4.1.6", features = ["derive"] }
+clap = { version = "4.0.0", features = ["derive"] }
+tokio = { version = "1.25.0", features = ["full"] }
+tokio-test = "0.4.2"
 log = "0.4.16"
 env_logger = "0.9.0"
 figment = { version = "0.10", features = ["toml", "env", "yaml", "json"] }
@@ -14,3 +16,6 @@ sysinfo = "0.23.10"
 
 [workspace.package]
 edition = "2021"
+
+[workspace.dev-dependencies]
+mdbook = "0.4.17"

@@ -15,6 +15,7 @@ pub struct Cli {
     pub debug: u8,
     // #[command(clap::Command)]
     // pub command: Option<Command>
+    pub gui: Option<bool>,
 }
 
 #[derive(clap::Subcommand)]
