@@ -2,10 +2,14 @@ use std::env;
 use std::io::{stdin, stdout, Write};
 use std::path::Path;
 use std::process::{Child, Command, Stdio};
+
+use rush::Rush;
+mod builtin;
 mod commands;
-mod rust;
+mod rush;
+
 fn main() {
-    Rust::default();
+    Rush::default();
     loop {
         print!("> ");
         stdout().flush().unwrap();
