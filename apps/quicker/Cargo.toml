@@ -11,6 +11,7 @@ log.workspace = true
 env_logger.worksapce = true
 tokio.workspace = true
 tokio-test.workspace = true
+rdev = "0.4.6"
 egui = "0.17.0"
 eframe = "0.17.0"
 tracing-subscriber= "0.3.11"
