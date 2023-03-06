@@ -1,3 +1,4 @@
+use async_std::fs::read_dir;
 use async_std::net::TcpStream;
 use clap::Parser;
 use figment::providers::{Env, Format, Toml};
@@ -28,6 +29,7 @@ fn callback(event: Event) {
     let key = keyboard.add(&EventType::KeyPress(Key::KeyS));
     match event.name {
         Some(..) => println!("123"),
+        Some(k) => println!("ke"),
         // Some(string) => println!("User wrote {:?}", string),
         None => (),
         _ => {}
@@ -35,9 +37,13 @@ fn callback(event: Event) {
 }
 
 fn main() {
-    if let Err(error) = listen(callback) {
-        println!("Error: {:?}", error)
+    let paths = fs::read_dir("./").unwrap();
+    for path in paths {
+        println!("Name: {}", path.unwrap().path().display())
     }
+    // if let Err(error) = listen(callback) {
+    //     println!("Error: {:?}", error)
+    // }
     // let current_dir = env::current_dir()?;
     // println!(
     //     "Entries modified in the last 24 hours in {:?}:",
