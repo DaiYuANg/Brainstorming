@@ -25,3 +25,4 @@ async-std = { version = "1", features = [ "attributes" ] }
 sysinfo.workspace = true
 figment.workspace = true
 serde.workspace = true
+

@@ -1,5 +1,10 @@
 # 4Fun
 
+# What in this repository
+- apps: has GUI
+- kits: Command line
+- libs: library
+
 Make some awesome staff for fun
 
 - [press](apps/press/README.md): press test for apu
