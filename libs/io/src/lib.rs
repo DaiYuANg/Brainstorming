@@ -10,8 +10,7 @@ mod tests {
 
     #[test]
     fn test_dir_walk() {
-        let path = dirs::home_dir().unwrap().join("Projects");
-        dbg!(&path);
+        let path = dirs::home_dir().unwrap().join(".");
         dir_walk(path);
         return;
     }

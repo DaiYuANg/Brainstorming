@@ -14,7 +14,7 @@ pub struct QuickerCore {
 
 impl QuickerCore {
     pub fn prepare(&self) -> &QuickerCore {
-        self::Cli::parse();
+        // self::Cli::parse();
         // Notification::new()
         //     .summary("Quicker Startup")
         //     .body("This will almost look like a real firefox notification.")

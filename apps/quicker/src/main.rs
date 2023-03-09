@@ -20,6 +20,7 @@ mod gui;
 
 #[macro_use]
 extern crate log;
+use io::io::dir_walk;
 use rdev::{listen, Event, EventType, Key, Keyboard, KeyboardState};
 
 // This will block.
@@ -37,10 +38,11 @@ fn callback(event: Event) {
 }
 
 fn main() {
-    let paths = fs::read_dir("./").unwrap();
-    for path in paths {
-        println!("Name: {}", path.unwrap().path().display())
-    }
+    // let paths = fs::read_dir("./").unwrap();
+    // for path in paths {
+    //     println!("Name: {}", path.unwrap().path().display())
+    // }
+    dir_walk(".");
     // if let Err(error) = listen(callback) {
     //     println!("Error: {:?}", error)
     // }

@@ -1,24 +1,36 @@
-use outp::println::print_ln;
+// use outp::println::print_ln;
 use std::path::{Path, PathBuf};
 use std::{fs, thread};
-use tp::thread_pool::ThreadPool;
+// use outp::println::print_ln;
+// use tp::thread_pool::ThreadPool;
 
 pub fn dir_walk<P: AsRef<Path>>(path: P) {
-    // let mut result = Vec::new();
-    let tp = ThreadPool::new(None);
+    // let tp = ThreadPool::new(None);
     let paths = fs::read_dir(path).unwrap();
-    tp.execute(move || {
-        for entry in paths {
+    for entry in paths {
+        let th = thread::spawn(|| {
             let path = entry.unwrap().path();
             let metadata = path.metadata().unwrap();
-            dbg!(&path);
             if metadata.is_dir() {
                 dir_walk(path);
             } else {
-                // result.push(path);
+                dbg!(&path);
             }
-        }
-    });
-    print_ln(tp.count());
+        });
+        th.join().unwrap();
+    }
+    // tp.execute(move || {
+    //     for entry in paths {
+    //         print_ln(&entry);
+    //         let path = entry.unwrap().path();
+    //         let metadata = path.metadata().unwrap();
+    //         if metadata.is_dir() {
+    //             dir_walk(path);
+    //         } else {
+    //             dbg!(&path);
+    //             // result.push(path);
+    //         }
+    //     }
+    // });
     // return result;
 }
