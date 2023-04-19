@@ -1,6 +1,7 @@
 use crate::thread_worker::Worker;
 use crate::types::Job;
 use std::sync::{mpsc, Arc, Mutex};
+use std::thread::Builder;
 
 #[derive(Debug)]
 pub struct ThreadPool {

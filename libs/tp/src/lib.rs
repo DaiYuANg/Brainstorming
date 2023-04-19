@@ -13,6 +13,7 @@ mod tests {
 
     #[test]
     fn test_thread_pool_new() {
+        print_ln("123");
         let tp = ThreadPool::new(None);
         tp.execute(|| print_ln(123))
     }
