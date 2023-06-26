@@ -1,22 +1,28 @@
 [workspace]
 members = [
-    "apps/*",
     "libs/*",
-    "kits/*"
+    "kits/*",
+    "apps/rush",
+    "apps/quicker"
 ]
+#members = [
+##    "apps/*",
+##    "libs/*",
+##    "kits/*"
+#]
 [workspace.dependencies]
 clap = { version = "3.1.8", features = ["derive"] }
 tokio = { version = "1.8.3", features = ["full"] }
 tokio-test = "0.4.2"
 log = "0.4.16"
-env_logger = "0.9.0"
+env_logger = "0.10.0"
 figment = { version = "0.10", features = ["toml", "env", "yaml", "json"] }
 serde = "1.0.136"
-sysinfo = "0.23.10"
+sysinfo = "0.29.2"
+dirs = "5.0.1"
 
 [workspace.package]
 edition = "2021"
-
+#
 [workspace.dev-dependencies]
 mdbook = "0.4.17"
-dirs = "4.0.0"

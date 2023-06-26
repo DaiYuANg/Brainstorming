@@ -1,5 +1,5 @@
 use serde::Deserialize;
-#[derive(Deserialize)]
+// #[derive(Deserialize)]
 pub struct Package {
     name: String,
     description: Option<String>,
@@ -8,7 +8,7 @@ pub struct Package {
     // ... and so on ...
 }
 
-#[derive(Deserialize)]
+// #[derive(Deserialize)]
 pub struct Config {
     package: Package,
     rustc: Option<String>,

@@ -1,5 +1,5 @@
-use async_std::fs::read_dir;
-use async_std::net::TcpStream;
+// use async_std::fs::read_dir;
+// use async_std::net::TcpStream;
 use clap::Parser;
 use figment::providers::{Env, Format, Toml};
 use figment::Figment;
@@ -7,11 +7,11 @@ use std::{env, fs};
 
 use crate::configuration::Config;
 use crate::core::QuickerCore;
-use crate::gui::QuickerGUI;
+// use crate::gui::QuickerGUI;
 use cli::Cli;
-use notify_rust::Notification;
+// use notify_rust::Notification;
 use sysinfo::{ProcessExt, System, SystemExt};
-use tracing_subscriber::util::SubscriberInitExt;
+// use tracing_subscriber::util::SubscriberInitExt;
 
 mod cli;
 mod configuration;
@@ -20,29 +20,43 @@ mod gui;
 
 #[macro_use]
 extern crate log;
-use io::io::dir_walk;
-use rdev::{listen, Event, EventType, Key, Keyboard, KeyboardState};
+// use io::io::dir_walk;
+// use rdev::{listen, Event, EventType, Key, Keyboard, KeyboardState};
+
+
+fn main() {
+    ui.heading("My egui Application");
+    ui.horizontal(|ui| {
+        ui.label("Your name: ");
+        ui.text_edit_singleline(&mut name);
+    });
+    ui.add(egui::Slider::new(&mut age, 0..=120).text("age"));
+    if ui.button("Click each year").clicked() {
+        age += 1;
+    }
+    ui.label(format!("Hello '{}', age {}", name, age));
+}
 
 // This will block.
 fn callback(event: Event) {
-    println!("My callback {:?}", event);
-    let mut keyboard = Keyboard::new().unwrap();
-    let key = keyboard.add(&EventType::KeyPress(Key::KeyS));
-    match event.name {
-        Some(..) => println!("123"),
-        Some(k) => println!("ke"),
-        // Some(string) => println!("User wrote {:?}", string),
-        None => (),
-        _ => {}
-    }
+    // println!("My callback {:?}", event);
+    // let mut keyboard = Keyboard::new().unwrap();
+    // let key = keyboard.add(&EventType::KeyPress(Key::KeyS));
+    // match event.name {
+    //     Some(..) => println!("123"),
+    //     Some(k) => println!("ke"),
+    //     // Some(string) => println!("User wrote {:?}", string),
+    //     None => (),
+    //     _ => {}
+    // }
 }
 
-fn main() {
+// fn main() {
     // let paths = fs::read_dir("./").unwrap();
     // for path in paths {
     //     println!("Name: {}", path.unwrap().path().display())
     // }
-    dir_walk(".");
+    // dir_walk(".");
     // if let Err(error) = listen(callback) {
     //     println!("Error: {:?}", error)
     // }
@@ -71,7 +85,7 @@ fn main() {
     // }
     //
     // Ok(())
-}
+// }
 
 // #[tokio::main]
 // async fn main() {

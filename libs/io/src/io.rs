@@ -1,7 +1,7 @@
 // use outp::println::print_ln;
-use outp::println::print_ln;
 use std::path::{Path, PathBuf};
 use std::{fs, thread};
+use outp::println;
 // use outp::println::print_ln;
 // use tp::thread_pool::ThreadPool;
 
@@ -20,7 +20,7 @@ pub fn dir_walk<P: AsRef<Path>>(path: P) {
     //     });
     //     th.join().unwrap();
     // }
-    tp.execute(move || {
+    tpt.execute(move || {
         for entry in paths {
             print_ln(&entry);
             let path = entry.unwrap().path();
