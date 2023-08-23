@@ -1,4 +1,0 @@
-# quicker
-
-just quick start
-

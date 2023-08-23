@@ -1,0 +1,31 @@
+{
+  "name": "rockie",
+  "version": "1.0.0",
+  "devDependencies": {
+    "rimraf": "^5.0.1",
+    "prettier": "^3.0.2",
+    "prettier-plugin-organize-imports": "^3.2.3",
+    "prettier-plugin-packagejson": "^2.4.5",
+    "eslint": "^8.47.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-prettier": "^5.0.0",
+    "typescript": "^5.1.6",
+    "eslint-typescript": "^1.1.0",
+    "vite": "^4.4.9",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "lint-staged": "^14.0.1",
+    "terser": "^5.19.2",
+    "rollup-plugin-visualizer": "^5.9.2",
+    "husky": "^8.0.0",
+    "rollup-plugin-graph": "^2.0.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,ts,tsx,jsx,scss,html,yaml,md,json}\" --ignore-path **/*.gitignore",
+    "prepare": "husky install",
+    "clean": "rimraf **/**/node_modules **/*/dist"
+  }
+}
