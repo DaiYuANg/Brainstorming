@@ -12,7 +12,7 @@ import { ActionIcon, Menu, Text } from '@mantine/core';
 export const CreateRequestMenu = () => {
   return (
     <>
-      <Menu shadow="md" width={200}>
+      <Menu shadow="sm" width={200}>
         <Menu.Target>
           <ActionIcon>
             <IconPlus />

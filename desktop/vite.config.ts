@@ -4,10 +4,10 @@ import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
-  plugins: [react() as PluginOption, visualizer()],
+  plugins: [react() as PluginOption, visualizer() as PluginOption],
   build: {
-    minify: 'terser',
-    target: 'modules',
+    // minify: 'terser',
+    // target: 'modules',
     terserOptions: {
       compress: {
         drop_console: true,

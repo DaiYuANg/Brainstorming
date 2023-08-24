@@ -1,4 +1,4 @@
-import { MainLayout } from './layout/MainLayout.tsx';
+import { MainLayout } from './layout';
 import {
   ColorScheme,
   ColorSchemeProvider,
@@ -6,9 +6,15 @@ import {
 } from '@mantine/core';
 import { useColorScheme, useHotkeys, useLocalStorage } from '@mantine/hooks';
 import { useSystem } from './hooks/useSystem.ts';
+import { initI18nInstance } from './modules';
+import { Notifications } from '@mantine/notifications';
+import { SpotlightProvider } from '@mantine/spotlight';
 
 function App() {
   const preferredColorScheme = useColorScheme();
+  initI18nInstance().then((r) => {
+    console.log(r);
+  });
   useSystem();
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: 'rockie-desktop-color-scheme',
@@ -31,7 +37,13 @@ function App() {
           withGlobalStyles
           withNormalizeCSS
         >
-          <MainLayout />
+          <SpotlightProvider
+            shortcut={['mod + P', 'mod + K', '/']}
+            actions={[]}
+          >
+            <Notifications />
+            <MainLayout />
+          </SpotlightProvider>
         </MantineProvider>
       </ColorSchemeProvider>
     </>

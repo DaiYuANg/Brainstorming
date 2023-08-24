@@ -1,23 +1,50 @@
-import { Button, Group, Navbar, Stack, Text } from '@mantine/core';
+import { ActionIcon, Divider, Grid, Group, Navbar, Stack } from '@mantine/core';
 import { CreateRequestMenu } from './CreateRequestMenu.tsx';
+import { IconRocket, IconSettings } from '@tabler/icons-react';
+import { OpenSettings } from './OpenSettings.tsx';
 
 export const LayoutNavbar = () => {
   return (
     <>
-      <Navbar width={{ base: 300 }} height={500}>
-        <Group>
-          <Text>
+      <Navbar width={{ base: 300 }}>
+        <Grid>
+          <Grid.Col
+            span={2}
+            p={'sm'}
+            sx={{
+              height: '100vh',
+            }}
+          >
             <Stack>
-              <Button variant="outline">1</Button>
-              <Button variant="outline">2</Button>
+              <ActionIcon>
+                <IconRocket />
+              </ActionIcon>
+              <ActionIcon>
+                <IconRocket />
+              </ActionIcon>
+              <ActionIcon>
+                <IconRocket />
+              </ActionIcon>
+              <ActionIcon>
+                <IconSettings />
+              </ActionIcon>
             </Stack>
-          </Text>
-          <Text>
-            <Group>
+            <Stack
+              sx={{
+                position: 'absolute',
+                bottom: 0,
+              }}
+            >
+              <OpenSettings />
+            </Stack>
+          </Grid.Col>
+          <Grid.Col span={9}>
+            <Group position={'right'} p={'sm'} align={'center'}>
               <CreateRequestMenu />
             </Group>
-          </Text>
-        </Group>
+            <Divider my="sm" p={0} />
+          </Grid.Col>
+        </Grid>
       </Navbar>
     </>
   );
