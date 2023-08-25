@@ -25,7 +25,9 @@ function createWindow() {
     width: 1200,
     height: 800,
     frame: false,
-    transparent: true,
+    // transparent: true,
+    // titleBarStyle:'hidden',
+    // trafficLightPosition: { x: 10, y: 10 },
     // titleBarStyle:'hiddenInset',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),

@@ -9,8 +9,15 @@
       body {
         -webkit-app-region: drag;
       }
-      button {
+      body * {
         -webkit-app-region: no-drag;
+      }
+      .titlebar {
+        -webkit-user-select: none;
+        -webkit-app-region: drag;
+      }
+      .resizer:hover{
+        cursor: col-resize;
       }
     </style>
   </head>
