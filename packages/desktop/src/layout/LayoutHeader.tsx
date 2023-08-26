@@ -17,7 +17,7 @@ export const LayoutHeader = () => {
   return (
     <>
       <Header
-          classNames={'titlebar'}
+        classNames={'titlebar'}
         height={30}
         p={0}
         fixed

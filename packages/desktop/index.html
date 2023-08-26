@@ -8,15 +8,19 @@
     <style>
       body {
         -webkit-app-region: drag;
+        background: #ffffff;
       }
-      body * {
+      button {
+        -webkit-app-region: no-drag;
+      }
+      body > * {
         -webkit-app-region: no-drag;
       }
       .titlebar {
         -webkit-user-select: none;
         -webkit-app-region: drag;
       }
-      .resizer:hover{
+      .resizer:hover {
         cursor: col-resize;
       }
     </style>

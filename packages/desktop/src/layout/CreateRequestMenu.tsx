@@ -12,7 +12,7 @@ import {
 export const CreateRequestMenu = () => {
   return (
     <>
-      <Menu shadow="sm" width={200}>
+      <Menu shadow="xl" width={200}>
         <Menu.Target>
           <ActionIcon>
             <IconPlus />

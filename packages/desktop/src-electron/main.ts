@@ -25,6 +25,8 @@ function createWindow() {
     width: 1200,
     height: 800,
     frame: false,
+    transparent: true, // 设置窗口透明
+    backgroundColor: '#00000000', // 透明背景色（8位ARGB）
     // transparent: true,
     // titleBarStyle:'hidden',
     // trafficLightPosition: { x: 10, y: 10 },

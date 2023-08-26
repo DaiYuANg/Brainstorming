@@ -1,6 +1,6 @@
 import { AppShell, Box } from '@mantine/core';
 import { LayoutHeader } from './LayoutHeader.tsx';
-import { LayoutNavbar } from './LayoutNavbar.tsx';
+import { LayoutNavbarLayout } from './LayoutNavbarLayout.tsx';
 import { Workspace } from './Workspace.tsx';
 
 export const MainLayout = () => {
@@ -17,7 +17,7 @@ export const MainLayout = () => {
                   : theme.colors.gray[0],
             },
           })}
-          navbar={<LayoutNavbar />}
+          navbar={<LayoutNavbarLayout />}
           header={<LayoutHeader />}
         >
           <Workspace />

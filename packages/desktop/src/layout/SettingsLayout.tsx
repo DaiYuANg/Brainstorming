@@ -1,10 +1,4 @@
-import {
-  Accordion,
-  AppShell,
-  Navbar,
-  rem,
-  useMantineTheme,
-} from '@mantine/core';
+import { Accordion, Navbar, Tabs, rem, useMantineTheme } from '@mantine/core';
 import { IconCameraSelfie, IconPhoto, IconPrinter } from '@tabler/icons-react';
 
 const SettingNavbar = () => {
@@ -51,9 +45,22 @@ const SettingNavbar = () => {
 };
 
 export const SettingsLayout = () => {
+  // <AppShell navbar={<SettingNavbar />} layout="alt">
+  //   App content
+  // </AppShell>
   return (
-    <AppShell navbar={<SettingNavbar />} layout="alt">
-      App content
-    </AppShell>
+    <>
+      <Tabs defaultValue="gallery" orientation="vertical">
+        <Tabs.List>
+          <Tabs.Tab value="gallery">Gallery</Tabs.Tab>
+          <Tabs.Tab value="messages">Messages</Tabs.Tab>
+          <Tabs.Tab value="settings">Settings</Tabs.Tab>
+        </Tabs.List>
+
+        <Tabs.Panel value="gallery">Gallery tab content</Tabs.Panel>
+        <Tabs.Panel value="messages">Messages tab content</Tabs.Panel>
+        <Tabs.Panel value="settings">Settings tab content</Tabs.Panel>
+      </Tabs>
+    </>
   );
 };

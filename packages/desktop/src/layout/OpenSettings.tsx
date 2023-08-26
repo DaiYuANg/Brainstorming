@@ -8,13 +8,7 @@ export const OpenSettings = () => {
 
   return (
     <>
-      <Modal
-        opened={opened}
-        onClose={close}
-        fullScreen
-        centered
-        withCloseButton={false}
-      >
+      <Modal opened={opened} onClose={close} fullScreen centered>
         <SettingsLayout />
       </Modal>
 
