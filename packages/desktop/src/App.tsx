@@ -1,50 +1,49 @@
 import {
-  ColorScheme,
-  ColorSchemeProvider,
-  MantineProvider,
+    ColorSchemeProvider, createEmotionCache,
+    MantineProvider,
 } from '@mantine/core';
-import { Notifications } from '@mantine/notifications';
-import { SpotlightProvider } from '@mantine/spotlight';
-import { useState } from 'react';
-import { MainLayout } from './layout';
+import {Notifications} from '@mantine/notifications';
+import {SpotlightProvider} from '@mantine/spotlight';
+import {MainLayout} from './layout';
+import {useColorScheme, useHotkeys} from "@mantine/hooks";
+import {useRef} from "react";
 
 function App() {
-  // const color
-  // const preferredColorScheme = useColorScheme('light',{
-  //   getInitialValueInEffect:true
-  // });
-  // console.log(preferredColorScheme)
-  const [colorScheme, setColorScheme] =
-    useState<ColorScheme>('dark');
-  // const toggleColorScheme = (value?: ColorScheme) =>
-  //   setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
-
-  // useHotkeys([['mod+J', () => toggleColorScheme()]]);
-
-  return (
-    <>
-      <ColorSchemeProvider
-        colorScheme={colorScheme}
-        toggleColorScheme={()=>{
-
-        }}
-      >
+    console.log(123)
+    // const color = useRef(useColorScheme('light'))
+    // const color
+    // const preferredColorScheme = useColorScheme();
+    // const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    //     key: 'mantine-color-scheme',
+    //     defaultValue: preferredColorScheme,
+    //     getInitialValueInEffect: true,
+    // });
+    // console.log(preferredColorScheme)
+    // const toggleColorScheme = (value?: ColorScheme) =>
+    //     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+    // console.log(color)
+    useHotkeys([['mod+J', () => toggleColorScheme()]]);
+    const myCache = createEmotionCache({key: 'mantine'});
+    return (
+        // <ColorSchemeProvider
+        // colorScheme={colorScheme}
+        // toggleColorScheme={toggleColorScheme}
+        // >
         <MantineProvider
-          theme={{colorScheme}}
-          withGlobalStyles
-          withNormalizeCSS
+            withGlobalStyles
+            withNormalizeCSS
+            emotionCache={myCache}
         >
-          <SpotlightProvider
-            shortcut={['mod + P', 'mod + K', '/']}
-            actions={[]}
-          >
-            <Notifications />
-            <MainLayout />
-          </SpotlightProvider>
+            <SpotlightProvider
+                shortcut={['mod + P', 'mod + K', '/']}
+                actions={[]}
+            >
+                <Notifications/>
+                <MainLayout/>
+            </SpotlightProvider>
         </MantineProvider>
-      </ColorSchemeProvider>
-    </>
-  );
+        // </ColorSchemeProvider>
+    );
 }
 
 export default App;

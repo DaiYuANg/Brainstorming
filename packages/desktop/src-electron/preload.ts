@@ -98,7 +98,6 @@ setTimeout(removeLoading, 4999);
 
 contextBridge.exposeInMainWorld('electronAPI', {
   loadPreferences: () => {
-    console.log(123);
     return new Promise(() => {});
   },
   minimizeWindow: () => {
