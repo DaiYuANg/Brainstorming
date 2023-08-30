@@ -14,7 +14,7 @@ export const CreateRequestMenu = () => {
     <>
       <Menu shadow="xl" width={200}>
         <Menu.Target>
-          <ActionIcon>
+          <ActionIcon mt={4}>
             <IconPlus />
           </ActionIcon>
         </Menu.Target>

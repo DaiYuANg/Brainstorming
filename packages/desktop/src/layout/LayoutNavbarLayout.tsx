@@ -1,5 +1,5 @@
 import { Divider, Navbar } from '@mantine/core';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { LayoutNavbarContent } from './LayoutNavbarContent.tsx';
 
 export const LayoutNavbarLayout = () => {
@@ -15,12 +15,15 @@ export const LayoutNavbarLayout = () => {
         setSidebarWidth(width);
       }
     },
-    [isResizing, sidebarWidth],
+    [isResizing],
   );
-  const startResizing = useCallback((mouseDownEvent: MouseEvent) => {
-    setIsResizing(true);
-    mouseDownEvent.preventDefault();
-  }, []);
+  const startResizing = useCallback(
+    (mouseDownEvent: React.MouseEvent<HTMLElement>) => {
+      setIsResizing(true);
+      mouseDownEvent.preventDefault();
+    },
+    [],
+  );
 
   const stopResizing = useCallback(() => {
     setIsResizing(false);

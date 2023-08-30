@@ -1,0 +1,3 @@
+const createWorkspace = () => {};
+
+export { createWorkspace };

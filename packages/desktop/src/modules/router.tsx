@@ -1,9 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
+import { EmptyWorkspace } from '../pages/EmptyWorkspace.tsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>Hello world!</div>,
+    element: <EmptyWorkspace />,
   },
 ]);
 

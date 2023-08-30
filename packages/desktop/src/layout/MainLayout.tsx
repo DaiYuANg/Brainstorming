@@ -17,6 +17,7 @@ export const MainLayout = () => {
                   : theme.colors.gray[0],
             },
           })}
+          padding={0}
           navbar={<LayoutNavbarLayout />}
           header={<LayoutHeader />}
         >
