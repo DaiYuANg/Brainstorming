@@ -5,7 +5,6 @@ import './tab.css';
 
 export const WorkspaceTabs = () => {
   const addAWorkspace = (e: React.MouseEvent) => {
-    console.log(123);
     e.preventDefault();
   };
 

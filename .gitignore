@@ -478,3 +478,4 @@ dmypy.json
 cython_debug/
 **/**/storybook-static
 !packages/*
+**/*/dist
