@@ -18,7 +18,6 @@ export const Page: React.FC = () => {
         onLogout={() => setUser(undefined)}
         onCreateAccount={() => setUser({ name: 'Jane Doe' })}
       />
-
       <section className="storybook-page">
         <h2>Pages in Storybook</h2>
         <p>

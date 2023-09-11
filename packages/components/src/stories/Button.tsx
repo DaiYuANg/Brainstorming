@@ -1,3 +1,4 @@
+import { UnstyledButton } from '@mantine/core';
 import './button.scss';
 
 interface ButtonProps {
@@ -37,15 +38,18 @@ export const Button = ({
     ? 'storybook-button--primary'
     : 'storybook-button--secondary';
   return (
-    <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(
-        ' ',
-      )}
-      style={{ backgroundColor }}
-      {...props}
-    >
-      {label}
-    </button>
+    <>
+      <UnstyledButton>312</UnstyledButton>
+      <button
+        type="button"
+        className={['storybook-button', `storybook-button--${size}`, mode].join(
+          ' ',
+        )}
+        style={{ backgroundColor }}
+        {...props}
+      >
+        {label}
+      </button>
+    </>
   );
 };

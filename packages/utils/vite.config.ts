@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite';
+import dtsPlugin from 'vite-plugin-dts';
 
 export default defineConfig({
+  plugins: [dtsPlugin()],
   build: {
     lib: {
-      entry: './lib/main.ts',
+      entry: './src/index.ts',
       name: 'Counter',
       fileName: 'counter',
     },
