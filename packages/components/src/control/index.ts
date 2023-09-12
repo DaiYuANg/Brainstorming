@@ -1,1 +1,1 @@
-export * from './RButton.tsx'
+export * from './RButton.tsx';

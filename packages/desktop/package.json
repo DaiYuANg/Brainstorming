@@ -26,6 +26,7 @@
     "@mantine/prism": "^6.0.19",
     "@mantine/spotlight": "^6.0.19",
     "@mantine/tiptap": "^6.0.19",
+    "@rockie/component": "workspace:*",
     "@tabler/icons-react": "^2.32.0",
     "@tiptap/extension-link": "^2.1.6",
     "@tiptap/react": "^2.1.6",
@@ -41,8 +42,7 @@
     "react-i18next": "^13.2.0",
     "react-router-dom": "^6.15.0",
     "rxjs": "^7.8.1",
-    "ua-parser-js": "^1.0.35",
-    "@rockie/component": "workspace:*"
+    "ua-parser-js": "^1.0.35"
   },
   "devDependencies": {
     "@reactivex/rxjs": "^6.6.7",

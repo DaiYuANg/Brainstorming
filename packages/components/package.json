@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "main": "./dist/component.umd.cjs",
-  "module": "./dist/component.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     "types": "./dist/index.d.ts",
     "import": "./dist/component.js",
     "require": "./dist/component.umd.cjs"
   },
+  "main": "./dist/component.umd.cjs",
+  "module": "./dist/component.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc && vite build",
     "build-storybook": "storybook build",

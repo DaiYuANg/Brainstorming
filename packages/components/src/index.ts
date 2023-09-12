@@ -2,4 +2,4 @@ export * from './stories';
 
 export * from './layouts';
 
-export * from './control'
+export * from './control';

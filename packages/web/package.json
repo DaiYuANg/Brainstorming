@@ -10,8 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/jetbrains-mono": "^5.0.9",
@@ -26,6 +24,7 @@
     "@mantine/prism": "^6.0.19",
     "@mantine/spotlight": "^6.0.19",
     "@mantine/tiptap": "^6.0.19",
+    "@rockie/component": "workspace:*",
     "@tabler/icons-react": "^2.32.0",
     "@tiptap/extension-link": "^2.1.6",
     "@tiptap/react": "^2.1.6",
@@ -35,12 +34,13 @@
     "i18next": "^23.4.5",
     "lodash": "^4.17.21",
     "mitt": "^3.0.1",
+    "react": "^18.2.0",
     "react-accessible-treeview": "^2.8.0",
+    "react-dom": "^18.2.0",
     "react-i18next": "^13.2.0",
     "react-router-dom": "^6.15.0",
     "rxjs": "^7.8.1",
-    "ua-parser-js": "^1.0.35",
-    "@rockie/component": "workspace:*"
+    "ua-parser-js": "^1.0.35"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
