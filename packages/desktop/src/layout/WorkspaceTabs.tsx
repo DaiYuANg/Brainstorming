@@ -2,6 +2,7 @@ import { Divider, Tabs } from '@mantine/core';
 import { IconPlus, IconX } from '@tabler/icons-react';
 import React from 'react';
 import './tab.css';
+import {RButton} from "@rockie/component/src";
 
 export const WorkspaceTabs = () => {
   const addAWorkspace = (e: React.MouseEvent) => {

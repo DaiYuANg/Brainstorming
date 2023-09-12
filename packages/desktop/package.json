@@ -41,7 +41,8 @@
     "react-i18next": "^13.2.0",
     "react-router-dom": "^6.15.0",
     "rxjs": "^7.8.1",
-    "ua-parser-js": "^1.0.35"
+    "ua-parser-js": "^1.0.35",
+    "@rockie/component": "workspace:*"
   },
   "devDependencies": {
     "@reactivex/rxjs": "^6.6.7",

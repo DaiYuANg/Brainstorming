@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     setColorScheme(preferredColorScheme);
-  }, [preferredColorScheme]);
+  }, [preferredColorScheme, setColorScheme]);
 
   return (
     <ColorSchemeProvider
