@@ -39,7 +39,7 @@ export const Tree = () => {
         data={data}
         className="basic"
         aria-label="basic example tree"
-        nodeRenderer={({ element, getNodeProps, level, handleSelect }) => (
+        nodeRenderer={({ element, getNodeProps, level }) => (
           <div {...getNodeProps()} style={{ paddingLeft: 20 * (level - 1) }}>
             <Button>{element.name}</Button>
           </div>

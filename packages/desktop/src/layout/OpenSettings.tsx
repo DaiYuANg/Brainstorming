@@ -1,7 +1,6 @@
 import { ActionIcon, Group, Modal } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconSettings } from '@tabler/icons-react';
-import { SettingsLayout } from './SettingsLayout.tsx';
 
 export const OpenSettings = () => {
   const [opened, { open, close }] = useDisclosure(false);
@@ -9,7 +8,7 @@ export const OpenSettings = () => {
   return (
     <>
       <Modal opened={opened} onClose={close} fullScreen centered>
-        <SettingsLayout />
+        {/*<SettingsLayout />*/}
       </Modal>
 
       <Group position="center">

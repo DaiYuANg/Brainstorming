@@ -25,7 +25,7 @@ const VSCodeLayout = () => {
           const initialX = event.clientX;
           const initialWidth = sidebarWidth;
 
-          const onMouseMove = (e) => {
+          const onMouseMove = (e:MouseEvent) => {
             const delta = e.clientX - initialX;
             handleResizing(Math.max(initialWidth + delta, 0));
           };
