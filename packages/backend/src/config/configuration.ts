@@ -12,20 +12,12 @@ interface DatabaseConfiguration {
 
 export default (): Configuration => {
   return {
-    port: parseInt(process.env.port!) || 8080,
+    port: parseInt(process.env.ROCKIE_PORT!) || 3000,
     database: {
       host: process.env.DATABASE_PORT || 'localhost',
-      port: parseInt(process.env.port!) || 3306,
+      port: parseInt(process.env.DATABASE_PORT!) || 5432,
     },
   };
 };
-
-// export default () => ({
-//     port: parseInt(process.env.PORT, 10) || 3000,
-//     database: {
-//         host: process.env.DATABASE_HOST,
-//         port: parseInt(process.env.DATABASE_PORT, 10) || 5432
-//     }
-// });
 
 export { Configuration };
