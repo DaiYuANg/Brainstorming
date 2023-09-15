@@ -1,10 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTeamDto } from './dto/create-team.dto';
 import { UpdateTeamDto } from './dto/update-team.dto';
+import { UserService } from '../user/user.service';
 
 @Injectable()
 export class TeamsService {
+  constructor(private readonly userService: UserService) {}
+
   create(createTeamDto: CreateTeamDto) {
+    this.userService.findAll();
     return 'This action adds a new team';
   }
 

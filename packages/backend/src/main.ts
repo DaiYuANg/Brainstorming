@@ -1,13 +1,16 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { AppModule } from './app/app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { INestApplication, Logger, ValidationPipe } from '@nestjs/common';
 import * as compression from 'compression';
 import { ConfigService } from '@nestjs/config';
+import { GlobalExceptionHandler } from './system/base/GlobalExceptionHandler';
 
 const setup = async (app: INestApplication<any>) => {
   app.use(compression());
   app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalFilters(new GlobalExceptionHandler());
+  app.enableCors();
 };
 const logger = new Logger();
 const bootstrap = async () => {

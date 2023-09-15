@@ -1,7 +1,7 @@
 import { app, BrowserWindow } from 'electron';
 import path from 'node:path';
-import { controlWindow } from './windows/control.ts';
-import { createWindow } from './windows/create.ts';
+import { listenControlWindowOrder } from './windows/control.ts';
+import { afterLoad, createWindow, loadWebContent } from './windows/create.ts';
 
 // The built directory structure
 //
@@ -24,8 +24,14 @@ app.on('window-all-closed', () => {
 });
 
 app.whenReady().then(async () => {
-  win = await createWindow();
-  controlWindow(win).then(() => {
+  win = await createWindow()
+    .then((win) => {
+      return loadWebContent(win);
+    })
+    .then((win) => {
+      return afterLoad(win);
+    });
+  listenControlWindowOrder(win!).then(() => {
     //     do something
   });
 });

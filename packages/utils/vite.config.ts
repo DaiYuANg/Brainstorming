@@ -6,8 +6,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: './src/index.ts',
-      name: 'Counter',
-      fileName: 'counter',
+      name: 'utils',
+      fileName: 'utils',
     },
   },
 });

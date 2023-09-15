@@ -1,6 +1,6 @@
 import { BrowserWindow, ipcMain } from 'electron';
 
-const controlWindow = async (win: BrowserWindow) => {
+const listenControlWindowOrder = async (win: BrowserWindow) => {
   ipcMain.on('minimize-window', () => {
     win?.minimize();
   });
@@ -18,4 +18,4 @@ const controlWindow = async (win: BrowserWindow) => {
   });
 };
 
-export { controlWindow };
+export { listenControlWindowOrder };

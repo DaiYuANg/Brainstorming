@@ -1,5 +1,5 @@
 import { Column, Entity, Index } from 'typeorm';
-import { BaseEntity } from '../../base/BaseEntity';
+import { BaseEntity } from '../../../system/base/BaseEntity';
 
 @Entity()
 export class Workspace extends BaseEntity {
@@ -10,4 +10,8 @@ export class Workspace extends BaseEntity {
   @Column()
   @Index()
   workspaceCreator: string;
+
+  @Column()
+  @Index()
+  teamId: string;
 }

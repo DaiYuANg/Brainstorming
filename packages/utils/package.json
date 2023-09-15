@@ -5,11 +5,11 @@
   "type": "module",
   "exports": {
     "types": "./index.d.ts",
-    "import": "./dist/counter.js",
-    "require": "./dist/counter.umd.cjs"
+    "import": "./dist/utils.js",
+    "require": "./dist/utils.umd.cjs"
   },
-  "main": "./dist/counter.umd.cjs",
-  "module": "./dist/counter.js",
+  "main": "./dist/utils.umd.cjs",
+  "module": "./dist/utils.js",
   "types": "./index.d.ts",
   "files": [
     "dist",
@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "build": "tsc && vite build",
-    "dev": "vite"
+    "build:watch": "tsc && vite build --watch"
   },
   "devDependencies": {
     "@vitest/ui": "^0.34.4",
