@@ -12,7 +12,6 @@ const setup = async (app: INestApplication<any>) => {
   app.useGlobalFilters(new GlobalExceptionHandler());
   app.enableCors();
 };
-const logger = new Logger();
 const bootstrap = async () => {
   const app = await NestFactory.create(AppModule, {
     bufferLogs: true,
@@ -20,9 +19,8 @@ const bootstrap = async () => {
   const configService = app.get(ConfigService);
   setup(app)
     .then(() => {
-      logger.log('init swagger');
       const config = new DocumentBuilder()
-        .setTitle('Cats example')
+        .setTitle('Rockie')
         .setDescription('The cats API description')
         .setVersion('1.0')
         .addTag('cats')
@@ -31,10 +29,16 @@ const bootstrap = async () => {
       SwaggerModule.setup('api', app, document);
     })
     .then(() => {
-      logger.log('start server');
       app.listen(configService.get<number>('port') || 3000);
+      return configService;
     });
+  return configService;
 };
-bootstrap().then(() => {
-  console.log('start');
+bootstrap().then((configService: ConfigService) => {
+  const port = configService.get<number>('port') || 3000;
+  setTimeout(() => {
+    Logger.log(process.cwd);
+    Logger.log('swagger:http://127.0.0.1:' + port + '/api');
+    Logger.log('main:start');
+  }, 1000);
 });

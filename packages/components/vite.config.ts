@@ -11,10 +11,12 @@ export default defineConfig({
     }),
   ],
   build: {
+    sourcemap: true,
     lib: {
       entry: './src/index',
       name: 'component',
-      fileName: 'component',
+      formats: ['es', 'umd'],
+      fileName: (format) => `component.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react/jsx-runtime', 'react-dom', '@mantine/core'],
@@ -23,7 +25,8 @@ export default defineConfig({
           react: 'React',
           'react/jsx-runtime': 'react/jsx-runtime',
           'react-dom': 'ReactDOM',
-          '@mantine/core': 'tailwindcss',
+          '@mantine/core': '@mantine/core',
+          '@tabler/icons-react': '@tabler/icons-react',
         },
       },
     },

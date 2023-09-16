@@ -16,8 +16,8 @@ import { WorkspaceModule } from '../modules/workspace/workspace.module';
 import { CacheModule } from '@nestjs/cache-manager';
 import { redisStore } from 'cache-manager-redis-yet';
 import { ThrottlerModule } from '@nestjs/throttler';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { GraphQLModule } from '@nestjs/graphql';
+import { InterfaceModule } from '../modules/interface/interface.module';
+import { DocumentModule } from '../modules/document/document.module';
 
 const nestModules = [
   ConfigModule.forRoot({
@@ -48,6 +48,8 @@ const businessModules = [
   AuthModule,
   UserModule,
   WorkspaceModule,
+  InterfaceModule,
+  DocumentModule,
 ];
 
 @Module({

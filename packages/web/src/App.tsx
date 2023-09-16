@@ -6,7 +6,6 @@ import {
 } from '@mantine/core';
 import { useColorScheme, useHotkeys, useLocalStorage } from '@mantine/hooks';
 import { useEffect } from 'react';
-
 function App() {
   const preferredColorScheme = useColorScheme();
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -36,7 +35,8 @@ function App() {
           withGlobalStyles
           withNormalizeCSS
         >
-          web
+          web\
+          <RButton></RButton>
         </MantineProvider>
       </ColorSchemeProvider>
     </>

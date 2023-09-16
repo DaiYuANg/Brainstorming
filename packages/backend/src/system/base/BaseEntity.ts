@@ -1,15 +1,24 @@
-import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+  VersionColumn,
+} from 'typeorm';
 import { IsDate } from 'class-validator';
 
 export abstract class BaseEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: number;
 
   @Column()
   @IsDate()
+  @CreateDateColumn()
   createAt: Date;
 
   @Column()
+  @UpdateDateColumn()
   createBy: string;
 
   @Column()
@@ -18,4 +27,10 @@ export abstract class BaseEntity {
 
   @Column()
   updateBy: string;
+
+  @DeleteDateColumn()
+  deletedAt: Date;
+
+  @VersionColumn()
+  version: number;
 }
