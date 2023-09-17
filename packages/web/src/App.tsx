@@ -5,7 +5,10 @@ import {
   createEmotionCache,
 } from '@mantine/core';
 import { useColorScheme, useHotkeys, useLocalStorage } from '@mantine/hooks';
+import { MainLayout } from '@rockie/component';
 import { useEffect } from 'react';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './modules';
 function App() {
   const preferredColorScheme = useColorScheme();
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -35,8 +38,9 @@ function App() {
           withGlobalStyles
           withNormalizeCSS
         >
-          web\
-          <RButton></RButton>
+          <MainLayout>
+            <RouterProvider router={router} />
+          </MainLayout>
         </MantineProvider>
       </ColorSchemeProvider>
     </>

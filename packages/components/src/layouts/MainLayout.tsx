@@ -1,33 +1,63 @@
-import { AppShell, Header, Navbar } from '@mantine/core';
+import { Button, Grid, Header } from '@mantine/core';
+import { DraggableSizeBar } from './DraggableSizeBar';
 
-const MainLayout = () => {
+interface MainLayoutProp {}
+
+const MainLayout = (prop?: MainLayoutProp) => {
+  console.log(prop);
   return (
     <>
-      <AppShell
-        padding="md"
-        navbar={
-          <Navbar width={{ base: 300 }} height={500} p="xs">
-            {/* Navbar content */ 123}
-          </Navbar>
-        }
-        header={
-          <Header height={60} p="xs">
-            {/* Header content */ 312}
-          </Header>
-        }
-        styles={(theme) => ({
-          main: {
-            backgroundColor:
-              theme.colorScheme === 'dark'
-                ? theme.colors.dark[8]
-                : theme.colors.gray[0],
-          },
-        })}
-      >
-        <div>dasda</div>
-      </AppShell>
+      <Header height={40}>
+        <div></div>
+      </Header>
+      <Grid grow>
+        <Grid.Col
+          span={4}
+          sx={{
+            position: 'relative',
+          }}
+        >
+          <Grid>
+            <Grid.Col
+              span={2}
+              sx={{
+                position: 'relative',
+              }}
+            >
+              <Button size='xs'>Conn</Button>
+              <DraggableSizeBar />
+            </Grid.Col>
+            <Grid.Col
+              span={2}
+              sx={{
+                position: 'relative',
+              }}
+            >
+              <DraggableSizeBar />
+            </Grid.Col>
+            <Grid.Col
+              span={8}
+              sx={{
+                position: 'relative',
+              }}
+            >
+              <DraggableSizeBar />
+            </Grid.Col>
+          </Grid>
+          <DraggableSizeBar />
+        </Grid.Col>
+        <Grid.Col
+          span={8}
+          sx={{
+            position: 'relative',
+          }}
+        >
+          <DraggableSizeBar />
+        </Grid.Col>
+      </Grid>
     </>
   );
 };
 
 export { MainLayout };
+export type { MainLayoutProp };
