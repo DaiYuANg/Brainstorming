@@ -1,10 +1,10 @@
-import { MainLayout } from "@rockie/component";
+import { MainLayout } from '@rockie/component';
 
 const routers = [
-    {
-        path: '/',
-        element: <MainLayout />,
-    },
-]
+  {
+    path: '/',
+    element: <MainLayout />,
+  },
+];
 
-export {routers}
+export { routers };

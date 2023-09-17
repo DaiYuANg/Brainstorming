@@ -24,7 +24,7 @@ const MainLayout = (prop?: MainLayoutProp) => {
                 position: 'relative',
               }}
             >
-              <Button size='xs'>Conn</Button>
+              <Button size="xs">Conn</Button>
               <DraggableSizeBar />
             </Grid.Col>
             <Grid.Col

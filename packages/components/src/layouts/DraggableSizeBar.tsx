@@ -11,7 +11,7 @@ const DraggableSizeBar = () => {
         sx={{
           position: 'absolute',
           right: 0,
-          top:10,
+          top: 10,
           height: '100vh',
           cursor: 'col-resize',
         }}
