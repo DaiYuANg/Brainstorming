@@ -17,7 +17,8 @@
   ],
   "scripts": {
     "build": "tsc && vite build",
-    "build:watch": "tsc && vite build --watch"
+    "build:watch": "tsc && vite build --watch",
+    "postinstall": "pnpm build"
   },
   "devDependencies": {
     "@vitest/ui": "^0.34.4",

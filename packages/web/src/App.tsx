@@ -5,7 +5,6 @@ import {
   createEmotionCache,
 } from '@mantine/core';
 import { useColorScheme, useHotkeys, useLocalStorage } from '@mantine/hooks';
-import { MainLayout } from '@rockie/component';
 import { useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './modules';
@@ -16,7 +15,6 @@ function App() {
     defaultValue: preferredColorScheme,
     getInitialValueInEffect: true,
   });
-
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
@@ -38,9 +36,7 @@ function App() {
           withGlobalStyles
           withNormalizeCSS
         >
-          <MainLayout>
-            <RouterProvider router={router} />
-          </MainLayout>
+          <RouterProvider router={router} />
         </MantineProvider>
       </ColorSchemeProvider>
     </>

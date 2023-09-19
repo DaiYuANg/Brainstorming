@@ -8,7 +8,7 @@ import { MinioModule } from '../system/minio/minio.module';
 import type { RedisClientOptions } from 'redis';
 import configuration from './config/configuration';
 import { ScheduleModule } from '@nestjs/schedule';
-import { AuthModule } from '../modules/auth/auth.module';
+import { AuthModule } from '../system/auth/auth.module';
 import { UserModule } from '../modules/user/user.module';
 import { HealthController } from '../system/health/health.controller';
 import { TypeOrmConfigService } from './config/typeorm.config.service';
@@ -18,6 +18,8 @@ import { redisStore } from 'cache-manager-redis-yet';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { InterfaceModule } from '../modules/interface/interface.module';
 import { DocumentModule } from '../modules/document/document.module';
+import { JwtModule } from '@nestjs/jwt';
+import { jwtConstants } from './jwt.constants';
 
 const nestModules = [
   ConfigModule.forRoot({
@@ -33,6 +35,11 @@ const nestModules = [
   }),
   CacheModule.register<RedisClientOptions>({
     store: redisStore,
+  }),
+  JwtModule.register({
+    global: true,
+    secret: jwtConstants.secret,
+    signOptions: { expiresIn: '60s' },
   }),
   ThrottlerModule.forRoot([
     {

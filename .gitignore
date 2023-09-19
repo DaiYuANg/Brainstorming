@@ -479,3 +479,4 @@ cython_debug/
 **/**/storybook-static
 !packages/*
 **/*/dist
+*.timestamp.*
