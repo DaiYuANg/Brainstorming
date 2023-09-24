@@ -480,3 +480,4 @@ cython_debug/
 !packages/*
 **/*/dist
 *.timestamp.*
+*.mjs

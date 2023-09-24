@@ -6,7 +6,7 @@ import {
 } from '@mantine/core';
 import { useColorScheme, useHotkeys, useLocalStorage } from '@mantine/hooks';
 import { useEffect } from 'react';
-import { MainLayout } from './layout';
+import { Main } from './layout';
 
 function App() {
   const preferredColorScheme = useColorScheme();
@@ -37,7 +37,7 @@ function App() {
         withGlobalStyles
         withNormalizeCSS
       >
-        <MainLayout />
+        <Main />
       </MantineProvider>
     </ColorSchemeProvider>
   );

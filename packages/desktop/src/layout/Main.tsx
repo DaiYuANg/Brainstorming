@@ -1,9 +1,11 @@
 import { Box } from '@mantine/core';
+import { MainLayout } from '@rockie/component';
 
-export const MainLayout = () => {
+export const Main = () => {
   return (
     <>
       <Box>
+        <MainLayout />
         {/*<AppShell*/}
         {/*  fixed*/}
         {/*  styles={(theme) => ({*/}

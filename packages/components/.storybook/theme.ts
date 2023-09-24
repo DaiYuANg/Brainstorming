@@ -1,7 +1,7 @@
-import type { MantineThemeOverride } from '@mantine/core';
+// src/theme.ts
+import { createTheme } from '@mantine/core';
 
-// export your theme object
-export const theme: MantineThemeOverride = {
-  primaryColor: 'light',
-  defaultRadius: 0,
-};
+export const theme = createTheme({
+  fontFamily: 'serif',
+  // ... other theme override properties
+});

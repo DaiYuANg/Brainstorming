@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from '@mantine/core';
+import { Button, ButtonProps } from '@mui/base';
 
 interface RButtonProp extends ButtonProps {}
 
@@ -6,7 +6,7 @@ const RButton = (prop: RButtonProp) => {
   console.log(prop);
   return (
     <>
-      <Button />
+      <Button>dasda</Button>
     </>
   );
 };
