@@ -1,4 +1,4 @@
-import { Button, ButtonProps } from '@mui/base';
+import { Button, ButtonProps } from '@mantine/core';
 
 interface RButtonProp extends ButtonProps {}
 

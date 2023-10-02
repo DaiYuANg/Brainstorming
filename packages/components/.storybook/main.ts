@@ -7,8 +7,8 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
-    '@storybook/addon-styling',
     'storybook-dark-mode',
+    '@storybook/addon-styling',
     '@storybook/addon-mdx-gfm',
   ],
   framework: {

@@ -22,7 +22,6 @@
     "build-storybook": "storybook build",
     "build:watch": "tsc && vite build --watch",
     "dev": "storybook dev -p 6006",
-    "postinstall": "pnpm build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006"
@@ -34,9 +33,15 @@
     ]
   },
   "dependencies": {
-    "@mui/base": "5.0.0-beta.16",
+    "@mantine/core": "^7.1.1",
+    "@mantine/hooks": "^7.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "resolutions": {
+    "@storybook/core-event": "^7.4.2",
+    "@storybook/csf-tools": "^7.4.2",
+    "@storybook/source-loader": "^7.4.2"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.2",

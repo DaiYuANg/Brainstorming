@@ -1,46 +1,11 @@
-import {
-  ColorScheme,
-  ColorSchemeProvider,
-  createEmotionCache,
-  MantineProvider,
-} from '@mantine/core';
-import { useColorScheme, useHotkeys, useLocalStorage } from '@mantine/hooks';
-import { useEffect } from 'react';
-import { Main } from './layout';
+import { Button } from '@mantine/core';
+import { useColorScheme } from '@mantine/hooks';
 
 function App() {
   const preferredColorScheme = useColorScheme();
-  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: 'mantine-color-scheme',
-    defaultValue: preferredColorScheme,
-    getInitialValueInEffect: true,
-  });
+  console.log(preferredColorScheme);
 
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
-
-  useHotkeys([['mod+J', () => toggleColorScheme()]]);
-  const myCache = createEmotionCache({ key: 'mantine' });
-
-  useEffect(() => {
-    setColorScheme(preferredColorScheme);
-  }, [preferredColorScheme, setColorScheme]);
-
-  return (
-    <ColorSchemeProvider
-      colorScheme={colorScheme}
-      toggleColorScheme={toggleColorScheme}
-    >
-      <MantineProvider
-        emotionCache={myCache}
-        theme={{ colorScheme }}
-        withGlobalStyles
-        withNormalizeCSS
-      >
-        <Main />
-      </MantineProvider>
-    </ColorSchemeProvider>
-  );
+  return <Button>1231</Button>;
 }
 
 export default App;

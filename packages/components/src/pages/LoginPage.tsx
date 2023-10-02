@@ -5,6 +5,7 @@ interface LoginPageProps extends PaperProps {
 }
 
 const LoginPage = (props: PaperProps) => {
+  console.log(props);
   // const [type, toggle] = useToggle(['login', 'register']);
   // const form = useForm({
   //   initialValues: {

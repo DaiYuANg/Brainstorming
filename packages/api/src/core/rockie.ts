@@ -1,3 +1,1 @@
-class Rockie{
-
-}
+class Rockie {}
