@@ -26,7 +26,7 @@ export default defineConfig(async () => ({
     renderer(),
   ],
   build: {
-    // minify: 'terser',
+    minify: true,
     target: 'modules',
     terserOptions: {
       compress: {
@@ -35,15 +35,8 @@ export default defineConfig(async () => ({
       },
     },
   },
-  // // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
-  // //
-  // // 1. prevent vite from obscuring rust errors
-  clearScreen: false,
-  // // 2. tauri expects a fixed port, fail if that port is not available
+  clearScreen: true,
   server: {
     port: 1420,
-    // strictPort: true,
   },
-  // // 3. to make use of `TAURI_DEBUG` and other env variables
-  // // https://tauri.studio/v1/api/config#buildconfig.beforedevcommand
 }));

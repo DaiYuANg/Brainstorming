@@ -1,7 +1,8 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Notification } from 'electron';
 import path from 'node:path';
-import { listenControlWindowOrder } from './windows/control.ts';
-import { afterLoad, createWindow, loadWebContent } from './windows/create.ts';
+import { listenControlWindowOrder, listenNotification } from './actions';
+import { initializing } from './initializing';
+import { afterLoad, createWindow, loadWebContent } from './windows';
 
 // The built directory structure
 //
@@ -24,14 +25,20 @@ app.on('window-all-closed', () => {
 });
 
 app.whenReady().then(async () => {
-  win = await createWindow()
-    .then((win) => {
-      return loadWebContent(win);
-    })
-    .then((win) => {
-      return afterLoad(win);
-    });
-  listenControlWindowOrder(win!).then(() => {
-    //     do something
-  });
+  win = createWindow();
+  initializing(app);
+  loadWebContent(win);
+  afterLoad(win);
+  await Promise.all([listenControlWindowOrder(win!), listenNotification]);
+  const NOTIFICATION_TITLE = 'Basic Notification';
+  const NOTIFICATION_BODY = 'Notification from the Main process';
+
+  new Notification({
+    title: NOTIFICATION_TITLE,
+    body: NOTIFICATION_BODY,
+  }).show();
+  // new Notification({
+  //   title: NOTIFICATION_TITLE,
+  //   body: NOTIFICATION_BODY
+  // }).show()
 });

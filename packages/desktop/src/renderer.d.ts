@@ -3,6 +3,7 @@ export interface IElectronAPI {
   minimizeWindow: () => void;
   maximizeWindow: () => void;
   closeWindow: () => void;
+  setTitle: (title: string) => void;
 }
 
 declare global {

@@ -100,6 +100,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
   loadPreferences: () => {
     return new Promise(() => {});
   },
+  setTitle: (title: string) => {
+    ipcRenderer.send('set-title', title);
+  },
   minimizeWindow: () => {
     ipcRenderer.send('minimize-window');
   },

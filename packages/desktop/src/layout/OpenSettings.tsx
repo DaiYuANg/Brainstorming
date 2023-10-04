@@ -1,20 +1,27 @@
-import { ActionIcon, Group, Modal } from '@mantine/core';
+import { Group, Modal, UnstyledButton } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconSettings } from '@tabler/icons-react';
+import { SettingsLayout } from './SettingsLayout.tsx';
 
 export const OpenSettings = () => {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
     <>
-      <Modal opened={opened} onClose={close} fullScreen centered>
-        {/*<SettingsLayout />*/}
+      <Modal
+        opened={opened}
+        radius={10}
+        title={'Settings'}
+        onClose={close}
+        centered
+        size={'xl'}
+      >
+        <SettingsLayout />
       </Modal>
-
-      <Group position="center">
-        <ActionIcon onClick={open}>
+      <Group>
+        <UnstyledButton onClick={open}>
           <IconSettings />
-        </ActionIcon>
+        </UnstyledButton>
         {/*<Button onClick={open}>Open centered Modal</Button>*/}
       </Group>
     </>

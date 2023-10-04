@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { RButton } from './RButton.tsx';
+import { TreeView } from './TreeView.tsx';
 
 const meta = {
-  title: 'Example/RButton',
-  component: RButton,
+  title: 'Control/TreeView',
+  component: TreeView,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
@@ -12,13 +12,12 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-} satisfies Meta<typeof RButton>;
+} satisfies Meta<typeof TreeView>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     color: 'pink',
-    type: 'submit',
   },
 };

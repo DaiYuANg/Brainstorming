@@ -1,11 +1,24 @@
-import { Button } from '@mantine/core';
-import { useColorScheme } from '@mantine/hooks';
+import { MantineProvider } from '@mantine/core';
+import { NotificationArg } from '../shared';
+import { ContextMenu } from './components';
+import { Main } from './layout';
+import { theme } from './theme.ts';
 
 function App() {
-  const preferredColorScheme = useColorScheme();
-  console.log(preferredColorScheme);
-
-  return <Button>1231</Button>;
+  const ready: NotificationArg = {
+    title: 'test',
+    body: 'ready',
+  };
+  console.log(ready);
+  window.electronAPI.setTitle('test');
+  return (
+    <>
+      <MantineProvider theme={theme} defaultColorScheme="auto">
+        <ContextMenu />
+        <Main />
+      </MantineProvider>
+    </>
+  );
 }
 
 export default App;

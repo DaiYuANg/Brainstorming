@@ -1,4 +1,4 @@
-import { Divider, Navbar } from '@mantine/core';
+import { Divider } from '@mantine/core';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { LayoutNavbarContent } from './LayoutNavbarContent.tsx';
 
