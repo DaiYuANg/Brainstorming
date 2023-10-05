@@ -1,5 +1,5 @@
 {
-  "name": "rockie",
+  "name": "@brainstorming/root",
   "version": "1.0.0",
   "scripts": {
     "clean": "rimraf ./node_modules **/**/node_modules **/*/dist",

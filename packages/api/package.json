@@ -1,5 +1,5 @@
 {
-  "name": "@rockie/api",
+  "name": "@brainstorming/api",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -21,7 +21,7 @@
     "postinstall": "pnpm build"
   },
   "dependencies": {
-    "axios": "^1.5.0"
+    "axios": "^1.5.1"
   },
   "devDependencies": {
     "typescript": "^5.1.3",

@@ -1,7 +1,8 @@
+import { Container } from '@mantine/core';
 import { Descendant } from 'slate';
 import { CoreEditor } from '../components';
 
-const initialValue: Descendant[] = [
+const initialValue: Array<Descendant> = [
   {
     type: 'paragraph',
     children: [{ text: 'A line of text in a paragraph.' }],
@@ -11,7 +12,9 @@ const initialValue: Descendant[] = [
 export const EditorPage = () => {
   return (
     <>
-      <CoreEditor initialValue={initialValue} />
+      <Container size="responsive">
+        <CoreEditor initialValue={initialValue} />
+      </Container>
     </>
   );
 };
