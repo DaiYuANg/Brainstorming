@@ -368,9 +368,21 @@ importers:
 
   packages/desktop:
     dependencies:
+      '@brainstorming/api':
+        specifier: workspace:*
+        version: link:../api
       '@brainstorming/component':
         specifier: workspace:*
         version: link:../components
+      '@brainstorming/i18n':
+        specifier: workspace:*
+        version: link:../i18n
+      '@brainstorming/types':
+        specifier: workspace:*
+        version: link:../types
+      '@brainstorming/utils':
+        specifier: workspace:*
+        version: link:../utils
       '@electron/remote':
         specifier: ^2.0.11
         version: 2.0.11(electron@26.2.4)

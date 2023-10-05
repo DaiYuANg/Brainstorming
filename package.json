@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "clean": "rimraf ./node_modules **/**/node_modules **/*/dist",
-    "format": "prettier --write \"**/*.{js,ts,cjs,tsx,jsx,scss,html,yaml,md,json}\" --ignore-path **/*.gitignore",
+    "format": "prettier --write \"**/*.{js,ts,cjs,tsx,jsx,scss,html,yaml,md,json}\" --ignore-path .prettierignore",
     "prepare": "husky install"
   },
   "lint-staged": {
