@@ -11,7 +11,7 @@ export default defineConfig(async () => ({
     visualizer() as PluginOption,
     electron([
       {
-        // Main-Process entry file of the Electron App.
+        // MainLayout-Process entry file of the Electron App.
         entry: 'src-electron/main.ts',
       },
       {

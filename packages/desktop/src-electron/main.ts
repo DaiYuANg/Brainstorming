@@ -31,7 +31,7 @@ app.whenReady().then(async () => {
   afterLoad(win);
   await Promise.all([listenControlWindowOrder(win!), listenNotification]);
   const NOTIFICATION_TITLE = 'Basic Notification';
-  const NOTIFICATION_BODY = 'Notification from the Main process';
+  const NOTIFICATION_BODY = 'Notification from the MainLayout process';
 
   new Notification({
     title: NOTIFICATION_TITLE,

@@ -19,7 +19,12 @@ export const OpenSettings = () => {
         <SettingsLayout />
       </Modal>
       <Group>
-        <UnstyledButton onClick={open}>
+        <UnstyledButton
+          style={{
+            zIndex: 10000,
+          }}
+          onClick={open}
+        >
           <IconSettings />
         </UnstyledButton>
         {/*<Button onClick={open}>Open centered Modal</Button>*/}

@@ -3,13 +3,14 @@ import { useDisclosure } from '@mantine/hooks';
 import { RouterProvider } from 'react-router-dom';
 import { router } from '../modules';
 import { LayoutNavbarContent } from './LayoutNavbarContent.tsx';
+import { WorkspaceTabs } from './tab';
 
-export const Main = () => {
+export const MainLayout = () => {
   const [opened, { toggle }] = useDisclosure();
-  const toggleNavbar = () => {
-    console.log(opened);
-    toggle();
-  };
+  // const toggleNavbar = () => {
+  //   console.log(opened);
+  //   toggle();
+  // };
   return (
     <>
       <Box>
@@ -36,6 +37,7 @@ export const Main = () => {
           </AppShell.Header>
           <LayoutNavbarContent />
           <AppShell.Main pt={'sm'}>
+            <WorkspaceTabs />
             <RouterProvider router={router}></RouterProvider>
           </AppShell.Main>
         </AppShell>
