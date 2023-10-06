@@ -3,6 +3,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, type PluginOption } from 'vite';
 import electron from 'vite-plugin-electron';
 import renderer from 'vite-plugin-electron-renderer';
+import TurboConsole from "vite-plugin-turbo-console";
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
@@ -24,6 +25,7 @@ export default defineConfig(async () => ({
       },
     ]),
     renderer(),
+    TurboConsole()
   ],
   build: {
     minify: true,

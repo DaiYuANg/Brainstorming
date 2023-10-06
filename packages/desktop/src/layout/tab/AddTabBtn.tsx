@@ -1,17 +1,17 @@
 import { ActionIcon, ActionIconVariant, rem } from '@mantine/core';
 import { IconPlus } from '@tabler/icons-react';
-import { useState } from 'react';
+import {useCallback, useState} from 'react';
 
 const AddTabBtn = () => {
   const [actionIconVariant, setActionIconVariant] =
     useState<ActionIconVariant>('transparent');
 
-  const onMouseEnter = () => {
+  const onMouseEnter = useCallback(() => {
     setActionIconVariant('outline');
-  };
-  const onMouseLeave = () => {
+  },[]);
+  const onMouseLeave = useCallback(() => {
     setActionIconVariant('transparent');
-  };
+  },[]);
   const iconStyle = { width: rem(12), height: rem(12) };
   return (
     <>
