@@ -21,6 +21,8 @@ process.env.PUBLIC = app.isPackaged
 
 let win: BrowserWindow | null;
 
+//todo: find a logger package
+
 app.on('window-all-closed', () => {
   win = null;
   if (os.platform() !== 'darwin') {
@@ -30,6 +32,9 @@ app.on('window-all-closed', () => {
 
 app.whenReady().then(async () => {
   win = createWindow();
+  win.on('resized', () => {
+    console.log(win?.getBounds());
+  });
   initializing(app);
   loadWebContent(win);
   afterLoad(win);

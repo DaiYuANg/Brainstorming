@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc && vite build",
     "build:desktop": "tsc && vite build && electron-builder",
-    "dev": "vite",
+    "dev": "vite & react-devtools",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -58,6 +58,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.31",
+    "react-devtools": "^4.28.4",
     "postcss-preset-mantine": "^1.8.0",
     "postcss-simple-vars": "^7.0.1",
     "vite-plugin-electron": "^0.14.1",

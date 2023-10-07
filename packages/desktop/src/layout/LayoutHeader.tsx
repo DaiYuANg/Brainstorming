@@ -13,15 +13,6 @@ const LayoutHeader = () => {
           size={'sm'}
           color={'teal'}
           onClick={() => {
-            window.electronAPI.closeWindow();
-          }}
-        >
-          <IconX />
-        </ActionIcon>
-        <ActionIcon
-          size={'sm'}
-          color={'teal'}
-          onClick={() => {
             window.electronAPI.minimizeWindow();
           }}
         >
@@ -29,12 +20,21 @@ const LayoutHeader = () => {
         </ActionIcon>
         <ActionIcon
           size={'sm'}
-          color={'teal'}
+          color={'violet'}
           onClick={() => {
             window.electronAPI.maximizeWindow();
           }}
         >
           <IconMaximize />
+        </ActionIcon>
+        <ActionIcon
+          size={'sm'}
+          color={'teal'}
+          onClick={() => {
+            window.electronAPI.closeWindow();
+          }}
+        >
+          <IconX />
         </ActionIcon>
       </Group>
     </AppShell.Header>
