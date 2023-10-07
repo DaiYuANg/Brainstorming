@@ -12,10 +12,13 @@ export const WorkspaceTabs = () => {
         p={0}
         defaultValue="chat"
       >
-        <Tabs.List >
-          <Tabs.Tab p={1} size={'sm'}
-                    // rightSection={<TabCloseBtn />}
-                    value="chat">
+        <Tabs.List>
+          <Tabs.Tab
+            p={1}
+            size={'sm'}
+            // rightSection={<TabCloseBtn />}
+            value="chat"
+          >
             Chat
           </Tabs.Tab>
           <Tabs.Tab rightSection={<TabCloseBtn />} value="test">
