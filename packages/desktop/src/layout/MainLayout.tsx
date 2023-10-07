@@ -1,43 +1,26 @@
-import { AppShell, Box, Burger, Group } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
+import { AppShell, Box } from '@mantine/core';
 import { RouterProvider } from 'react-router-dom';
 import { router } from '../modules';
+import { LayoutHeader } from './LayoutHeader.tsx';
 import { LayoutNavbarContent } from './LayoutNavbarContent.tsx';
-import { WorkspaceTabs } from './tab';
 
 export const MainLayout = () => {
-  const [opened, { toggle }] = useDisclosure();
-  // const toggleNavbar = () => {
-  //   console.log(opened);
-  //   toggle();
-  // };
   return (
     <>
       <Box>
         <AppShell
-          header={{ height: 40, offset: true }}
+          layout={'alt'}
+          header={{ height: 30, offset: false }}
           navbar={{
             width: 300,
             breakpoint: 'md',
-
-            collapsed: { mobile: !opened },
+            collapsed: { mobile: false },
           }}
           padding="xs"
         >
-          <AppShell.Header>
-            <Group h="100%" pl={'xl'} justify={'flex-end'} grow px="md">
-              <Burger
-                opened={opened}
-                onClick={toggle}
-                hiddenFrom="sm"
-                size="sm"
-              />
-              123
-            </Group>
-          </AppShell.Header>
+          <LayoutHeader />
           <LayoutNavbarContent />
-          <AppShell.Main pt={'sm'}>
-            <WorkspaceTabs />
+          <AppShell.Main pt={'xl'}>
             <RouterProvider router={router}></RouterProvider>
           </AppShell.Main>
         </AppShell>

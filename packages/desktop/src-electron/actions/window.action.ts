@@ -11,15 +11,20 @@ const listenControlWindowOrder = async (win: BrowserWindow) => {
   });
 
   ipcMain.on('maximize-window', () => {
-    if (win?.isMaximized()) {
-      win?.restore();
+    if (win.isMaximized()) {
+      win.restore();
     } else {
-      win?.maximize();
+      win.maximize();
+      win.restore();
     }
   });
 
   ipcMain.on('close-window', () => {
     win?.close();
+  });
+  win.on('resize', (event, newBounds) => {
+    console.log(event);
+    console.log(newBounds);
   });
 };
 

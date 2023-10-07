@@ -1,4 +1,5 @@
 import { app, BrowserWindow, Notification } from 'electron';
+import os from 'node:os';
 import path from 'node:path';
 import { listenControlWindowOrder, listenNotification } from './actions';
 import { initializing } from './initializing';
@@ -22,6 +23,9 @@ let win: BrowserWindow | null;
 
 app.on('window-all-closed', () => {
   win = null;
+  if (os.platform() !== 'darwin') {
+    app.quit();
+  }
 });
 
 app.whenReady().then(async () => {

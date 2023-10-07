@@ -1,4 +1,4 @@
-import { Divider, Tabs } from '@mantine/core';
+import { Tabs } from '@mantine/core';
 import { AddTabBtn } from './AddTabBtn.tsx';
 import { TabCloseBtn } from './TabCloseBtn.tsx';
 
@@ -6,15 +6,16 @@ export const WorkspaceTabs = () => {
   return (
     <>
       <Tabs
-        pt={'xs'}
-        pb={'xs'}
-        variant={'pills'}
-        color={'gray'}
-        radius="sm"
+        variant={'default'}
+        color={'dark'}
+        radius="md"
+        p={0}
         defaultValue="chat"
       >
-        <Tabs.List>
-          <Tabs.Tab rightSection={<TabCloseBtn />} value="chat">
+        <Tabs.List >
+          <Tabs.Tab p={1} size={'sm'}
+                    // rightSection={<TabCloseBtn />}
+                    value="chat">
             Chat
           </Tabs.Tab>
           <Tabs.Tab rightSection={<TabCloseBtn />} value="test">
@@ -28,7 +29,6 @@ export const WorkspaceTabs = () => {
           />
         </Tabs.List>
       </Tabs>
-      <Divider />
     </>
   );
 };
