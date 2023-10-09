@@ -4,6 +4,9 @@ export interface IElectronAPI {
   maximizeWindow: () => void;
   closeWindow: () => void;
   setTitle: (title: string) => void;
+  isMac: boolean;
+  isWindows: boolean;
+  isLinux: boolean;
 }
 
 declare global {

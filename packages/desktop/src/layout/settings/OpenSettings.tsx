@@ -1,4 +1,4 @@
-import { Group, Modal, UnstyledButton } from '@mantine/core';
+import { ActionIcon, Group, Modal } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconSettings } from '@tabler/icons-react';
 import { SettingsLayout } from './SettingsLayout.tsx';
@@ -19,14 +19,16 @@ export const OpenSettings = () => {
         <SettingsLayout />
       </Modal>
       <Group>
-        <UnstyledButton
+        <ActionIcon
+          component={'div'}
+          color={'dark'}
           style={{
             zIndex: 10000,
           }}
           onClick={open}
         >
           <IconSettings />
-        </UnstyledButton>
+        </ActionIcon>
         {/*<Button onClick={open}>Open centered Modal</Button>*/}
       </Group>
     </>

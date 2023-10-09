@@ -10,7 +10,13 @@ import {
   Text,
   rem,
 } from '@mantine/core';
-import { IconDots, IconEye, IconFileZip, IconTrash } from '@tabler/icons-react';
+import {
+  IconDots,
+  IconEye,
+  IconFileZip,
+  IconLayoutSidebarLeftCollapseFilled,
+  IconTrash,
+} from '@tabler/icons-react';
 
 export const LayoutNavbarContent = () => {
   const images = [
@@ -20,15 +26,20 @@ export const LayoutNavbarContent = () => {
   ];
   return (
     <>
-      <AppShell.Navbar
-        withBorder={false}
-        p="xs"
-        style={{
-          backgroundColor: 'gray',
-        }}
-      >
-        <ScrollArea>
-          <Card withBorder shadow="sm" radius="md">
+      <AppShell.Navbar withBorder={false} pr={0} pl={0} pt={0}>
+        <Group justify={'end'} align={'center'}>
+          <ActionIcon color={'pink'} size={'lg'}>
+            <IconLayoutSidebarLeftCollapseFilled />
+          </ActionIcon>
+        </Group>
+        <ScrollArea
+          p={0}
+          style={{
+            width: '100%',
+            backgroundColor: 'gray',
+          }}
+        >
+          <Card shadow="sm" radius={0}>
             <Card.Section withBorder inheritPadding py="xs">
               <Group justify="space-between">
                 <Text fw={500}>Review pictures</Text>

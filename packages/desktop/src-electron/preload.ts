@@ -1,4 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron';
+import { isLinux, isMac, isWindows } from './constant';
 
 function domReady(
   condition: DocumentReadyState[] = ['complete', 'interactive'],
@@ -114,4 +115,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   closeWindow: () => {
     ipcRenderer.send('close-window');
   },
+  isMac,
+  isWindows,
+  isLinux,
 });
