@@ -23,28 +23,23 @@ const createWindow = () => {
   return win;
 };
 
-const loadWebContent = (win: BrowserWindow) => {
+const loadWebContent = async (win: BrowserWindow) => {
   // Test active push message to Renderer-process.
   win.webContents.on('did-finish-load', () => {
     win?.webContents.send('main-process-message', new Date().toLocaleString());
   });
 
   if (VITE_DEV_SERVER_URL) {
-    win.loadURL(VITE_DEV_SERVER_URL).then((r) => {
-      console.log(r);
-    });
+    await win.loadURL(VITE_DEV_SERVER_URL);
   } else {
     // win.loadFile('dist/index.html')
-    win.loadFile(path.join(process.env.DIST, 'index.html')).then((r) => {
-      console.log(r);
-    });
+    await win.loadFile(path.join(process.env.DIST, 'index.html'));
   }
   return win;
 };
 
 const afterLoad = (win: BrowserWindow) => {
   if (process.env.NODE_ENV === 'development') {
-    console.log(process.env.NODE_ENV);
     win.webContents.openDevTools();
   }
   return win;

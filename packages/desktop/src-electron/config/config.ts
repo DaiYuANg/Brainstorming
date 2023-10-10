@@ -1,3 +1,4 @@
+import * as console from 'console';
 import { app } from 'electron';
 import * as fs from 'fs';
 import os from 'node:os';
@@ -6,7 +7,10 @@ import { autoMkdir } from '../utils';
 import { BrainstormingConfig } from './config.type.ts';
 const appName = 'Brainstorming';
 class Config {
-  private store: Map<string, string | number> = new Map<
+  get store(): Map<string, string | number> {
+    return this._store;
+  }
+  private _store: Map<string, string | number> = new Map<
     string,
     string | number
   >();
@@ -26,10 +30,11 @@ class Config {
     const config = this.readeConfig();
     console.log(new Map(Object.entries(config)));
     console.log(config);
-    console.log(this.store);
+    console.log(this._store);
   }
 
   private readeConfig() {
+    console.log(this.configRoot);
     const result = fs.readFileSync(
       path.join(this.configRoot, this.configFile),
       'utf-8',
@@ -49,4 +54,6 @@ class Config {
   }
 }
 
-export { Config };
+const configInstance: Config = new Config();
+
+export { Config, configInstance };

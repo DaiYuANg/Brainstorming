@@ -36,7 +36,7 @@ app.whenReady().then(async () => {
     console.log(win?.getBounds());
   });
   initializing(app);
-  loadWebContent(win);
+  await loadWebContent(win);
   afterLoad(win);
   await Promise.all([listenControlWindowOrder(win!), listenNotification]);
   const NOTIFICATION_TITLE = 'Basic Notification';

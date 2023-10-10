@@ -22,10 +22,6 @@ const listenControlWindowOrder = async (win: BrowserWindow) => {
   ipcMain.on('close-window', () => {
     win?.close();
   });
-  win.on('resize', (event, newBounds) => {
-    console.log(event);
-    console.log(newBounds);
-  });
 };
 
 export { listenControlWindowOrder };
