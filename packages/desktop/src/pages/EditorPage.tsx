@@ -1,4 +1,3 @@
-import { Container } from '@mantine/core';
 import { Descendant } from 'slate';
 import { CoreEditor } from '../components';
 
@@ -12,9 +11,9 @@ const initialValue: Array<Descendant> = [
 export const EditorPage = () => {
   return (
     <>
-      <Container size="responsive">
+      <div>
         <CoreEditor initialValue={initialValue} />
-      </Container>
+      </div>
     </>
   );
 };

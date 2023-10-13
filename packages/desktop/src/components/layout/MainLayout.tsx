@@ -1,15 +1,15 @@
 import { AppShell, Box } from '@mantine/core';
 import { RouterProvider } from 'react-router-dom';
-import { router } from '../modules';
+import { router } from '../../modules';
 import { LayoutHeader } from './LayoutHeader.tsx';
-import { LayoutNavbarContent } from './LayoutNavbarContent.tsx';
+import { LayoutNavbar } from './LayoutNavbar.tsx';
 
 export const MainLayout = () => {
   return (
     <>
       <Box>
         <AppShell
-            layout={'alt'}
+          layout={'alt'}
           header={{ height: 30, offset: false }}
           navbar={{
             width: 250,
@@ -17,11 +17,10 @@ export const MainLayout = () => {
             collapsed: { mobile: false },
           }}
           withBorder
-          padding="xs"
         >
           <LayoutHeader />
-          <LayoutNavbarContent />
-          <AppShell.Main pt={'xl'}>
+          <LayoutNavbar />
+          <AppShell.Main pt={0}>
             <RouterProvider router={router}></RouterProvider>
           </AppShell.Main>
         </AppShell>

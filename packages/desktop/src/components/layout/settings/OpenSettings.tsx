@@ -1,9 +1,11 @@
 import { ActionIcon, Group, Modal } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { IconSettings } from '@tabler/icons-react';
+import { IconSettings, TablerIconsProps } from '@tabler/icons-react';
 import { SettingsLayout } from './SettingsLayout.tsx';
 
-export const OpenSettings = () => {
+interface OpenSettingsProps extends TablerIconsProps {}
+
+export const OpenSettings = (props: OpenSettingsProps) => {
   const [opened, { open, close }] = useDisclosure(false);
 
   return (
@@ -18,18 +20,15 @@ export const OpenSettings = () => {
       >
         <SettingsLayout />
       </Modal>
-      <Group>
+      <Group p={0}>
         <ActionIcon
+          variant={'transparent'}
+          p={0}
           component={'div'}
-          color={'dark'}
-          style={{
-            zIndex: 10000,
-          }}
           onClick={open}
         >
-          <IconSettings />
+          <IconSettings style={props.style} />
         </ActionIcon>
-        {/*<Button onClick={open}>Open centered Modal</Button>*/}
       </Group>
     </>
   );

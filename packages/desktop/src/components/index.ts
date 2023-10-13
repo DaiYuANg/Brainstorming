@@ -1,14 +1,17 @@
-import { BaseEditor } from 'slate';
-import { ReactEditor } from 'slate-react';
+import { BaseRange } from 'slate';
 import { ContextMenu } from './ContextMenu';
-import { CoreEditor } from './CoreEditor.tsx';
-import { CustomText, EditorElements } from './EditorElements.ts';
+import { CoreEditor } from './editor/CoreEditor.tsx';
+import { CustomEditor, CustomElement, EmptyText } from './editor/CustomType.ts';
+import { CustomText } from './editor/EditorElements.ts';
 
 declare module 'slate' {
   interface CustomTypes {
-    Editor: BaseEditor & ReactEditor;
-    Element: EditorElements;
-    Text: CustomText;
+    Editor: CustomEditor;
+    Element: CustomElement;
+    Text: CustomText | EmptyText;
+    Range: BaseRange & {
+      [key: string]: unknown;
+    };
   }
 }
 
