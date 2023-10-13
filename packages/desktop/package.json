@@ -32,6 +32,7 @@
     "@tiptap/react": "^2.1.11",
     "@tiptap/starter-kit": "^2.1.11",
     "dayjs": "^1.11.10",
+    "electron-log": "5.0.0-rc.1",
     "i18next": "^23.5.1",
     "mitt": "^3.0.1",
     "prismjs": "^1.29.0",

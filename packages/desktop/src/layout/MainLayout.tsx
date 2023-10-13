@@ -9,13 +9,14 @@ export const MainLayout = () => {
     <>
       <Box>
         <AppShell
-          layout={'alt'}
+            layout={'alt'}
           header={{ height: 30, offset: false }}
           navbar={{
-            width: 300,
+            width: 250,
             breakpoint: 'md',
             collapsed: { mobile: false },
           }}
+          withBorder
           padding="xs"
         >
           <LayoutHeader />
