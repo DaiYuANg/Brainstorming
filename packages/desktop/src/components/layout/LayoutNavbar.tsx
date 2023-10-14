@@ -5,6 +5,7 @@ import {
   Code,
   Group,
   ScrollArea,
+  Space,
   Text,
   TextInput,
   Tooltip,
@@ -50,17 +51,23 @@ const mainLinks = links.map((link) => (
   </UnstyledButton>
 ));
 const collectionLinks = collections.map((collection) => (
-  <a
-    href="#"
-    onClick={(event) => event.preventDefault()}
+  <UnstyledButton
+    style={{
+      width: '100%',
+      display: 'flex',
+      lineHeight: 1,
+      justifySelf: 'center',
+      alignItems: 'center',
+    }}
     key={collection.label}
     className={classes.collectionLink}
   >
-    <span style={{ marginRight: rem(9), fontSize: rem(16) }}>
+    <span style={{ marginRight: rem(3), fontSize: rem(16) }}>
       {collection.emoji}
-    </span>{' '}
+    </span>
+    <Space w={'xs'} />
     {collection.label}
-  </a>
+  </UnstyledButton>
 ));
 
 export const LayoutNavbar = () => {
