@@ -1,4 +1,4 @@
-import { ActionIcon, Group, Modal } from '@mantine/core';
+import { Group, Modal } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconSettings, TablerIconsProps } from '@tabler/icons-react';
 import { SettingsLayout } from './SettingsLayout.tsx';
@@ -6,7 +6,11 @@ import { SettingsLayout } from './SettingsLayout.tsx';
 interface OpenSettingsProps extends TablerIconsProps {}
 
 export const OpenSettings = (props: OpenSettingsProps) => {
-  const [opened, { open, close }] = useDisclosure(false);
+  const [opened, setOpen] = useDisclosure(false);
+
+  const openModal = () => {
+    console.log(opened);
+  };
 
   return (
     <>
@@ -21,14 +25,14 @@ export const OpenSettings = (props: OpenSettingsProps) => {
         <SettingsLayout />
       </Modal>
       <Group p={0}>
-        <ActionIcon
-          variant={'transparent'}
-          p={0}
-          component={'div'}
-          onClick={open}
-        >
-          <IconSettings style={props.style} />
-        </ActionIcon>
+        {/*<ActionIcon*/}
+        {/*  variant={'transparent'}*/}
+        {/*  p={0}*/}
+        {/*  component={'div'}*/}
+        {/*  onClick={open}*/}
+        {/*>*/}
+        <IconSettings onClick={open} style={props.style} />
+        {/*</ActionIcon>*/}
       </Group>
     </>
   );

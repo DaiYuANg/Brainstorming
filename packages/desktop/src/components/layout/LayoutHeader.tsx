@@ -16,6 +16,7 @@ import {
   IconSearch,
   IconTrash,
 } from '@tabler/icons-react';
+import { WindowsControlButton } from '../WindowsControlButton.tsx';
 import { OpenSettings } from './settings/OpenSettings.tsx';
 
 const LayoutHeader = () => {
@@ -43,7 +44,7 @@ const LayoutHeader = () => {
           </Group>
         </Grid.Col>
         <Grid.Col span={4}>
-          <Group justify={'end'} pr={'xs'}>
+          <Group justify={'end'} gap={'xs'} pr={'xs'}>
             <Menu shadow="md" width={200}>
               <Menu.Target>
                 <ActionIcon variant={'transparent'}>
@@ -111,6 +112,11 @@ const LayoutHeader = () => {
                 </Menu.Item>
               </Menu.Dropdown>
             </Menu>
+            {window.electronAPI.isWindows && (
+              <>
+                <WindowsControlButton />
+              </>
+            )}
           </Group>
         </Grid.Col>
       </Grid>
