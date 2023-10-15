@@ -4,6 +4,7 @@ import {
   ExceptionFilter,
   HttpException,
 } from '@nestjs/common';
+import { RuntimeException } from '@nestjs/core/errors/exceptions';
 
 @Catch(HttpException)
 export class GlobalExceptionHandler implements ExceptionFilter {
@@ -17,5 +18,6 @@ export class GlobalExceptionHandler implements ExceptionFilter {
       timestamp: new Date().toISOString(),
       path: request.url,
     });
+    throw new RuntimeException(exception.message);
   }
 }

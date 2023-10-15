@@ -8,9 +8,11 @@ interface ElementProps {
   element: { type: string };
 }
 
-const Element = (
-  { attributes, children, element }: ElementProps,
-): JSX.Element => {
+const Element = ({
+  attributes,
+  children,
+  element,
+}: ElementProps): JSX.Element => {
   switch (element.type) {
     case 'block-quote':
       return <Blockquote {...attributes}>{children}</Blockquote>;
