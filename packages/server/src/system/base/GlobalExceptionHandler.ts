@@ -3,11 +3,12 @@ import {
   Catch,
   ExceptionFilter,
   HttpException,
+  Logger,
 } from '@nestjs/common';
-import { RuntimeException } from '@nestjs/core/errors/exceptions';
-
+import { Request, Response } from 'express';
 @Catch(HttpException)
 export class GlobalExceptionHandler implements ExceptionFilter {
+  private readonly logger = new Logger(GlobalExceptionHandler.name);
   catch(exception: HttpException, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
@@ -18,6 +19,6 @@ export class GlobalExceptionHandler implements ExceptionFilter {
       timestamp: new Date().toISOString(),
       path: request.url,
     });
-    throw new RuntimeException(exception.message);
+    this.logger.error(exception.message, exception.stack);
   }
 }

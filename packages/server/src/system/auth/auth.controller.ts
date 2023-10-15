@@ -26,7 +26,6 @@ export class AuthController {
     return this.authService.signIn(signInDto.username, signInDto.password);
   }
   @Post('register')
-  @UseFilters(new GlobalExceptionHandler())
   create(@Body() createAuthDto: CreateAuthDto) {
     this.logger.log('request:{}', createAuthDto);
     return this.authService.create(createAuthDto);
