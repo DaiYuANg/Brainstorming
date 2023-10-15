@@ -6,10 +6,10 @@
   "scripts": {
     "build": "tsc && vite build",
     "build:desktop": "tsc && vite build && electron-builder",
+    "build:only": "vite build",
     "dev": "vite & react-devtools",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "build:only": "vite build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@brainstorming/api": "workspace:*",
