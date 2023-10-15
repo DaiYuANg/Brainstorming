@@ -1,12 +1,16 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { CreateWorkspaceDto } from './dto/create-workspace.dto';
 import { UpdateWorkspaceDto } from './dto/update-workspace.dto';
 
 @Injectable()
 export class WorkspaceService {
+  private readonly logger = new Logger(WorkspaceService.name);
+
   create(createWorkspaceDto: CreateWorkspaceDto) {
     return 'This action adds a new workspace';
   }
+
+  sync() {}
 
   findAll() {
     return `This action returns all workspace`;

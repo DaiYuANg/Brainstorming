@@ -20,6 +20,12 @@ export class WorkspaceController {
     return this.workspaceService.create(createWorkspaceDto);
   }
 
+  @Post('/sync')
+  sync(@Body() dto: CreateWorkspaceDto) {
+    console.log(dto);
+    return '';
+  }
+
   @Get()
   findAll() {
     return this.workspaceService.findAll();

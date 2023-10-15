@@ -4,17 +4,20 @@ interface Configuration {
   port: number;
   database: DatabaseConfiguration;
   auth: AuthConfiguration;
+  minio: MinioConfiguration;
 }
 
 interface AuthConfiguration {
-  defaultUser: string;
-  defaultPassword: string;
+  administrator: string;
+  administratorPassword: string;
 }
 
 interface DatabaseConfiguration {
   host: string;
   port: number;
 }
+
+interface MinioConfiguration {}
 
 export default (): Configuration => {
   return {
@@ -24,9 +27,10 @@ export default (): Configuration => {
       port: parseInt(process.env.BRAINSTORM_SERVER_DATABASE_PORT!) || 5432,
     },
     auth: {
-      defaultUser: process.env.BRAINSTORM_SERVER_ADMINISTRATOR || 'admin',
-      defaultPassword: crypto.randomUUID(),
+      administrator: process.env.BRAINSTORM_SERVER_ADMINISTRATOR || 'admin',
+      administratorPassword: crypto.randomUUID(),
     },
+    minio: {},
   };
 };
 

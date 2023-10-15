@@ -18,7 +18,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "vite build",
     "build-storybook": "storybook build",
     "build:watch": "vite build --watch",
     "dev": "storybook dev -p 6006",
