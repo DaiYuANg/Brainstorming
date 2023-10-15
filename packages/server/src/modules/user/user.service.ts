@@ -15,7 +15,8 @@ export class UserService {
     private readonly configService: ConfigService,
   ) {}
 
-  create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto) {
+    // await this.userRepository.save(createUserDto);
     console.log(createUserDto);
     return 'This action adds a new user';
   }

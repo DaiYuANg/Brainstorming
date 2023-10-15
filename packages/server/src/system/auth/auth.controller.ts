@@ -8,13 +8,17 @@ import {
   Delete,
   HttpCode,
   HttpStatus,
+  Logger,
+  UseFilters,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
+import { GlobalExceptionHandler } from '../base';
 
 @Controller('auth')
 export class AuthController {
+  private readonly logger = new Logger(AuthController.name);
   constructor(private readonly authService: AuthService) {}
   @HttpCode(HttpStatus.OK)
   @Post('login')
@@ -22,7 +26,9 @@ export class AuthController {
     return this.authService.signIn(signInDto.username, signInDto.password);
   }
   @Post('register')
+  @UseFilters(new GlobalExceptionHandler())
   create(@Body() createAuthDto: CreateAuthDto) {
+    this.logger.log('request:{}', createAuthDto);
     return this.authService.create(createAuthDto);
   }
 
