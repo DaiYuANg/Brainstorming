@@ -1,4 +1,2 @@
-import {CustomListItem} from './CustomListItem.tsx'
-export {
-    CustomListItem
-}
+import { CustomListItem } from './CustomListItem.tsx';
+export { CustomListItem };
