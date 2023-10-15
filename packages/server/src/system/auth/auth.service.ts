@@ -7,6 +7,7 @@ import { ConfigService } from '@nestjs/config';
 import * as os from 'os';
 import * as path from 'path';
 import * as fs from 'fs';
+import {CreateUserDto} from "../../modules/user/dto/create-user.dto";
 
 @Injectable()
 export class AuthService {
@@ -58,6 +59,12 @@ export class AuthService {
     if (await this.usersService.checkExists(createAuthDto.username)) {
       throw new UnauthorizedException('User');
     }
+    const createUserDto: CreateUserDto = {
+      email: createAuthDto.username,
+      password: createAuthDto.password,
+    };
+
+    this.usersService.create(createUserDto);
     return 'This action adds a new auth';
   }
 
