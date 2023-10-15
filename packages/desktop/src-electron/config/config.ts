@@ -27,10 +27,10 @@ class Config {
     },
   };
   constructor() {
-    const config = this.readeConfig();
-    console.log(new Map(Object.entries(config)));
-    console.log(config);
-    console.log(this._store);
+    // const config = this.readeConfig();
+    // console.log(new Map(Object.entries(config)));
+    // console.log(config);
+    // console.log(this._store);
   }
 
   private readeConfig() {
