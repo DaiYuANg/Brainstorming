@@ -1,15 +1,27 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable, Logger, UnauthorizedException } from '@nestjs/common';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 import { UserService } from '../../modules/user/user.service';
 import { JwtService } from '@nestjs/jwt';
+import { ConfigService } from '@nestjs/config';
+import * as os from 'os';
 
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
   constructor(
     private readonly usersService: UserService,
     private readonly jwtService: JwtService,
-  ) {}
+    private readonly configService: ConfigService,
+  ) {
+    console.log(os.tmpdir());
+    this.logger.log(
+      'default user' + configService.get<string>('auth.defaultUser'),
+    );
+    this.logger.log(
+      'default password' + configService.get<string>('auth.defaultPassword'),
+    );
+  }
 
   async signIn(email: string, pass: string): Promise<any> {
     const user = await this.usersService.findByName(email);
