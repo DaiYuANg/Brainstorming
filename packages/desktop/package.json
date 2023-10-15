@@ -8,7 +8,8 @@
     "build:desktop": "tsc && vite build && electron-builder",
     "dev": "vite & react-devtools",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:only": "vite build"
   },
   "dependencies": {
     "@brainstorming/api": "workspace:*",

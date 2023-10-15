@@ -5,6 +5,8 @@ import { UserService } from '../../modules/user/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import * as os from 'os';
+import * as path from 'path';
+import * as fs from 'fs';
 
 @Injectable()
 export class AuthService {
@@ -14,16 +16,23 @@ export class AuthService {
     private readonly jwtService: JwtService,
     private readonly configService: ConfigService,
   ) {
-    console.log(os.tmpdir());
-    this.logger.log(
-      'default user' + configService.get<string>('auth.defaultUser'),
-    );
-    this.logger.log(
-      'default password' + configService.get<string>('auth.defaultPassword'),
-    );
+    const tmpdir = os.tmpdir();
+    const writeObject = {
+      administrator: configService.getOrThrow<string>('auth.administrator'),
+      administratorPassword: configService.getOrThrow<string>(
+        'auth.administratorPassword',
+      ),
+    };
+    const targetPath = path.join(tmpdir, 'admin.json');
+    fs.writeFile(targetPath, JSON.stringify(writeObject), (err) => {
+      if (err === null) return;
+      this.logger.error(err);
+    });
+    this.logger.log('target:' + targetPath);
   }
 
   async signIn(email: string, pass: string): Promise<any> {
+    // this.checkIsAdmin(email,password)
     const user = await this.usersService.findByName(email);
     if (user?.password !== pass) {
       throw new UnauthorizedException();
@@ -38,7 +47,17 @@ export class AuthService {
     };
   }
 
-  create(createAuthDto: CreateAuthDto) {
+  private checkIsAdmin(username: string, password: string): boolean {
+    const nameEqual = this.configService.get('auth.administrator') === username;
+    const passwordEqual =
+      this.configService.get('auth.administratorPassword') === password;
+    return nameEqual && passwordEqual;
+  }
+
+  async create(createAuthDto: CreateAuthDto) {
+    if (await this.usersService.checkExists(createAuthDto.username)) {
+      throw new UnauthorizedException('User');
+    }
     return 'This action adds a new auth';
   }
 

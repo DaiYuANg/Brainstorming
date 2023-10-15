@@ -1,10 +1,19 @@
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-import { EditorPage } from '../pages/EditorPage.tsx';
+const EditorPage = lazy(() =>
+  import('../pages/EditorPage.tsx').then(({ EditorPage }) => ({
+    default: EditorPage,
+  })),
+);
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <EditorPage />,
+    element: (
+      <Suspense>
+        <EditorPage />
+      </Suspense>
+    ),
   },
 ]);
 

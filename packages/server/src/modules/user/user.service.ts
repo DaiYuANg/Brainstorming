@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
@@ -8,6 +8,7 @@ import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class UserService {
+  private readonly logger = new Logger(UserService.name);
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
@@ -17,6 +18,16 @@ export class UserService {
   create(createUserDto: CreateUserDto) {
     console.log(createUserDto);
     return 'This action adds a new user';
+  }
+
+  async checkExists(email: string): Promise<boolean> {
+    return (
+      (await this.userRepository.count({
+        where: {
+          email: email,
+        },
+      })) > 0
+    );
   }
 
   findAll() {
