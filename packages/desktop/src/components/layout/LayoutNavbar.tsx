@@ -3,6 +3,7 @@ import {
   AppShell,
   Badge,
   Code,
+  Divider,
   Group,
   ScrollArea,
   Space,
@@ -12,14 +13,17 @@ import {
   UnstyledButton,
   rem,
 } from '@mantine/core';
+import { useColorScheme } from '@mantine/hooks';
 import {
   IconBulb,
   IconCheckbox,
+  IconLayoutSidebarLeftCollapse,
   IconPlus,
   IconSearch,
   IconUser,
 } from '@tabler/icons-react';
 import classes from './LayoutNavbar.module.css';
+import { OpenSettings } from './settings/OpenSettings.tsx';
 const links = [
   { icon: IconBulb, label: 'Activity', notifications: 3 },
   { icon: IconCheckbox, label: 'Tasks', notifications: 4 },
@@ -70,10 +74,34 @@ const collectionLinks = collections.map((collection) => (
   </UnstyledButton>
 ));
 
-export const LayoutNavbar = () => {
+interface LayoutNavbarProp {
+  toggleOpen: () => void;
+  navbarResize: (width: number) => void;
+}
+
+export const LayoutNavbar = (props: LayoutNavbarProp) => {
+  const color = useColorScheme();
   return (
     <>
-      <AppShell.Navbar withBorder={true}>
+      <AppShell.Navbar>
+        <Group justify={'flex-end'} gap={'xs'} align={'center'}>
+          <Tooltip arrowSize={4} withArrow label="Open Settings">
+            <ActionIcon variant={'transparent'}>
+              <OpenSettings />
+            </ActionIcon>
+          </Tooltip>
+          <Tooltip arrowSize={4} withArrow label="Collaspe Side Bar">
+            <ActionIcon variant={'transparent'} onClick={props.toggleOpen}>
+              <IconLayoutSidebarLeftCollapse
+                color={
+                  color === 'dark'
+                    ? 'var(--mantine-color-white)'
+                    : 'var(--mantine-color-black)'
+                }
+              />
+            </ActionIcon>
+          </Tooltip>
+        </Group>
         <nav className={classes.navbar}>
           <TextInput
             placeholder="Search"
@@ -85,12 +113,18 @@ export const LayoutNavbar = () => {
               />
             }
             rightSectionWidth={70}
-            rightSection={<Code className={classes.searchCode}>Ctrl + K</Code>}
+            rightSection={<Code className={classes.searchCode}>Ctrl + J</Code>}
             styles={{ section: { pointerEvents: 'none' } }}
             mb="sm"
           />
           <div className={classes.section}>
             <div className={classes.mainLinks}>{mainLinks}</div>
+            <Divider
+              size={'xs'}
+              style={{
+                width: '98%',
+              }}
+            />
           </div>
 
           <div className={classes.section}>
@@ -115,6 +149,16 @@ export const LayoutNavbar = () => {
             </ScrollArea>
           </div>
         </nav>
+        <Divider
+          orientation="vertical"
+          style={{
+            position: 'absolute',
+            right: 0,
+            width: '1px',
+            height: '100vh',
+            cursor: 'col-resize',
+          }}
+        />
       </AppShell.Navbar>
     </>
   );

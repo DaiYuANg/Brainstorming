@@ -6,110 +6,114 @@ import {
   Menu,
   rem,
   Text,
+  Title,
+  Tooltip,
 } from '@mantine/core';
+import { useColorScheme } from '@mantine/hooks';
 import {
   IconArrowsLeftRight,
   IconDots,
-  IconLayoutSidebarLeftCollapseFilled,
   IconMessageCircle,
   IconPhoto,
+  IconSailboatOff,
   IconSearch,
   IconTrash,
 } from '@tabler/icons-react';
+import classes from '../ContextMenu.module.css';
 import { WindowsControlButton } from '../WindowsControlButton.tsx';
-import { OpenSettings } from './settings/OpenSettings.tsx';
 
 const LayoutHeader = () => {
-  // const [opened, { toggle }] = useDisclosure();
-
-  console.log(window.electronAPI.isMac);
+  const color = useColorScheme();
   return (
     <AppShell.Header className={'draggable'}>
       <Grid>
+        <Grid.Col span={4}></Grid.Col>
         <Grid.Col span={4}>
-          <ActionIcon variant={'transparent'}>
-            <IconLayoutSidebarLeftCollapseFilled color={'gray-50'} />
-          </ActionIcon>
-        </Grid.Col>
-        <Grid.Col span={4}>
-          <Group justify={'center'}>
-            <Text
-              pt={3}
-              style={{
-                userSelect: 'none',
-              }}
-            >
+          <Group justify={'center'} align={'center'}>
+            <Title order={6} pt={4}>
               Document Title
-            </Text>
+            </Title>
           </Group>
         </Grid.Col>
         <Grid.Col span={4}>
-          <Group justify={'end'} gap={'xs'} pr={'xs'}>
+          <Group justify={'end'} align={'center'} gap={'xs'} pr={'xs'}>
             <Menu shadow="md" width={200}>
               <Menu.Target>
-                <ActionIcon variant={'transparent'}>
-                  <IconDots />
-                </ActionIcon>
+                <Tooltip label="Page Settings" withArrow>
+                  <ActionIcon variant={'transparent'}>
+                    <IconDots
+                      color={
+                        color === 'dark'
+                          ? 'var(--mantine-color-white)'
+                          : 'var(--mantine-color-black)'
+                      }
+                    />
+                  </ActionIcon>
+                </Tooltip>
               </Menu.Target>
 
               <Menu.Dropdown>
-                <Menu.Label>Application</Menu.Label>
-                <Menu.Item
-                  leftSection={
-                    <OpenSettings style={{ width: rem(14), height: rem(14) }} />
-                  }
-                >
-                  Settings
-                </Menu.Item>
-                <Menu.Item
-                  leftSection={
-                    <IconMessageCircle
-                      style={{ width: rem(14), height: rem(14) }}
-                    />
-                  }
-                >
-                  Messages
-                </Menu.Item>
-                <Menu.Item
-                  leftSection={
-                    <IconPhoto style={{ width: rem(14), height: rem(14) }} />
-                  }
-                >
-                  Gallery
-                </Menu.Item>
-                <Menu.Item
-                  leftSection={
-                    <IconSearch style={{ width: rem(14), height: rem(14) }} />
-                  }
-                  rightSection={
-                    <Text size="xs" c="dimmed">
-                      ⌘K
-                    </Text>
-                  }
-                >
-                  Search
-                </Menu.Item>
+                <div className={classes.contextMenu}>
+                  <Menu.Label>Application</Menu.Label>
+                  <Menu.Item
+                    leftSection={
+                      <IconSailboatOff
+                        style={{ width: rem(14), height: rem(14) }}
+                      />
+                    }
+                  >
+                    Settings
+                  </Menu.Item>
+                  <Menu.Item
+                    leftSection={
+                      <IconMessageCircle
+                        style={{ width: rem(14), height: rem(14) }}
+                      />
+                    }
+                  >
+                    Messages
+                  </Menu.Item>
+                  <Menu.Item
+                    leftSection={
+                      <IconPhoto style={{ width: rem(14), height: rem(14) }} />
+                    }
+                  >
+                    Gallery
+                  </Menu.Item>
+                  <Menu.Item
+                    leftSection={
+                      <IconSearch style={{ width: rem(14), height: rem(14) }} />
+                    }
+                    rightSection={
+                      <Text size="xs" c="dimmed">
+                        ⌘K
+                      </Text>
+                    }
+                  >
+                    Search
+                  </Menu.Item>
 
-                <Menu.Divider />
+                  <Menu.Divider />
 
-                <Menu.Label>Danger zone</Menu.Label>
-                <Menu.Item
-                  leftSection={
-                    <IconArrowsLeftRight
-                      style={{ width: rem(14), height: rem(14) }}
-                    />
-                  }
-                >
-                  Transfer my data
-                </Menu.Item>
-                <Menu.Item
-                  color="red"
-                  leftSection={
-                    <IconTrash style={{ width: rem(14), height: rem(14) }} />
-                  }
-                >
-                  Delete my account
-                </Menu.Item>
+                  <Menu.Label>Danger zone</Menu.Label>
+                  <Menu.Item
+                    leftSection={
+                      <IconArrowsLeftRight
+                        style={{ width: rem(14), height: rem(14) }}
+                      />
+                    }
+                  >
+                    Transfer my data
+                  </Menu.Item>
+                  <Menu.Item
+                    color="red"
+                    leftSection={
+                      <IconTrash style={{ width: rem(14), height: rem(14) }} />
+                    }
+                  >
+                    Delete my account
+                  </Menu.Item>
+                </div>
               </Menu.Dropdown>
             </Menu>
             {window.electronAPI.isWindows && (

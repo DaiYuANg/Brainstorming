@@ -1,6 +1,6 @@
 import react from '@vitejs/plugin-react-swc';
 import { visualizer } from 'rollup-plugin-visualizer';
-import { defineConfig, type PluginOption } from 'vite';
+import { defineConfig, splitVendorChunkPlugin, type PluginOption } from 'vite';
 import electron from 'vite-plugin-electron';
 import renderer from 'vite-plugin-electron-renderer';
 import TurboConsole from 'vite-plugin-turbo-console';
@@ -26,6 +26,7 @@ export default defineConfig(async () => ({
     ]),
     renderer(),
     TurboConsole(),
+    splitVendorChunkPlugin(),
   ],
   build: {
     minify: true,
@@ -36,6 +37,7 @@ export default defineConfig(async () => ({
         drop_debugger: true,
       },
     },
+    rollupOptions: {},
   },
   clearScreen: true,
   server: {

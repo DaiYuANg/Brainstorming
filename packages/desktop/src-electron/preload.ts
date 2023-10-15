@@ -115,6 +115,9 @@ contextBridge.exposeInMainWorld('electronAPI', {
   closeWindow: () => {
     ipcRenderer.send('close-window');
   },
+  listWorkspace: (): [] => {
+    return [];
+  },
   isMac,
   isWindows,
   isLinux,

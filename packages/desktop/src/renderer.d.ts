@@ -7,6 +7,7 @@ export interface IElectronAPI {
   isMac: boolean;
   isWindows: boolean;
   isLinux: boolean;
+  listWorkspace: () => Array[];
 }
 
 declare global {

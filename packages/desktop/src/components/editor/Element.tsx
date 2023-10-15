@@ -1,4 +1,4 @@
-import { List, Text, Title } from '@mantine/core';
+import { Blockquote, List, Text, Title } from '@mantine/core';
 import { ReactNode } from 'react';
 import { JSX } from 'react/jsx-runtime';
 
@@ -15,7 +15,7 @@ const Element = ({
 }: ElementProps): JSX.Element => {
   switch (element.type) {
     case 'block-quote':
-      return <blockquote {...attributes}>{children}</blockquote>;
+      return <Blockquote {...attributes}>{children}</Blockquote>;
     case 'bulleted-list':
       return <List {...attributes}>{children}</List>;
     case 'heading-one':

@@ -1,5 +1,10 @@
 import { createContext } from 'react';
 
-const useLayoutContext = createContext({});
+interface LayoutContextValueProps {
+  open: boolean;
+}
 
-export { useLayoutContext };
+const LayoutContext = createContext<LayoutContextValueProps>({});
+
+export { LayoutContext };
+export type { LayoutContextValueProps };

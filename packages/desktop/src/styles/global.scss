@@ -3,6 +3,10 @@
   -webkit-app-region: drag;
 }
 
+.normal-font {
+  font-size: var(--mantine-font-size-xs);
+}
+
 .titlebar-button {
   //-webkit-app-region: no-drag;
 }

@@ -8,7 +8,7 @@ const DraggableSizeBar = () => {
       <Divider
         size="md"
         orientation="vertical"
-        sx={{
+        style={{
           position: 'absolute',
           right: 0,
           top: 10,
