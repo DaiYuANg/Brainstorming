@@ -1,4 +1,5 @@
 import { CustomListItem } from '@brainstorming/component';
+import '@brainstorming/component/dist/style.css';
 import {
   ActionIcon,
   AppShell,
@@ -26,9 +27,22 @@ import classes from './LayoutNavbar.module.css';
 import { OpenSettings } from './settings/OpenSettings.tsx';
 
 const links = [
-  { icon: IconBulb, label: 'Activity', notifications: 3 },
-  { icon: IconCheckbox, label: 'Tasks', notifications: 4 },
-  { icon: IconUser, label: 'Contacts' },
+  {
+    icon: <IconBulb size={20} className={classes.mainLinkIcon} stroke={1.5} />,
+    label: 'Activity',
+    notifications: 3,
+  },
+  {
+    icon: (
+      <IconCheckbox size={20} className={classes.mainLinkIcon} stroke={1.5} />
+    ),
+    label: 'Tasks',
+    notifications: 4,
+  },
+  {
+    icon: <IconUser size={20} className={classes.mainLinkIcon} stroke={1.5} />,
+    label: 'Contacts',
+  },
 ];
 
 const collections = [
@@ -43,18 +57,7 @@ const collections = [
   { emoji: '💁‍♀️', label: 'Customers' },
 ];
 const mainLinks = links.map((link) => (
-  <CustomListItem link={link} />
-  // <UnstyledButton key={link.label} className={classes.mainLink}>
-  //      <div className={classes.mainLinkInner}>
-  //          <link.icon size={20} className={classes.mainLinkIcon} stroke={1.5}/>
-  //          <span>{link.label}</span>
-  //      </div>
-  //      {link.notifications && (
-  //          <Badge size="sm" variant="filled" className={classes.mainLinkBadge}>
-  //              {link.notifications}
-  //          </Badge>
-  //      )}
-  // </UnstyledButton>
+  <>{<CustomListItem link={link} key={link.label} />}</>
 ));
 const collectionLinks = collections.map((collection) => (
   <UnstyledButton

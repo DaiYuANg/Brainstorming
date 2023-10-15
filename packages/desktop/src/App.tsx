@@ -1,6 +1,5 @@
 import { MantineProvider } from '@mantine/core';
 import { lazy } from 'react';
-import { MainLayout } from './components/layout';
 import { theme } from './theme.ts';
 
 const ApplicationSpotlight = lazy(() =>
@@ -15,7 +14,13 @@ const ContextMenu = lazy(() =>
   })),
 );
 
-function App() {
+const MainLayout = lazy(() =>
+  import('./components/layout/MainLayout.tsx').then(({ MainLayout }) => ({
+    default: MainLayout,
+  })),
+);
+
+function App(): JSX.Element {
   return (
     <>
       <MantineProvider theme={theme} defaultColorScheme="auto">

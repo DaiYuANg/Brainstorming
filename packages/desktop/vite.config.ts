@@ -38,6 +38,7 @@ export default defineConfig(async () => ({
       },
     },
     rollupOptions: {},
+    sourcemap: true,
   },
   clearScreen: true,
   server: {
