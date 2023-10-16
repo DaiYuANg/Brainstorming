@@ -1,23 +1,22 @@
-import {AppShell, Divider, ScrollArea} from '@mantine/core';
-import { isEmpty } from 'lodash';
+import { AppShell, Divider, ScrollArea } from '@mantine/core';
 import { RouterProvider } from 'react-router-dom';
 import { router } from '../../modules';
-import { EmptyWorkspace } from '../EmptyWorkspace.tsx';
 
 const MainContent = () => {
-  if (isEmpty(window.electronAPI.listWorkspace())) {
-    return (
-      <>
-        <EmptyWorkspace />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <RouterProvider router={router}></RouterProvider>
-      </>
-    );
-  }
+  // if (isEmpty(window.electronAPI.listWorkspace())) {
+  //   return (
+  //     <>
+  //       <EmptyWorkspace />
+  //     </>
+  //   );
+  // } else {
+  //   return (
+  //     <>
+  //       <RouterProvider router={router}></RouterProvider>
+  //     </>
+  //   );
+  // }
+  return <RouterProvider router={router}></RouterProvider>;
 };
 
 interface LayoutMainProps {
@@ -44,9 +43,9 @@ const LayoutMain = (props: LayoutMainProps) => {
           }}
           onMouseEnter={onDividerIn}
         ></Divider>
-          <ScrollArea>
-              <MainContent />
-          </ScrollArea>
+        <ScrollArea>
+          <MainContent />
+        </ScrollArea>
       </AppShell.Main>
     </>
   );
