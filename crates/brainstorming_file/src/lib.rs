@@ -6,8 +6,8 @@ pub fn add(left: usize, right: usize) -> usize {
 
 #[cfg(test)]
 mod tests {
-    use crate::create_brainstorming::create_brainstorming_file;
     use super::*;
+    use crate::create_brainstorming::create_brainstorming_file;
 
     #[test]
     fn it_works() {
@@ -16,7 +16,7 @@ mod tests {
     }
 
     #[test]
-    fn test_create_brainstorming(){
+    fn test_create_brainstorming() {
         create_brainstorming_file("./workspace")
     }
 }
