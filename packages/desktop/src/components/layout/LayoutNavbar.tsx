@@ -5,6 +5,7 @@ import {
   AppShell,
   Code,
   Divider,
+  Grid,
   Group,
   ScrollArea,
   Space,
@@ -19,6 +20,7 @@ import {
   IconBulb,
   IconCheckbox,
   IconLayoutSidebarLeftCollapse,
+  IconNotebook,
   IconPlus,
   IconSearch,
   IconUser,
@@ -89,24 +91,37 @@ export const LayoutNavbar = (props: LayoutNavbarProp) => {
   return (
     <>
       <AppShell.Navbar>
-        <Group justify={'flex-end'} gap={'xs'} align={'center'}>
-          <Tooltip arrowSize={4} withArrow label="Open Settings">
-            <ActionIcon variant={'transparent'}>
-              <OpenSettings />
-            </ActionIcon>
-          </Tooltip>
-          <Tooltip arrowSize={4} withArrow label="Collaspe Side Bar">
-            <ActionIcon variant={'transparent'} onClick={props.toggleOpen}>
-              <IconLayoutSidebarLeftCollapse
-                color={
-                  color === 'dark'
-                    ? 'var(--mantine-color-white)'
-                    : 'var(--mantine-color-black)'
-                }
-              />
-            </ActionIcon>
-          </Tooltip>
-        </Group>
+        <Grid>
+          <Grid.Col span={8} pl={'sm'}>
+            {window.electronAPI.isWindows && (
+              <Group gap={0} align={'center'}>
+                <IconNotebook />
+                <Text>Brainstorming</Text>
+              </Group>
+            )}
+          </Grid.Col>
+          <Grid.Col span={4}>
+            <Group justify={'flex-end'} gap={0} align={'center'}>
+              <Tooltip arrowSize={4} withArrow label="Open Settings">
+                <ActionIcon variant={'transparent'}>
+                  <OpenSettings />
+                </ActionIcon>
+              </Tooltip>
+              <Tooltip arrowSize={4} withArrow label="Collaspe Side Bar">
+                <ActionIcon variant={'transparent'} onClick={props.toggleOpen}>
+                  <IconLayoutSidebarLeftCollapse
+                    color={
+                      color === 'dark'
+                        ? 'var(--mantine-color-white)'
+                        : 'var(--mantine-color-black)'
+                    }
+                  />
+                </ActionIcon>
+              </Tooltip>
+            </Group>
+          </Grid.Col>
+        </Grid>
+        <Divider />
         <nav className={classes.navbar}>
           <TextInput
             placeholder="Search"

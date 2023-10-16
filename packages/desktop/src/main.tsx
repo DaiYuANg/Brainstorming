@@ -14,7 +14,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 );
 
 postMessage({ payload: 'removeLoading' }, '*');
-console.log(window.electronAPI);
 window.electronAPI.loadPreferences().then((r) => {
   console.log(r);
 });

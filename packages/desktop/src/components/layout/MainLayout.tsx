@@ -7,7 +7,7 @@ import { LayoutNavbar } from './LayoutNavbar.tsx';
 
 export const MainLayout = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const [navbarWidth, setNavbarWidth] = useState<number>(250);
+  const [navbarWidth, setNavbarWidth] = useState<number>(300);
   const toggleOpen = () => {
     setOpen(!open);
   };

@@ -1,4 +1,4 @@
-import { AppShell, Divider } from '@mantine/core';
+import {AppShell, Divider, ScrollArea} from '@mantine/core';
 import { isEmpty } from 'lodash';
 import { RouterProvider } from 'react-router-dom';
 import { router } from '../../modules';
@@ -39,12 +39,14 @@ const LayoutMain = (props: LayoutMainProps) => {
             top: 0,
             left: 0,
             height: '100vh',
-            width: '5px',
+            width: '10px',
             zIndex: 10000,
           }}
           onMouseEnter={onDividerIn}
         ></Divider>
-        <MainContent />
+          <ScrollArea>
+              <MainContent />
+          </ScrollArea>
       </AppShell.Main>
     </>
   );
