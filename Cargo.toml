@@ -1,5 +1,6 @@
 [workspace]
 members=[
-    'packages/desktop/src-tauri'
+    'packages/desktop/src-tauri',
+    'crates/sync_server'
 ]
 workspace.resolver = "2"
