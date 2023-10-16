@@ -1,6 +1,7 @@
 [workspace]
 members=[
     'packages/desktop/src-tauri',
-    'crates/sync_server'
+    'crates/sync_server',
+    'crates/brainstorming_file'
 ]
 workspace.resolver = "2"

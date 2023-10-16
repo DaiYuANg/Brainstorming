@@ -2,6 +2,7 @@ import {
   ActionIcon,
   AppShell,
   Badge,
+  Button,
   Code,
   Divider,
   Grid,
@@ -16,6 +17,11 @@ import {
 } from '@mantine/core';
 import { useColorScheme } from '@mantine/hooks';
 import {
+  MultiBackend,
+  Tree,
+  getBackendOptions,
+} from '@minoru/react-dnd-treeview';
+import {
   IconBulb,
   IconCheckbox,
   IconLayoutSidebarLeftCollapse,
@@ -23,9 +29,59 @@ import {
   IconSearch,
   IconUser,
 } from '@tabler/icons-react';
+import { useState } from 'react';
+import { DndProvider } from 'react-dnd';
 import classes from './LayoutNavbar.module.css';
 import TitleBar from './TitleBar.tsx';
 import { OpenSettings } from './settings/OpenSettings.tsx';
+
+const data = [
+  {
+    id: 1,
+    parent: 0,
+    droppable: true,
+    text: 'Folder 1',
+  },
+  {
+    id: 2,
+    parent: 1,
+    text: 'File 1-1',
+    data: {
+      fileType: 'csv',
+      fileSize: '0.5MB',
+    },
+  },
+  {
+    id: 3,
+    parent: 1,
+    text: 'File 1-2',
+    data: {
+      fileType: 'pdf',
+      fileSize: '4.8MB',
+    },
+  },
+  {
+    id: 4,
+    parent: 0,
+    droppable: true,
+    text: 'Folder 2',
+  },
+  {
+    id: 5,
+    parent: 4,
+    droppable: true,
+    text: 'Folder 2-1',
+  },
+  {
+    id: 6,
+    parent: 5,
+    text: 'File 2-1-1',
+    data: {
+      fileType: 'image',
+      fileSize: '2.1MB',
+    },
+  },
+];
 
 const links = [
   { icon: IconBulb, label: 'Activity', notifications: 3 },
@@ -84,6 +140,8 @@ interface LayoutNavbarProp {
 }
 
 export const LayoutNavbar = (props: LayoutNavbarProp) => {
+  const [treeData, setTreeData] = useState(data);
+  const handleDrop = (newTreeData: any) => setTreeData(newTreeData);
   const color = useColorScheme();
   return (
     <>
@@ -164,6 +222,21 @@ export const LayoutNavbar = (props: LayoutNavbarProp) => {
             </Group>
             <ScrollArea>
               <div className={classes.collections}>{collectionLinks}</div>
+              <DndProvider backend={MultiBackend} options={getBackendOptions()}>
+                <Tree
+                  tree={treeData}
+                  rootId={0}
+                  onDrop={handleDrop}
+                  render={(node, { depth, isOpen, onToggle }) => (
+                    <Button style={{ marginLeft: depth * 10 }}>
+                      {node.droppable && (
+                        <span onClick={onToggle}>{isOpen ? '[-]' : '[+]'}</span>
+                      )}
+                      {node.text}
+                    </Button>
+                  )}
+                />
+              </DndProvider>
             </ScrollArea>
           </div>
         </nav>

@@ -24,7 +24,7 @@ export const MainLayout = () => {
           header={{ height: 30, offset: false }}
           navbar={{
             width: navbarWidth,
-            breakpoint: 'md',
+            breakpoint: 0,
             collapsed: { mobile: false, desktop: open },
           }}
         >
