@@ -1,16 +1,16 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-use window_vibrancy::{apply_blur, apply_vibrancy, NSVisualEffectMaterial};
+use tauri_plugin_log::LogTarget;
 use window_shadows::set_shadow;
-use tauri_plugin_log::{LogTarget};
+use window_vibrancy::{apply_blur, apply_vibrancy, NSVisualEffectMaterial};
 #[tauri::command]
 fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
 }
 use tauri::Manager;
 
-pub fn tauri_run(){
+pub fn tauri_run() {
     tauri::Builder::default()
         .setup(|app| {
             let window = app.get_window("main").unwrap();
@@ -24,11 +24,11 @@ pub fn tauri_run(){
                 .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
             Ok(())
         })
-        .plugin(tauri_plugin_log::Builder::default().targets([
-            LogTarget::LogDir,
-            LogTarget::Stdout,
-            LogTarget::Webview,
-        ]).build())
+        .plugin(
+            tauri_plugin_log::Builder::default()
+                .targets([LogTarget::LogDir, LogTarget::Stdout, LogTarget::Webview])
+                .build(),
+        )
         .invoke_handler(tauri::generate_handler![greet])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
