@@ -20,23 +20,34 @@ import {
   IconTrash,
 } from '@tabler/icons-react';
 import classes from '../ContextMenu.module.css';
-import { WindowsControlButton } from '../WindowsControlButton.tsx';
 
 const LayoutHeader = () => {
   const color = useColorScheme();
   return (
-    <AppShell.Header className={'draggable'}>
-      <Grid>
-        <Grid.Col span={4}></Grid.Col>
-        <Grid.Col span={4}>
-          <Group justify={'center'} align={'center'}>
-            <Title order={6} pt={4}>
+    <AppShell.Header
+      style={{
+        zIndex: 1000000,
+      }}
+      data-tauri-drag-region
+      className={'draggable'}
+    >
+      <Grid data-tauri-drag-region>
+        <Grid.Col span={4} data-tauri-drag-region></Grid.Col>
+        <Grid.Col span={4} data-tauri-drag-region>
+          <Group data-tauri-drag-region justify={'center'} align={'center'}>
+            <Title data-tauri-drag-region order={6} pt={4}>
               Document Title
             </Title>
           </Group>
         </Grid.Col>
-        <Grid.Col span={4}>
-          <Group justify={'end'} align={'center'} gap={'xs'} pr={'xs'}>
+        <Grid.Col span={4} data-tauri-drag-region>
+          <Group
+            data-tauri-drag-region
+            justify={'end'}
+            align={'center'}
+            gap={'xs'}
+            pr={'xs'}
+          >
             <Menu shadow="md" width={200}>
               <Menu.Target>
                 <Tooltip label="Page Settings" withArrow>
@@ -116,11 +127,11 @@ const LayoutHeader = () => {
                 </div>
               </Menu.Dropdown>
             </Menu>
-            {window.electronAPI.isWindows && (
-              <>
-                <WindowsControlButton />
-              </>
-            )}
+            {/*{window.electronAPI.isWindows && (*/}
+            {/*  <>*/}
+            {/*    <WindowsControlButton />*/}
+            {/*  </>*/}
+            {/*)}*/}
           </Group>
         </Grid.Col>
       </Grid>

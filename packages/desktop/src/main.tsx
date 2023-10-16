@@ -12,8 +12,3 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <App />
   </StrictMode>,
 );
-
-postMessage({ payload: 'removeLoading' }, '*');
-window.electronAPI.loadPreferences().then((r) => {
-  console.log(r);
-});

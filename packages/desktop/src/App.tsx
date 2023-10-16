@@ -25,7 +25,7 @@ function App(): JSX.Element {
     <>
       <MantineProvider theme={theme} defaultColorScheme="auto">
         <ContextMenu />
-        <MainLayout />
+        <MainLayout data-tauri-drag-region />
         <ApplicationSpotlight />
       </MantineProvider>
     </>

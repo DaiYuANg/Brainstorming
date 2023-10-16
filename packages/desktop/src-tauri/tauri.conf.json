@@ -1,0 +1,59 @@
+{
+  "build": {
+    "beforeDevCommand": "pnpm dev",
+    "beforeBuildCommand": "pnpm build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "desktop",
+    "version": "0.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "os": {
+        "all": true
+      },
+      "shell": {
+        "all": false,
+        "open": true
+      },
+      "window": {
+        "startDragging": true,
+        "minimize": true,
+        "close": true,
+        "hide": true,
+        "maximize": true
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "org.brainstorm",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ]
+    },
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "transparent": true,
+        "resizable": true,
+        "title": "desktop-alternative",
+        "width": 1000,
+        "decorations": false,
+        "height": 800
+      }
+    ],
+    "macOSPrivateApi": true
+  }
+}

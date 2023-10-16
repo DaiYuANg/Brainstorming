@@ -1,37 +1,66 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brainstorming</title>
-    <style>
-      body{
-       overflow:hidden;
-      }
-      body {
-        -webkit-app-region: drag;
-        background: transparent;
-      }
-      button {
-        -webkit-app-region: no-drag;
-      }
-      body > * {
-        -webkit-app-region: no-drag;
-      }
-      .titlebar {
-        -webkit-user-select: none;
-        -webkit-app-region: drag;
-      }
-      .resizer:hover {
-        cursor: col-resize;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-  <script src="http://localhost:8097"></script>
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tauri + React + TS</title>
+</head>
+<style>
+  body{
+    border-radius: 50px;
+  }
+  .titlebar {
+    height: 30px;
+    background: #329ea3;
+    user-select: none;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .titlebar-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+  }
+  .titlebar-button:hover {
+    background: rgba(255, 255, 255, 0);
+  }
+  body {
+      backdrop-filter: blur(20px);
+      /*background: rgba(238, 238, 244, 0.5);*/
+      /*background: transparent;*/
+      padding: 0;
+      margin: 0;
+      border-radius: 15px;
+      height: 100vh;
+      background-color: rgba(218, 213, 213, 0.11);
+  }
+</style>
+<body>
+<!--<div data-tauri-drag-region class="titlebar">-->
+<!--    <div class="titlebar-button" id="titlebar-minimize">-->
+<!--        <img-->
+<!--                src="https://api.iconify.design/mdi:window-minimize.svg"-->
+<!--                alt="minimize"-->
+<!--        />-->
+<!--    </div>-->
+<!--    <div class="titlebar-button" id="titlebar-maximize">-->
+<!--        <img-->
+<!--                src="https://api.iconify.design/mdi:window-maximize.svg"-->
+<!--                alt="maximize"-->
+<!--        />-->
+<!--    </div>-->
+<!--    <div class="titlebar-button" id="titlebar-close">-->
+<!--        <img src="https://api.iconify.design/mdi:close.svg" alt="close"/>-->
+<!--    </div>-->
+<!--</div>-->
+<div id="root" data-tauri-drag-region></div>
+<script type="module" src="/src/main.tsx"></script>
+</body>
 </html>

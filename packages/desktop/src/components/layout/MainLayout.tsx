@@ -1,5 +1,4 @@
-import { AppShell, Box } from '@mantine/core';
-import { isEmpty } from 'lodash';
+import { AppShell } from '@mantine/core';
 import { useState } from 'react';
 import { LayoutHeader } from './LayoutHeader.tsx';
 import { LayoutMain } from './LayoutMain.tsx';
@@ -7,18 +6,19 @@ import { LayoutNavbar } from './LayoutNavbar.tsx';
 
 export const MainLayout = () => {
   const [open, setOpen] = useState<boolean>(false);
-  const [navbarWidth, setNavbarWidth] = useState<number>(300);
+  const [navbarWidth, setNavbarWidth] = useState<number>(250);
   const toggleOpen = () => {
     setOpen(!open);
   };
 
-  console.log(isEmpty(window.electronAPI.listWorkspace()));
+  // console.log(isEmpty(window.electronAPI.listWorkspace()));
   return (
     <>
-      <Box>
+      <div data-tauri-drag-region={true}>
         <AppShell
           style={{
-            background: 'rgba(255, 255, 255, 0.02)',
+            background: 'transparent',
+            borderRadius: '15px',
           }}
           layout={'alt'}
           header={{ height: 30, offset: false }}
@@ -32,7 +32,7 @@ export const MainLayout = () => {
           <LayoutNavbar toggleOpen={toggleOpen} navbarResize={setNavbarWidth} />
           <LayoutMain toggleSide={toggleOpen} open={open} />
         </AppShell>
-      </Box>
+      </div>
     </>
   );
 };
