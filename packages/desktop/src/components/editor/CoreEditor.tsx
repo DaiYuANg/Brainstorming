@@ -5,13 +5,20 @@ import {
   BaseEditor,
   Descendant,
   Editor,
+  Node,
   Element as SlateElement,
-  Node as SlateNode,
   createEditor,
 } from 'slate';
 import { HistoryEditor, withHistory } from 'slate-history';
-import { Editable, ReactEditor, Slate, withReact } from 'slate-react';
-import { Element, ElementProps } from './Element.tsx';
+import {
+  Editable,
+  ReactEditor,
+  RenderElementProps,
+  Slate,
+  withReact,
+} from 'slate-react';
+import classes from './CoreEditor.module.css';
+import { Element } from './Element.tsx';
 import { SHORTCUTS, withShortcuts } from './WithShortcuts.ts';
 
 interface CoreEditorProps {
@@ -25,63 +32,55 @@ const CoreEditor = (props: CoreEditorProps) => {
   );
 
   const renderElement = useCallback(
-    (props: ElementProps) => <Element {...props} />,
+    (props: RenderElementProps) => (
+      <Element {...props} children={props.children} />
+    ),
     [],
   );
-  const handleDOMBeforeInput = useCallback(
-    (e: InputEvent) => {
-      console.log(e);
-      queueMicrotask(() => {
-        const pendingDiffs = ReactEditor.androidPendingDiffs(editor);
+  const handleDOMBeforeInput = useCallback(() => {
+    queueMicrotask(task);
+  }, [editor]);
 
-        const scheduleFlush = pendingDiffs?.some(({ diff, path }) => {
-          if (!diff.text.endsWith(' ')) {
-            return false;
-          }
+  const task = () => {
+    const pendingDiffs = ReactEditor.androidPendingDiffs(editor);
 
-          const { text } = SlateNode.leaf(editor, path);
-          const beforeText = text.slice(0, diff.start) + diff.text.slice(0, -1);
-          if (!(beforeText in SHORTCUTS)) {
-            return;
-          }
+    const scheduleFlush = pendingDiffs?.some(({ diff, path }) => {
+      if (!diff.text.endsWith(' ')) {
+        return false;
+      }
 
-          const blockEntry = Editor.above(editor, {
-            at: path,
-            match: (n) =>
-              SlateElement.isElement(n) && Editor.isBlock(editor, n),
-          });
-          if (!blockEntry) {
-            return false;
-          }
+      const { text } = Node.leaf(editor, path);
+      const beforeText = text.slice(0, diff.start) + diff.text.slice(0, -1);
+      if (!(beforeText in SHORTCUTS)) {
+        return;
+      }
 
-          const [, blockPath] = blockEntry;
-          return Editor.isStart(editor, Editor.start(editor, path), blockPath);
-        });
-
-        if (scheduleFlush) {
-          ReactEditor.androidScheduleFlush(editor);
-        }
+      const blockEntry = Editor.above(editor, {
+        at: path,
+        match: (n) => SlateElement.isElement(n) && Editor.isBlock(editor, n),
       });
-    },
-    [editor],
-  );
+      if (!blockEntry) {
+        return false;
+      }
+
+      const [, blockPath] = blockEntry;
+      return Editor.isStart(editor, Editor.start(editor, path), blockPath);
+    });
+
+    if (scheduleFlush) {
+      ReactEditor.androidScheduleFlush(editor);
+    }
+  };
+
   return (
     <>
       <Container>
         <Slate editor={editor} initialValue={props.initialValue}>
           <Editable
-            style={{
-              minHeight: '200px',
-              padding: '5px',
-              backgroundColor: 'transparent',
-              outline: 'none' /* 移除默认的轮廓样式 */,
-              border:
-                '1px solid transparent' /* 添加一个透明的边框以保持元素的可编辑状态 */,
-            }}
+            className={classes.root}
             onDOMBeforeInput={handleDOMBeforeInput}
             renderElement={renderElement}
-            placeholder="Write some markdown..."
-            spellCheck
+            placeholder='Write some markdown...'
             autoFocus
           />
         </Slate>

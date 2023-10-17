@@ -50,7 +50,7 @@ const ContextMenu = () => {
         transitionProps={{ transition: 'pop', duration: 150 }}
         onChange={setOpened}
         radius={'md'}
-        shadow="md"
+        shadow='md'
         width={200}
       >
         <Menu.Target>
@@ -93,7 +93,7 @@ const ContextMenu = () => {
                 <IconSearch style={{ width: rem(14), height: rem(14) }} />
               }
               rightSection={
-                <Text size="xs" c="dimmed">
+                <Text size='xs' c='dimmed'>
                   ⌘K
                 </Text>
               }
@@ -114,7 +114,7 @@ const ContextMenu = () => {
               Transfer my data
             </Menu.Item>
             <Menu.Item
-              color="red"
+              color='red'
               leftSection={
                 <IconTrash style={{ width: rem(14), height: rem(14) }} />
               }

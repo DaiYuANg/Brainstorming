@@ -8,9 +8,9 @@ const ApplicationSpotlight = () => {
     <>
       <Spotlight
         actions={actions}
-        nothingFound="Nothing found..."
+        nothingFound='Nothing found...'
         highlightQuery
-        shortcut="mod + J"
+        shortcut='mod + shift + F'
         searchProps={{
           leftSection: (
             <IconSearch

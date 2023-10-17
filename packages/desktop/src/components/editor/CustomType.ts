@@ -31,8 +31,38 @@ export type HeadingElement = {
   children: Descendant[];
 };
 
+export type HeadingOneElement = {
+  type: 'heading-one';
+  align?: string;
+  children: Descendant[];
+};
+
 export type HeadingTwoElement = {
   type: 'heading-two';
+  align?: string;
+  children: Descendant[];
+};
+
+export type HeadingThreeElement = {
+  type: 'heading-three';
+  align?: string;
+  children: Descendant[];
+};
+
+export type HeadingFourElement = {
+  type: 'heading-four';
+  align?: string;
+  children: Descendant[];
+};
+
+export type HeadingFiveElement = {
+  type: 'heading-five';
+  align?: string;
+  children: Descendant[];
+};
+
+export type HeadingSixElement = {
+  type: 'heading-six';
   align?: string;
   children: Descendant[];
 };
@@ -63,11 +93,11 @@ export type ParagraphElement = {
   children: Descendant[];
 };
 
-export type TableElement = { type: 'table'; children: TableRow[] };
+// export type TableElement = { type: 'table'; children: TableRow[] };
 
 export type TableCellElement = { type: 'table-cell'; children: CustomText[] };
 
-export type TableRowElement = { type: 'table-row'; children: TableCell[] };
+// export type TableRowElement = { type: 'table-row'; children: TableCell[] };
 
 export type TitleElement = { type: 'title'; children: Descendant[] };
 
@@ -102,13 +132,18 @@ type CustomElement =
   | ListItemElement
   | MentionElement
   | ParagraphElement
-  | TableElement
-  | TableRowElement
+  // | TableElement
+  // | TableRowElement
   | TableCellElement
   | TitleElement
   | VideoElement
   | CodeBlockElement
-  | CodeLineElement;
+  | CodeLineElement
+  | HeadingOneElement
+  | HeadingThreeElement
+  | HeadingFourElement
+  | HeadingFiveElement
+  | HeadingSixElement;
 
 export type CustomText = {
   bold?: boolean;

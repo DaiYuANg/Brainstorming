@@ -1,20 +1,9 @@
 .root {
-  position: absolute;
-  left: 0;
-  top: 0;
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-  /*border: 0;*/
-  /*background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));*/
-
-  /*&[data-accept] {*/
-  /*    color: var(--mantine-color-white);*/
-  /*    background-color: var(--mantine-color-blue-6);*/
-  /*}*/
-
-  /*&[data-reject] {*/
-  /*    color: var(--mantine-color-white);*/
-  /*    background-color: var(--mantine-color-red-6);*/
-  /*}*/
+  min-height: 50vh;
+  padding: 5px;
+  background-color: transparent;
+  outline: none;
+  caret-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+

@@ -40,49 +40,49 @@ const LoginPage = (props: PaperProps) => {
 
   return (
     <Flex justify={'center'} align={'center'} my={150}>
-      <Paper radius="md" p="xl" withBorder {...props}>
-        <Text size="lg" fw={500}>
+      <Paper radius='md' p='xl' withBorder {...props}>
+        <Text size='lg' fw={500}>
           Welcome to Mantine, {type} with das dasdas
         </Text>
 
-        <Group grow mb="md" mt="md"></Group>
+        <Group grow mb='md' mt='md'></Group>
 
         <Divider
-          label="Or continue with email"
-          labelPosition="center"
-          my="lg"
+          label='Or continue with email'
+          labelPosition='center'
+          my='lg'
         />
 
         <form onSubmit={form.onSubmit(submit)}>
           <Stack>
             {type === 'register' && (
               <TextInput
-                label="Name"
-                placeholder="Your name"
+                label='Name'
+                placeholder='Your name'
                 value={form.values.name}
                 onChange={(event) =>
                   form.setFieldValue('name', event.currentTarget.value)
                 }
-                radius="md"
+                radius='md'
               />
             )}
 
             <TextInput
               required
-              label="Email"
-              placeholder="hello@mantine.dev"
+              label='Email'
+              placeholder='hello@mantine.dev'
               value={form.values.email}
               onChange={(event) =>
                 form.setFieldValue('email', event.currentTarget.value)
               }
               error={form.errors.email && 'Invalid email'}
-              radius="md"
+              radius='md'
             />
 
             <PasswordInput
               required
-              label="Password"
-              placeholder="Your password"
+              label='Password'
+              placeholder='Your password'
               value={form.values.password}
               onChange={(event) =>
                 form.setFieldValue('password', event.currentTarget.value)
@@ -91,12 +91,12 @@ const LoginPage = (props: PaperProps) => {
                 form.errors.password &&
                 'Password should include at least 6 characters'
               }
-              radius="md"
+              radius='md'
             />
 
             {type === 'register' && (
               <Checkbox
-                label="I accept terms and conditions"
+                label='I accept terms and conditions'
                 checked={form.values.terms}
                 onChange={(event) =>
                   form.setFieldValue('terms', event.currentTarget.checked)
@@ -105,19 +105,19 @@ const LoginPage = (props: PaperProps) => {
             )}
           </Stack>
 
-          <Group grow mt="xl">
+          <Group grow mt='xl'>
             <Anchor
-              component="button"
-              type="button"
-              c="dimmed"
+              component='button'
+              type='button'
+              c='dimmed'
               onClick={() => toggle()}
-              size="xs"
+              size='xs'
             >
               {type === 'register'
                 ? 'Already have an account? Login'
                 : "Don't have an account? Register"}
             </Anchor>
-            <Button type="submit" radius="xl">
+            <Button type='submit' radius='xl'>
               {upperFirst(type)}
             </Button>
           </Group>

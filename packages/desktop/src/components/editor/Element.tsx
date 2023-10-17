@@ -1,18 +1,13 @@
 import { Blockquote, List, Text, Title } from '@mantine/core';
-import { ReactNode } from 'react';
 import { JSX } from 'react/jsx-runtime';
-
-interface ElementProps {
-  attributes: JSX.IntrinsicAttributes;
-  children: ReactNode;
-  element: { type: string };
-}
+import { RenderElementProps } from 'slate-react';
 
 const Element = ({
   attributes,
   children,
   element,
-}: ElementProps): JSX.Element => {
+}: RenderElementProps): JSX.Element => {
+  console.log(element.type);
   switch (element.type) {
     case 'block-quote':
       return <Blockquote {...attributes}>{children}</Blockquote>;
@@ -62,4 +57,3 @@ const Element = ({
 };
 
 export { Element };
-export type { ElementProps };

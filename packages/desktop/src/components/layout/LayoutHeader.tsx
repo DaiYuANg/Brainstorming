@@ -24,7 +24,10 @@ import classes from '../ContextMenu.module.css';
 const LayoutHeader = () => {
   const color = useColorScheme();
   return (
-    <AppShell.Header data-tauri-drag-region className={'draggable'}>
+    <AppShell.Header
+      data-tauri-drag-region
+      className={'draggable transparency'}
+    >
       <Grid>
         <Grid.Col span={4} data-tauri-drag-region></Grid.Col>
         <Grid.Col span={4} data-tauri-drag-region>
@@ -42,9 +45,9 @@ const LayoutHeader = () => {
             gap={'xs'}
             pr={'xs'}
           >
-            <Menu shadow="md" width={200}>
+            <Menu shadow='md' width={200}>
               <Menu.Target>
-                <Tooltip label="Page Settings" withArrow>
+                <Tooltip label='Page Settings' withArrow>
                   <ActionIcon variant={'transparent'}>
                     <IconDots
                       color={
@@ -90,7 +93,7 @@ const LayoutHeader = () => {
                       <IconSearch style={{ width: rem(14), height: rem(14) }} />
                     }
                     rightSection={
-                      <Text size="xs" c="dimmed">
+                      <Text size='xs' c='dimmed'>
                         ⌘K
                       </Text>
                     }
@@ -111,7 +114,7 @@ const LayoutHeader = () => {
                     Transfer my data
                   </Menu.Item>
                   <Menu.Item
-                    color="red"
+                    color='red'
                     leftSection={
                       <IconTrash style={{ width: rem(14), height: rem(14) }} />
                     }

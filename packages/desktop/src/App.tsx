@@ -1,36 +1,20 @@
-import { MantineProvider } from '@mantine/core';
-import { lazy } from 'react';
-import { initialize } from './modules';
-import { theme } from './theme.ts';
+import { useMantineColorScheme } from '@mantine/core';
+import { useHotkeys } from '@mantine/hooks';
+import { ApplicationSpotlight, ContextMenu, MainLayout } from './components';
 
-const ApplicationSpotlight = lazy(() =>
-  import('./components/ApplicationSpotlight.tsx').then(
-    ({ ApplicationSpotlight }) => ({ default: ApplicationSpotlight }),
-  ),
-);
-
-const ContextMenu = lazy(() =>
-  import('./components/ContextMenu.tsx').then(({ ContextMenu }) => ({
-    default: ContextMenu,
-  })),
-);
-
-const MainLayout = lazy(() =>
-  import('./components/layout/MainLayout.tsx').then(({ MainLayout }) => ({
-    default: MainLayout,
-  })),
-);
-initialize().then((r) => {
-  console.log(r);
-});
 function App(): JSX.Element {
+  const color = useMantineColorScheme();
+  useHotkeys([
+    ['mod+T', () => color.toggleColorScheme()],
+    ['mod+F', () => console.log('Trigger search')],
+    ['alt+mod+shift+X', () => console.log('Rick roll')],
+  ]);
+
   return (
     <>
-      <MantineProvider theme={theme} defaultColorScheme="auto">
-        <ContextMenu />
-        <MainLayout data-tauri-drag-region />
-        <ApplicationSpotlight />
-      </MantineProvider>
+      <ContextMenu />
+      <MainLayout data-tauri-drag-region />
+      <ApplicationSpotlight />
     </>
   );
 }

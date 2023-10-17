@@ -20,7 +20,7 @@ const CustomListItem = (props: CustomListItemProps): JSX.Element => {
           <span>{props.link.label}</span>
         </div>
         {props.link.notifications && (
-          <Badge size="sm" variant="filled" className={classes.mainLinkBadge}>
+          <Badge size='sm' variant='filled' className={classes.mainLinkBadge}>
             {props.link.notifications}
           </Badge>
         )}

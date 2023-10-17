@@ -2,6 +2,7 @@ import {
   BasePoint,
   Editor,
   Path,
+  Point,
   Range,
   Element as SlateElement,
   Transforms,
@@ -19,10 +20,10 @@ const SHORTCUTS: Record<string, string> = {
   '####': 'heading-four',
   '#####': 'heading-five',
   '######': 'heading-six',
+  '```': 'code-block',
 };
 const withShortcuts = (editor: Editor) => {
   const { deleteBackward, insertText } = editor;
-  console.log(deleteBackward);
   editor.insertText = (text: string) => {
     const { selection } = editor;
 
@@ -36,7 +37,7 @@ const withShortcuts = (editor: Editor) => {
       const range = { anchor, focus: start };
       const beforeText: string =
         Editor.string(editor, range) + text.slice(0, -1);
-      const type: string = SHORTCUTS[beforeText];
+      const type = SHORTCUTS[beforeText];
 
       if (type) {
         Transforms.select(editor, range);
@@ -46,6 +47,8 @@ const withShortcuts = (editor: Editor) => {
         }
 
         const newProperties: Partial<SlateElement> = {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           type,
         };
         Transforms.setNodes<SlateElement>(editor, newProperties, {
@@ -73,7 +76,43 @@ const withShortcuts = (editor: Editor) => {
   };
 
   editor.deleteBackward = (...args) => {
-    console.log(args);
+    const { selection } = editor;
+
+    if (selection && Range.isCollapsed(selection)) {
+      const match = Editor.above(editor, {
+        match: (n) => SlateElement.isElement(n) && Editor.isBlock(editor, n),
+      });
+
+      if (match) {
+        const [block, path] = match;
+        const start = Editor.start(editor, path);
+
+        if (
+          !Editor.isEditor(block) &&
+          SlateElement.isElement(block) &&
+          block.type !== 'paragraph' &&
+          Point.equals(selection.anchor, start)
+        ) {
+          const newProperties: Partial<SlateElement> = {
+            type: 'paragraph',
+          };
+          Transforms.setNodes(editor, newProperties);
+
+          if (block.type === 'list-item') {
+            Transforms.unwrapNodes(editor, {
+              match: (n) =>
+                !Editor.isEditor(n) &&
+                SlateElement.isElement(n) &&
+                n.type === 'bulleted-list',
+              split: true,
+            });
+          }
+
+          return;
+        }
+      }
+    }
+    deleteBackward(...args);
   };
 
   return editor;

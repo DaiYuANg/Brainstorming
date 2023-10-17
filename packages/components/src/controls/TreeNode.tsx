@@ -9,7 +9,7 @@ const TreeNode = (component: string) => {
   }
   return (
     <>
-      <List.Item onClick={onSelect} w="100%">
+      <List.Item onClick={onSelect} w='100%'>
         {/*<div*/}
         {/*  style={{*/}
         {/*    display: 'flex',*/}

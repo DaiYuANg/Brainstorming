@@ -10,15 +10,14 @@ const initialValue: Array<Descendant> = [
     children: [{ text: 'A line of text in a paragraph.' }],
   },
 ];
-
 export const EditorPage = () => {
   const [scroll, scrollTo] = useWindowScroll();
   return (
     <>
       <div>
         <CoreEditor initialValue={initialValue} />
-        <Affix position={{ bottom: 20, right: 20 }}>
-          <Transition transition="slide-up" mounted={scroll.y > 0}>
+        <Affix color={'l'} position={{ bottom: 20, right: 20 }}>
+          <Transition transition='slide-up' mounted={scroll.y > 0}>
             {(transitionStyles) => (
               <ActionIcon
                 style={transitionStyles}

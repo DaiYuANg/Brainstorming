@@ -43,7 +43,7 @@ const LayoutMain = (props: LayoutMainProps) => {
           }}
           onMouseEnter={onDividerIn}
         ></Divider>
-        <ScrollArea>
+        <ScrollArea h={1000}>
           <MainContent />
         </ScrollArea>
       </AppShell.Main>

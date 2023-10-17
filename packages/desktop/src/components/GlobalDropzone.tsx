@@ -15,8 +15,8 @@ const GlobalDropzone = () => {
         }}
       >
         <Group
-          justify="center"
-          gap="xl"
+          justify='center'
+          gap='xl'
           mih={220}
           style={{ pointerEvents: 'none' }}
         >
@@ -52,10 +52,10 @@ const GlobalDropzone = () => {
           </Dropzone.Idle>
 
           <div>
-            <Text size="xl" inline>
+            <Text size='xl' inline>
               Drag images here or click to select files
             </Text>
-            <Text size="sm" c="dimmed" inline mt={7}>
+            <Text size='sm' c='dimmed' inline mt={7}>
               Attach as many files as you like, each file should not exceed 5mb
             </Text>
           </div>

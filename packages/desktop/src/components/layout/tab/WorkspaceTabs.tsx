@@ -8,27 +8,27 @@ export const WorkspaceTabs = () => {
       <Tabs
         variant={'default'}
         color={'dark'}
-        radius="md"
+        radius='md'
         p={0}
-        defaultValue="chat"
+        defaultValue='chat'
       >
         <Tabs.List>
           <Tabs.Tab
             p={1}
             size={'sm'}
             // rightSection={<TabCloseBtn />}
-            value="chat"
+            value='chat'
           >
             Chat
           </Tabs.Tab>
-          <Tabs.Tab rightSection={<TabCloseBtn />} value="test">
+          <Tabs.Tab rightSection={<TabCloseBtn />} value='test'>
             Test
           </Tabs.Tab>
           <Tabs.Tab
             p={'xs'}
             rightSection={<AddTabBtn />}
-            value="add"
-            aria-label="add"
+            value='add'
+            aria-label='add'
           />
         </Tabs.List>
       </Tabs>

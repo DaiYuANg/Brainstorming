@@ -7,7 +7,7 @@ const TreeView = (prop: TreeViewProps) => {
   return (
     <>
       <ScrollArea>
-        <List listStyleType="none" h={300} w="100%" pl="1rem">
+        <List listStyleType='none' h={300} w='100%' pl='1rem'>
           <List.Item>12312312</List.Item>
         </List>
       </ScrollArea>

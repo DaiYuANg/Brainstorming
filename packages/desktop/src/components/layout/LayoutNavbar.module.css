@@ -8,7 +8,7 @@
 }
 
 .navbar {
-    background-color: var(--mantine-color-body);
+    /*background-color: var(--mantine-color-body);*/
     /*height: rem(700px);*/
     /*width: rem(300px);*/
     padding: var(--mantine-spacing-xs);
@@ -23,9 +23,9 @@
 }
 
 .section {
-    margin-left: calc(var(--mantine-spacing-md) * -1);
-    margin-right: calc(var(--mantine-spacing-md) * -1);
-    margin-bottom: var(--mantine-spacing-md);
+    margin-left: calc(var(--mantine-spacing-xs) * -1);
+    margin-right: calc(var(--mantine-spacing-xs) * -1);
+    margin-bottom: var(--mantine-spacing-sm);
     &:not(:last-of-type) {
         /*border-bottom: rem(1px) solid*/
         /*light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));*/
@@ -35,7 +35,7 @@
 .searchCode {
     /*font-weight: 700;*/
     /*font-size: rem(10px);*/
-    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+    /*background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));*/
     /*border: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-7));*/
 }
 
@@ -81,6 +81,7 @@
     padding-left: calc(var(--mantine-spacing-md) - rem(6px));
     padding-right: calc(var(--mantine-spacing-md) - rem(6px));
     padding-bottom: var(--mantine-spacing-md);
+    transition: color 0.5s;
 }
 
 .collectionsHeader {

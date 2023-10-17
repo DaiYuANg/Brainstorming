@@ -110,7 +110,6 @@ web_modules/
 .env.test.local
 .env.production.local
 .env.local
-.cache
 .parcel-cache
 .next
 out
@@ -137,3 +136,6 @@ pnpm-lock.yaml
 *.ico
 *.png
 .icns
+target
+**/*/target
+**/*/stats.html

@@ -23,7 +23,7 @@ const AddTabBtn = () => {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
-        <IconPlus size="0.8rem" style={iconStyle} />
+        <IconPlus size='0.8rem' style={iconStyle} />
       </ActionIcon>
     </>
   );

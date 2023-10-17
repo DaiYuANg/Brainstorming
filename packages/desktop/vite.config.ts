@@ -1,8 +1,8 @@
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, splitVendorChunkPlugin, type PluginOption } from 'vite';
+import { compression } from 'vite-plugin-compression2';
 import TurboConsole from 'vite-plugin-turbo-console';
-
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
   plugins: [
@@ -10,9 +10,9 @@ export default defineConfig(async () => ({
     visualizer() as PluginOption,
     TurboConsole(),
     splitVendorChunkPlugin(),
+    compression(),
   ],
   build: {
-    minify: true,
     target: 'esnext',
     terserOptions: {
       compress: {
@@ -20,7 +20,9 @@ export default defineConfig(async () => ({
         drop_debugger: true,
       },
     },
-    rollupOptions: {},
+    rollupOptions: {
+      output: {},
+    },
     sourcemap: true,
   },
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`

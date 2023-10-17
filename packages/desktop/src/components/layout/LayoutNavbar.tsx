@@ -32,6 +32,7 @@ import {
 import { useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import classes from './LayoutNavbar.module.css';
+import { NavbarResizeBar } from './NavbarResizeBar.tsx';
 import TitleBar from './TitleBar.tsx';
 import { OpenSettings } from './settings/OpenSettings.tsx';
 
@@ -108,7 +109,7 @@ const mainLinks = links.map((link) => (
       <span>{link.label}</span>
     </div>
     {link.notifications && (
-      <Badge size="sm" variant="filled" className={classes.mainLinkBadge}>
+      <Badge size='sm' variant='filled' className={classes.mainLinkBadge}>
         {link.notifications}
       </Badge>
     )}
@@ -136,16 +137,17 @@ const collectionLinks = collections.map((collection) => (
 
 interface LayoutNavbarProp {
   toggleOpen: () => void;
-  navbarResize: (width: number) => void;
 }
 
 export const LayoutNavbar = (props: LayoutNavbarProp) => {
   const [treeData, setTreeData] = useState(data);
-  const handleDrop = (newTreeData: any) => setTreeData(newTreeData);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const handleDrop = (newTreeData) => setTreeData(newTreeData);
   const color = useColorScheme();
   return (
     <>
-      <AppShell.Navbar data-tauri-drag-region>
+      <AppShell.Navbar data-tauri-drag-region className={'transparency'}>
         <Grid data-tauri-drag-region>
           <Grid.Col data-tauri-drag-region span={8} pl={'sm'}>
             <TitleBar data-tauri-drag-region />
@@ -158,12 +160,12 @@ export const LayoutNavbar = (props: LayoutNavbarProp) => {
           </Grid.Col>
           <Grid.Col span={4} data-tauri-drag-region>
             <Group justify={'flex-end'} gap={0} align={'center'}>
-              <Tooltip arrowSize={4} withArrow label="Open Settings">
+              <Tooltip arrowSize={4} withArrow label='Open Settings'>
                 <ActionIcon variant={'transparent'}>
                   <OpenSettings />
                 </ActionIcon>
               </Tooltip>
-              <Tooltip arrowSize={4} withArrow label="Collaspe Side Bar">
+              <Tooltip arrowSize={4} withArrow label='Collaspe Side Bar'>
                 <ActionIcon variant={'transparent'} onClick={props.toggleOpen}>
                   <IconLayoutSidebarLeftCollapse
                     color={
@@ -178,23 +180,26 @@ export const LayoutNavbar = (props: LayoutNavbarProp) => {
           </Grid.Col>
         </Grid>
         <Divider />
-        <nav className={classes.navbar}>
+        <nav className={`${classes.navbar} transparency`}>
           <TextInput
-            placeholder="Search"
-            size="xs"
+            placeholder='Search'
+            size='xs'
             leftSection={
               <IconSearch
                 style={{ width: rem(12), height: rem(12) }}
                 stroke={1.5}
               />
             }
+            className={'transparency'}
             rightSectionWidth={70}
             rightSection={<Code className={classes.searchCode}>Ctrl + J</Code>}
             styles={{ section: { pointerEvents: 'none' } }}
-            mb="sm"
+            mb='sm'
           />
-          <div className={classes.section}>
-            <div className={classes.mainLinks}>{mainLinks}</div>
+          <div className={`${classes.section} transparency`}>
+            <div className={`${classes.mainLinks} transparency`}>
+              {mainLinks}
+            </div>
             <Divider
               size={'xs'}
               style={{
@@ -203,16 +208,16 @@ export const LayoutNavbar = (props: LayoutNavbarProp) => {
             />
           </div>
 
-          <div className={classes.section}>
+          <div className={`${classes.section} transparency`}>
             <Group
               className={classes.collectionsHeader}
-              justify="space-between"
+              justify='space-between'
             >
-              <Text size="xs" fw={500} c="dimmed">
+              <Text size='xs' fw={500} c='dimmed'>
                 Collections
               </Text>
-              <Tooltip label="Create collection" withArrow position="right">
-                <ActionIcon variant="default" size={18}>
+              <Tooltip label='Create collection' withArrow position='right'>
+                <ActionIcon variant='default' size={18}>
                   <IconPlus
                     style={{ width: rem(12), height: rem(12) }}
                     stroke={1.5}
@@ -240,16 +245,7 @@ export const LayoutNavbar = (props: LayoutNavbarProp) => {
             </ScrollArea>
           </div>
         </nav>
-        <Divider
-          orientation="vertical"
-          style={{
-            position: 'absolute',
-            right: 0,
-            width: '1px',
-            height: '100vh',
-            cursor: 'col-resize',
-          }}
-        />
+        <NavbarResizeBar />
       </AppShell.Navbar>
     </>
   );

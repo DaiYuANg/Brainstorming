@@ -6,8 +6,8 @@ const DraggableSizeBar = () => {
   return (
     <>
       <Divider
-        size="md"
-        orientation="vertical"
+        size='md'
+        orientation='vertical'
         style={{
           position: 'absolute',
           right: 0,
