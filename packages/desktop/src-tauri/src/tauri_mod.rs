@@ -19,8 +19,13 @@ pub fn tauri_run() {
         .setup(|app| {
             let window = app.get_window("main").unwrap();
             #[cfg(target_os = "macos")]
-            apply_vibrancy(&window, NSVisualEffectMaterial::HudWindow, None, Option::from(50.0))
-                .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
+            apply_vibrancy(
+                &window,
+                NSVisualEffectMaterial::HudWindow,
+                None,
+                Option::from(50.0),
+            )
+            .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
             #[cfg(any(windows, target_os = "macos"))]
             set_shadow(&window, true).unwrap();
             #[cfg(target_os = "windows")]

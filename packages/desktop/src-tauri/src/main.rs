@@ -1,5 +1,5 @@
-mod tauri_mod;
 mod actions;
+mod tauri_mod;
 
 use crate::tauri_mod::tauri_run;
 
