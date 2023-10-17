@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Brainstorming',
   tagline: 'Dinosaurs are cool',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/icon.ico',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-test-site.com',

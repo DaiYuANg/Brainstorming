@@ -13,9 +13,9 @@ pub fn create_brainstorming_file(path: &str) {
 
     // atomic compare and swap
     tree.compare_and_swap("key", Some("current_value"), Some("new_value"))
-        .unwrap();
+        .unwrap().expect("TODO: panic message");
 
     // block until all operations are stable on disk
     // (flush_async also available to get a Future)
-    tree.flush();
+    tree.flush().expect("TODO: panic message");
 }

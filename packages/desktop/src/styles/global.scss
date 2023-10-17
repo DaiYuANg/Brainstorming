@@ -1,3 +1,14 @@
+body {
+  border-radius: 50px;
+  backdrop-filter: blur(20px);
+  /*background: rgba(238, 238, 244, 0.5);*/
+  /*background: transparent;*/
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  //background-color: rgba(255, 255, 255, 0.11);
+}
+
 .draggable {
   -webkit-user-select: none;
   -webkit-app-region: drag;

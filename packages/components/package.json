@@ -33,6 +33,9 @@
       "plugin:storybook/recommended"
     ]
   },
+  "dependencies": {
+    "vite-plugin-css-injected-by-js": "^3.3.0"
+  },
   "devDependencies": {
     "@mantine/core": "^7.1.3",
     "@mantine/hooks": "^7.1.3",

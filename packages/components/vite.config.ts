@@ -1,11 +1,12 @@
 import react from '@vitejs/plugin-react-swc';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig } from 'vite';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import dtsPlugin from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), dtsPlugin(), visualizer()],
+  plugins: [react(), dtsPlugin(), visualizer(), cssInjectedByJsPlugin()],
   build: {
     sourcemap: true,
     lib: {

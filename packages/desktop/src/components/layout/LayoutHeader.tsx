@@ -24,14 +24,8 @@ import classes from '../ContextMenu.module.css';
 const LayoutHeader = () => {
   const color = useColorScheme();
   return (
-    <AppShell.Header
-      style={{
-        zIndex: 1000000,
-      }}
-      data-tauri-drag-region
-      className={'draggable'}
-    >
-      <Grid data-tauri-drag-region>
+    <AppShell.Header data-tauri-drag-region className={'draggable'}>
+      <Grid>
         <Grid.Col span={4} data-tauri-drag-region></Grid.Col>
         <Grid.Col span={4} data-tauri-drag-region>
           <Group data-tauri-drag-region justify={'center'} align={'center'}>

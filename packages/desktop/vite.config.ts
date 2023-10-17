@@ -13,7 +13,7 @@ export default defineConfig(async () => ({
   ],
   build: {
     minify: true,
-    target: 'modules',
+    target: 'esnext',
     terserOptions: {
       compress: {
         drop_console: true,

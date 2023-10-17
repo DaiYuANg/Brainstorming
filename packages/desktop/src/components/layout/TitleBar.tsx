@@ -30,9 +30,9 @@ const TitleBar = () => {
   };
 
   return (
-    <div className="title-bar">
-      <div className="title-bar-drag-region"></div>
-      <div className="window-controls">
+    <div className="title-bar" data-tauri-drag-region>
+      <div className="title-bar-drag-region" data-tauri-drag-region></div>
+      <div className="window-controls" data-tauri-drag-region>
         <div className="window-control minimize" onClick={minimizeWindow}>
           <div className="window-control-icon">-</div>
         </div>

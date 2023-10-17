@@ -1,8 +1,8 @@
-import '@fontsource/jetbrains-mono/400-italic.css';
-import '@fontsource/jetbrains-mono/400.css'; // Specify weight
+import '@fontsource/jetbrains-mono/700-italic.css';
+import '@fontsource/jetbrains-mono/700.css'; // Specify weight
 import { createTheme, rem } from '@mantine/core';
 const theme = createTheme({
-  fontFamily: 'jetbrains mono',
+  fontFamily: 'Jetbrains Mono',
   fontSmoothing: true,
   shadows: {
     md: '1px 1px 3px rgba(0, 0, 0, .25)',

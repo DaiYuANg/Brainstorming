@@ -1,5 +1,6 @@
 import { MantineProvider } from '@mantine/core';
 import { lazy } from 'react';
+import { initialize } from './modules';
 import { theme } from './theme.ts';
 
 const ApplicationSpotlight = lazy(() =>
@@ -19,7 +20,9 @@ const MainLayout = lazy(() =>
     default: MainLayout,
   })),
 );
-
+initialize().then((r) => {
+  console.log(r);
+});
 function App(): JSX.Element {
   return (
     <>

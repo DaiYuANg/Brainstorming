@@ -145,10 +145,10 @@ export const LayoutNavbar = (props: LayoutNavbarProp) => {
   const color = useColorScheme();
   return (
     <>
-      <AppShell.Navbar>
+      <AppShell.Navbar data-tauri-drag-region>
         <Grid data-tauri-drag-region>
           <Grid.Col data-tauri-drag-region span={8} pl={'sm'}>
-            <TitleBar />
+            <TitleBar data-tauri-drag-region />
             {/*{window.electronAPI.isWindows && (*/}
             {/*  <Group gap={0} align={'center'}>*/}
             {/*    <IconNotebook />*/}
@@ -156,7 +156,7 @@ export const LayoutNavbar = (props: LayoutNavbarProp) => {
             {/*  </Group>*/}
             {/*)}*/}
           </Grid.Col>
-          <Grid.Col span={4}>
+          <Grid.Col span={4} data-tauri-drag-region>
             <Group justify={'flex-end'} gap={0} align={'center'}>
               <Tooltip arrowSize={4} withArrow label="Open Settings">
                 <ActionIcon variant={'transparent'}>
