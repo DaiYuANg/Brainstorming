@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import { BaseRange } from 'slate';
-import { CoreEditor } from './editor/CoreEditor.tsx';
+import { CoreEditor } from './editor';
 import { CustomEditor, CustomElement, EmptyText } from './editor/CustomType.ts';
 import { CustomText } from './editor/EditorElements.ts';
 
@@ -22,6 +22,12 @@ const MainLayout = lazy(() =>
   })),
 );
 
+const CanvasEditor = lazy(() =>
+  import('./editor/CanvasEditor.tsx').then(({ CanvasEditor }) => ({
+    default: CanvasEditor,
+  })),
+);
+
 declare module 'slate' {
   interface CustomTypes {
     Editor: CustomEditor;
@@ -37,4 +43,10 @@ declare module 'slate' {
   }
 }
 
-export { ApplicationSpotlight, ContextMenu, CoreEditor, MainLayout };
+export {
+  ApplicationSpotlight,
+  CanvasEditor,
+  ContextMenu,
+  CoreEditor,
+  MainLayout,
+};

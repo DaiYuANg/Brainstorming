@@ -1,14 +1,14 @@
-import { Container, Menu, rem } from '@mantine/core';
+import { Container, Menu, rem, Text } from '@mantine/core';
 import '@mantine/dropzone/styles.css';
 import { IconExternalLink } from '@tabler/icons-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   BaseEditor,
+  createEditor,
   Descendant,
   Editor,
   Node,
   Element as SlateElement,
-  createEditor,
 } from 'slate';
 import { HistoryEditor, withHistory } from 'slate-history';
 import {
@@ -79,25 +79,24 @@ const CoreEditor = (props: CoreEditorProps) => {
     let x = 0,
       y = 0;
     const isSupported = typeof window.getSelection !== 'undefined';
-    if (isSupported) {
-      const selection = window.getSelection();
-      if (selection?.rangeCount !== 0) {
-        const range = selection?.getRangeAt(0).cloneRange();
-        range?.collapse(true);
-        const rect = range?.getClientRects()[0];
-        if (rect) {
-          x = rect.left;
-          y = rect.top;
-        }
+    if (!isSupported) return { x, y };
+    const selection = window.getSelection();
+    if (selection?.rangeCount !== 0) {
+      const range = selection?.getRangeAt(0).cloneRange();
+      range?.collapse(true);
+      const rect = range?.getClientRects()[0];
+      if (rect) {
+        x = rect.left;
+        y = rect.top;
       }
     }
     return { x, y };
   }, []);
   useEffect(() => {
-    ReactEditor.focus(editor);
+    // ReactEditor.focus(editor);
     document.addEventListener('resize', onchange);
     return () => {
-      ReactEditor.blur(editor);
+      // ReactEditor.blur(editor);
       document.removeEventListener('resize', onchange);
     };
   });
@@ -106,7 +105,6 @@ const CoreEditor = (props: CoreEditorProps) => {
     const xy = getCaretCoordinates();
     setTop(xy.y);
     setLeft(xy.x);
-    setOpened(true);
   }, [getCaretCoordinates]);
   return (
     <>
@@ -153,6 +151,7 @@ const CoreEditor = (props: CoreEditorProps) => {
               </Menu>
             </>
           )}
+
           <Editable
             onInput={(e) => {
               console.log(e);
@@ -163,6 +162,19 @@ const CoreEditor = (props: CoreEditorProps) => {
             onDOMBeforeInput={handleDOMBeforeInput}
             renderElement={renderElement}
             placeholder='Write some markdown...'
+            renderPlaceholder={({ children, attributes }) => (
+              <>
+                <Text
+                  component={'span'}
+                  {...attributes}
+                  style={{
+                    lineHeight: '25px',
+                  }}
+                >
+                  {children}
+                </Text>
+              </>
+            )}
           />
         </Slate>
       </Container>
