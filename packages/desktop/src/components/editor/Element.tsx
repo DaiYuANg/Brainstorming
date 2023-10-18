@@ -7,7 +7,6 @@ const Element = ({
   children,
   element,
 }: RenderElementProps): JSX.Element => {
-  console.log(element.type);
   switch (element.type) {
     case 'block-quote':
       return <Blockquote {...attributes}>{children}</Blockquote>;
