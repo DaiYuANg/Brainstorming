@@ -151,12 +151,12 @@ export const LayoutNavbar = (props: LayoutNavbarProp) => {
         <Grid data-tauri-drag-region>
           <Grid.Col data-tauri-drag-region span={8} pl={'sm'}>
             <TitleBar data-tauri-drag-region />
-          {/*  {window.electronAPI.isWindows && (*/}
-          {/*    <Group gap={0} align={'center'}>*/}
-          {/*      <IconNotebook />*/}
-          {/*      <Text>Brainstorming</Text>*/}
-          {/*    </Group>*/}
-          {/*  )}*/}
+            {/*  {window.electronAPI.isWindows && (*/}
+            {/*    <Group gap={0} align={'center'}>*/}
+            {/*      <IconNotebook />*/}
+            {/*      <Text>Brainstorming</Text>*/}
+            {/*    </Group>*/}
+            {/*  )}*/}
           </Grid.Col>
           <Grid.Col span={4} data-tauri-drag-region>
             <Group justify={'flex-end'} gap={0} align={'center'}>

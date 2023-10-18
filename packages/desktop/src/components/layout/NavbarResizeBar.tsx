@@ -1,8 +1,8 @@
 import { Divider } from '@mantine/core';
 import React, { useCallback } from 'react';
+import { fromEvent, map, takeUntil } from 'rxjs';
 import { useLayoutStore } from '../../store/LayoutStore.ts';
 import classes from './NavbarResizeBar.module.css';
-import {fromEvent, map, merge, switchMap, takeUntil} from "rxjs";
 const NavbarResizeBar = () => {
   const minNavbarWidth = 200;
   const store = useLayoutStore();
@@ -11,31 +11,31 @@ const NavbarResizeBar = () => {
     (event: React.MouseEvent<HTMLDivElement>) => {
       const startX = event.clientX;
       if (store.navbarWidth < minNavbarWidth) return;
-      fromEvent(document,'mousemove').pipe(
-          takeUntil(fromEvent(document,'mouseup')),
-          map((e)=>{
-              console.log(e)
-          })
-      )
-        // const mouseMove$ = fromEvent(document, 'mousemove').pipe(
-        //     takeUntil(fromEvent(document, 'mouseup')),
-        //     map((e:MouseEvent) => e.clientX - startX),
-        //     switchMap((offsetX) => {
-        //         const newWidth = store.navbarWidth + offsetX;
-        //         return newWidth < minNavbarWidth ? [] : [newWidth];
-        //     })
-        // );
-        //
-        // const subscription = merge(
-        //     mouseMove$,
-        //     fromEvent(document, 'mouseup').pipe(mapTo(null))
-        // ).subscribe((newWidth) => {
-        //     if (newWidth === null) {
-        //         subscription.unsubscribe();
-        //     } else {
-        //         store.increase(newWidth);
-        //     }
-        // });
+      fromEvent(document, 'mousemove').pipe(
+        takeUntil(fromEvent(document, 'mouseup')),
+        map((e) => {
+          console.log(e);
+        }),
+      );
+      // const mouseMove$ = fromEvent(document, 'mousemove').pipe(
+      //     takeUntil(fromEvent(document, 'mouseup')),
+      //     map((e:MouseEvent) => e.clientX - startX),
+      //     switchMap((offsetX) => {
+      //         const newWidth = store.navbarWidth + offsetX;
+      //         return newWidth < minNavbarWidth ? [] : [newWidth];
+      //     })
+      // );
+      //
+      // const subscription = merge(
+      //     mouseMove$,
+      //     fromEvent(document, 'mouseup').pipe(mapTo(null))
+      // ).subscribe((newWidth) => {
+      //     if (newWidth === null) {
+      //         subscription.unsubscribe();
+      //     } else {
+      //         store.increase(newWidth);
+      //     }
+      // });
       // const handleMouseMove = (event: MouseEvent) => {
       //   const offsetX = event.clientX - startX;
       //   const newWidth = store.navbarWidth + offsetX;
