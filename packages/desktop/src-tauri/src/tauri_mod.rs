@@ -4,14 +4,16 @@
 use tauri_plugin_log::LogTarget;
 use window_shadows::set_shadow;
 use window_vibrancy::{apply_blur, apply_vibrancy, NSVisualEffectMaterial};
-#[tauri::command]
+#[tauri::command(async)]
 fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
 }
+
 #[tauri::command]
-fn create_brainstorming() {
+pub fn create_brainstorming() {
     println!("I was invoked from JS!");
 }
+
 use tauri::Manager;
 
 pub fn tauri_run() {

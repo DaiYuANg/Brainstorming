@@ -1,5 +1,5 @@
-# Rockie
+# Brainstorming
 
 # What in this repository
 
-- Full functional developer tools
+- Wiki
