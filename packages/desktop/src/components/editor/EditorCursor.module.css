@@ -5,5 +5,11 @@
     background: lavender;
     height:20px;
     width:5px;
-    transition: top 0.3s, left 0.3s;
+    transition: top 0.3s, left 0.3s ,blink 1s;
+}
+
+@keyframes blink{
+    to {
+        color: transparent;
+    }
 }

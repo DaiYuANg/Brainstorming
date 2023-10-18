@@ -8,11 +8,31 @@
 }
 
 .cursor{
+  display: inline-block;
   position: fixed;
   left:0;
   top:0;
   background: lavender;
   height:20px;
-  width:5px;
+  width:3px;
   transition: top 0.3s, left 0.3s;
+  animation: typing 5s steps(17) infinite,blink 0.8s step-end infinite;
+}
+@keyframes typing{
+  from {
+    width: 0;
+  }
+}
+
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
