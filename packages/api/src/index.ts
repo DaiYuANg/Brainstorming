@@ -1,3 +1,0 @@
-const createRockie = () => {};
-
-export { createRockie };

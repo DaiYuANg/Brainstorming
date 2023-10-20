@@ -1,14 +1,13 @@
-import { Container, Menu, rem, Text } from '@mantine/core';
+import { Container, Text } from '@mantine/core';
 import '@mantine/dropzone/styles.css';
-import { IconExternalLink } from '@tabler/icons-react';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   BaseEditor,
-  createEditor,
   Descendant,
   Editor,
   Node,
   Element as SlateElement,
+  createEditor,
 } from 'slate';
 import { HistoryEditor, withHistory } from 'slate-history';
 import {
@@ -102,10 +101,10 @@ const CoreEditor = (props: CoreEditorProps) => {
   });
 
   const onchange = useCallback(() => {
-    const xy = getCaretCoordinates();
-    setTop(xy.y);
-    setLeft(xy.x);
-  }, [getCaretCoordinates]);
+    // const xy = getCaretCoordinates();
+    // setTop(xy.y);
+    // setLeft(xy.x);
+  }, [editor, getCaretCoordinates]);
   return (
     <>
       <Container
@@ -120,35 +119,35 @@ const CoreEditor = (props: CoreEditorProps) => {
         >
           {ReactEditor.isFocused(editor) && (
             <>
-              <Menu opened={opened} width={200} shadow='md'>
-                <Menu.Target>
-                  <div
-                    className={classes.cursor}
-                    style={{
-                      left: left,
-                      top: top,
-                    }}
-                  ></div>
-                </Menu.Target>
+              {/*<Menu opened={opened} width={200} shadow='md'>*/}
+              {/*  <Menu.Target>*/}
+              {/*    <div*/}
+              {/*      className={classes.cursor}*/}
+              {/*      style={{*/}
+              {/*        left: left,*/}
+              {/*        top: top,*/}
+              {/*      }}*/}
+              {/*    ></div>*/}
+              {/*  </Menu.Target>*/}
 
-                <Menu.Dropdown>
-                  <Menu.Item component='a' href='https://mantine.dev'>
-                    Mantine website
-                  </Menu.Item>
-                  <Menu.Item
-                    leftSection={
-                      <IconExternalLink
-                        style={{ width: rem(14), height: rem(14) }}
-                      />
-                    }
-                    component='a'
-                    href='https://mantine.dev'
-                    target='_blank'
-                  >
-                    External link
-                  </Menu.Item>
-                </Menu.Dropdown>
-              </Menu>
+              {/*  <Menu.Dropdown>*/}
+              {/*    <Menu.Item component='a' href='https://mantine.dev'>*/}
+              {/*      Mantine website*/}
+              {/*    </Menu.Item>*/}
+              {/*    <Menu.Item*/}
+              {/*      leftSection={*/}
+              {/*        <IconExternalLink*/}
+              {/*          style={{ width: rem(14), height: rem(14) }}*/}
+              {/*        />*/}
+              {/*      }*/}
+              {/*      component='a'*/}
+              {/*      href='https://mantine.dev'*/}
+              {/*      target='_blank'*/}
+              {/*    >*/}
+              {/*      External link*/}
+              {/*    </Menu.Item>*/}
+              {/*  </Menu.Dropdown>*/}
+              {/*</Menu>*/}
             </>
           )}
 

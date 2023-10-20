@@ -3,7 +3,8 @@
   padding: 5px;
   background-color: transparent;
   outline: none;
-  caret-color: transparent;
+  caret-color: white;
+  caret-shape: underscore;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -18,6 +19,7 @@
   transition: top 0.3s, left 0.3s;
   animation: typing 5s steps(17) infinite,blink 0.8s step-end infinite;
 }
+
 @keyframes typing{
   from {
     width: 0;
