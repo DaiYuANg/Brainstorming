@@ -7,6 +7,7 @@ import {
   Editor,
   Node,
   Element as SlateElement,
+  Transforms,
   createEditor,
 } from 'slate';
 import { HistoryEditor, withHistory } from 'slate-history';
@@ -24,6 +25,10 @@ import { SHORTCUTS, withShortcuts } from './WithShortcuts.ts';
 interface CoreEditorProps {
   initialValue: Array<Descendant>;
 }
+const insertCustomCursor = (editor) => {
+  const customCursor = { type: 'customCursor', children: [{ text: '|' }] };
+  Transforms.insertNodes(editor, customCursor);
+};
 
 const CoreEditor = (props: CoreEditorProps) => {
   const editor = useMemo<BaseEditor & ReactEditor & HistoryEditor>(
@@ -101,17 +106,21 @@ const CoreEditor = (props: CoreEditorProps) => {
   });
 
   const onchange = useCallback(() => {
+    // editor.insertText('123');
     // const xy = getCaretCoordinates();
     // setTop(xy.y);
     // setLeft(xy.x);
-  }, [editor, getCaretCoordinates]);
+  }, []);
+  const handleBeforeInput = (event) => {
+    if (event.inputType === 'insertText') {
+      event.preventDefault();
+      insertCustomCursor(editor);
+      Transforms.insertText(editor, event.data);
+    }
+  };
   return (
     <>
-      <Container
-        style={{
-          position: 'relative',
-        }}
-      >
+      <Container>
         <Slate
           editor={editor}
           onChange={onchange}
@@ -152,8 +161,26 @@ const CoreEditor = (props: CoreEditorProps) => {
           )}
 
           <Editable
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                insertCustomCursor(editor);
+              }
+            }}
+            onBeforeInput={handleBeforeInput}
             onInput={(e) => {
               console.log(e);
+              editor.insertNode({
+                type: 'paragraph',
+                children: [
+                  {
+                    text: '123',
+                  },
+                ],
+              });
+            }}
+            onFocus={() => {
+              console.log(123);
+              console.log('focus');
             }}
             autoFocus={true}
             id={'editor'}

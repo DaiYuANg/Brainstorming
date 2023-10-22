@@ -1,4 +1,3 @@
-
 use tauri_plugin_log::LogTarget;
 use window_shadows::set_shadow;
 use window_vibrancy::{apply_blur, apply_vibrancy, NSVisualEffectMaterial};
@@ -8,6 +7,4 @@ fn greet(name: &str) -> String {
 }
 use tauri::Manager;
 
-pub fn tauri_run() {
-
-}
+pub fn tauri_run() {}

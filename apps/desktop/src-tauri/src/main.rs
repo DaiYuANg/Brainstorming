@@ -22,7 +22,8 @@ fn main() {
                 NSVisualEffectMaterial::HudWindow,
                 None,
                 Option::from(50.0),
-            ).expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
+            )
+            .expect("Unsupported platform! 'apply_vibrancy' is only supported on macOS");
             #[cfg(any(windows, target_os = "macos"))]
             set_shadow(&window, true).unwrap();
             #[cfg(target_os = "windows")]
@@ -36,7 +37,9 @@ fn main() {
                 .build(),
         )
         .invoke_handler(tauri::generate_handler![greet])
-        .invoke_handler(tauri::generate_handler![actions::actions::create_brainstorming])
+        .invoke_handler(tauri::generate_handler![
+            actions::actions::create_brainstorming
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

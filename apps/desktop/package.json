@@ -13,11 +13,6 @@
     "tauri:build": "tauri build"
   },
   "dependencies": {
-    "@brainstorming/api": "workspace:*",
-    "@brainstorming/component": "workspace:*",
-    "@brainstorming/i18n": "workspace:*",
-    "@brainstorming/types": "workspace:*",
-    "@brainstorming/utils": "workspace:*",
     "@electron/remote": "^2.0.12",
     "@fontsource/jetbrains-mono": "^5.0.15",
     "@hello-pangea/dnd": "^16.3.0",
