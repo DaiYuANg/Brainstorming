@@ -11,8 +11,8 @@ import './styles/global.scss';
 import { theme } from './theme.ts';
 
 initialize().then((r) => {
-  console.log(r);
   localStorage.setItem('GlobalShare', JSON.stringify(r));
+  // typesHelper();
 });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

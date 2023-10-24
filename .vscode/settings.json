@@ -2,5 +2,27 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnType": true,
-  "editor.formatOnPaste": false
+  "editor.formatOnPaste": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "build/": true,
+    "temp/": true,
+    "library/": true,
+    "**/*.anim": true
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.meta": true,
+    "**/.history": true,
+    "**/.idea": true,
+    "**/idea": true,
+    "**/logs": true,
+    "**/target": true,
+    "**/pid": true
+  }
 }

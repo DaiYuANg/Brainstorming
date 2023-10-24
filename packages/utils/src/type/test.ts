@@ -1,3 +1,6 @@
-const a = () => {};
+const typesHelper = () => {
+  console.log(123);
+  console.log('this is type helper');
+};
 
-export { a };
+export { typesHelper };

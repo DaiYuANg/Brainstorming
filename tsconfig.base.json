@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
     "composite": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -12,8 +14,7 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": false,
-
+    "noEmit": true,
 
     /* Linting */
     "strict": true,
