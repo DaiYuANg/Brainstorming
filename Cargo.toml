@@ -2,7 +2,7 @@
 members=[
     'apps/desktop/src-tauri',
     'crates/sync_server',
-    'crates/brainstorming_file',
+    'crates/cerebra',
     'i18n/en'
 ]
 workspace.resolver = "2"

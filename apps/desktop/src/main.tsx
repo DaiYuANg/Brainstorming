@@ -1,6 +1,5 @@
-import '@fontsource/jetbrains-mono'; // Defaults to weight 400
-
 import { typesHelper } from '@brainstorming/utils';
+import '@fontsource/jetbrains-mono'; // Defaults to weight 400
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import '@mantine/spotlight/styles.css';

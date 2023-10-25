@@ -47,9 +47,9 @@
     "react-router-dom": "^6.17.0",
     "reactflow": "^11.9.4",
     "rxjs": "^7.8.1",
-    "slate": "^0.94.1",
-    "slate-history": "^0.93.0",
-    "slate-react": "^0.99.0",
+    "slate": "^0.100.0",
+    "slate-history": "^0.100.0",
+    "slate-react": "^0.100.0",
     "tauri-settings": "^0.3.4",
     "zustand": "^4.4.4"
   },

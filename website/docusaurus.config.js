@@ -1,10 +1,10 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+// Note: ut annotations allow ut checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-/** @type {import('@docusaurus/types').Config} */
+/** @ut {import('@docusaurus/types').Config} */
 const config = {
   title: 'Brainstorming',
   tagline: 'Dinosaurs are cool',
@@ -29,14 +29,14 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'zh],
+    locales: ['en', 'zh'],
   },
 
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      /** @ut {import('@docusaurus/preset-classic').Options} */
+      {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
@@ -54,13 +54,13 @@ const config = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
-      }),
+      },
     ],
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
+    /** @ut {import('@docusaurus/preset-classic').ThemeConfig} */
+    {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
@@ -133,7 +133,7 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-    }),
+    },
 };
 
 module.exports = config;

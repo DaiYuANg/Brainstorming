@@ -1,0 +1,3 @@
+const ApplyPlugin = () => {};
+
+export { ApplyPlugin };
