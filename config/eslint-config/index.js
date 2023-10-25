@@ -1,3 +1,4 @@
+/**/
 module.exports = {
   extends: [
     'eslint:recommended',
@@ -10,6 +11,8 @@ module.exports = {
     project: ['./tsconfig.eslint.json', './packages/*/tsconfig.json'],
   },
   plugins: ['@typescript-eslint'],
-  root: true,
   preferConst: true,
+  rules: {
+    'no-console': 0,
+  },
 };

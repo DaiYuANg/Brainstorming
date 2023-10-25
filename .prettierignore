@@ -133,9 +133,9 @@ dist
 *.iml
 gen
 pnpm-lock.yaml
-*.ico
-*.png
-.icns
+**/*.ico
+**/*.png
+**/*.icns
 target
 **/*/target
 **/*/stats.html

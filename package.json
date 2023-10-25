@@ -4,6 +4,7 @@
   "scripts": {
     "clean": "rimraf ./node_modules **/**/node_modules **/*/dist",
     "format": "prettier --write \"**/*.{js,ts,cjs,tsx,jsx,scss,html,yaml,md,json}\" --ignore-path .prettierignore",
+    "preinstall": "npx only-allow pnpm",
     "prepare": "husky install"
   },
   "lint-staged": {
@@ -28,5 +29,9 @@
     "terser": "^5.22.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0"
+  },
+  "engines": {
+    "node": "20.9.0",
+    "pnpm": "^8.9.2"
   }
 }

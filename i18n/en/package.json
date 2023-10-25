@@ -1,5 +1,5 @@
 {
-  "name": "@brainstorming/tsconfig",
+  "name": "@brainstorming/i18n-en",
   "version": "1.0.0",
   "private": true,
   "description": "",
@@ -8,11 +8,11 @@
     "url": "https://dev.daiyuang.cloud:83/4fun/Brainstorming.git"
   },
   "main": "index.js",
-  "files": [
-    "tsconfig.base.json",
-    "tsconfig.node.json"
-  ],
   "scripts": {
+    "build": "tsc -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@brainstorming/tsconfig": "workspace:*"
   }
 }

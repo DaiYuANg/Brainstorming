@@ -1,0 +1,4 @@
+[package]
+name = "brainstorming_i18n_en"
+version = "0.1.0"
+edition = "2021"

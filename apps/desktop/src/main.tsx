@@ -1,5 +1,6 @@
 import '@fontsource/jetbrains-mono'; // Defaults to weight 400
 
+import { typesHelper } from '@brainstorming/utils';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import '@mantine/spotlight/styles.css';
@@ -12,7 +13,7 @@ import { theme } from './theme.ts';
 
 initialize().then((r) => {
   localStorage.setItem('GlobalShare', JSON.stringify(r));
-  // typesHelper();
+  typesHelper();
 });
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

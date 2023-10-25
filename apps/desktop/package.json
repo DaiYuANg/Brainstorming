@@ -10,7 +10,8 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "tauri": "tauri dev",
-    "tauri:build": "tauri build"
+    "tauri:build": "tauri build",
+    "type-check": "tsc"
   },
   "dependencies": {
     "@brainstorming/utils": "workspace:*",
@@ -53,6 +54,7 @@
     "zustand": "^4.4.4"
   },
   "devDependencies": {
+    "@brainstorming/tsconfig": "workspace:*",
     "@reactivex/rxjs": "^6.6.7",
     "@tauri-apps/cli": "^1.5.6",
     "@types/lodash": "^4.14.200",
