@@ -1,5 +1,5 @@
 {
-  "name": "@surface/core",
+  "name": "@brainstorming/surface-core",
   "version": "1.0.0",
   "private": true,
   "description": "",
@@ -10,7 +10,8 @@
   "main": "src/index.ts",
   "types": "dist/index.d.ts",
   "files": [
-    "src"
+    "src",
+    "dist"
   ],
   "scripts": {
     "build": "tsc -p tsconfig.json",

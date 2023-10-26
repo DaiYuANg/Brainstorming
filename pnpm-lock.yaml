@@ -258,6 +258,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@brainstorming/surface-core':
+        specifier: workspace:*
+        version: link:../../packages/surface-core
       '@fontsource/jetbrains-mono':
         specifier: ^5.0.17
         version: 5.0.17
