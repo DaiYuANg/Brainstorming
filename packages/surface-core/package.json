@@ -27,7 +27,8 @@
     "slate-react": "^0.100.0",
     "zustand": "^4.4.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "reactflow": "^11.9.4"
   },
   "peerDependencies": {
     "slate": "^0.100.0",
