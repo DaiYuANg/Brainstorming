@@ -20,23 +20,23 @@
   },
   "devDependencies": {
     "@brainstorming/tsconfig": "workspace:*",
-    "typescript": "^5.2.2",
-    "slate": "^0.100.0",
-    "slate-history": "^0.100.0",
-    "slate-hyperscript": "^0.100.0",
-    "slate-react": "^0.100.0",
-    "zustand": "^4.4.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "reactflow": "^11.9.4"
-  },
-  "peerDependencies": {
+    "reactflow": "^11.9.4",
     "slate": "^0.100.0",
     "slate-history": "^0.100.0",
     "slate-hyperscript": "^0.100.0",
     "slate-react": "^0.100.0",
-    "zustand": "^4.4.4",
+    "typescript": "^5.2.2",
+    "zustand": "^4.4.4"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "slate": "^0.100.0",
+    "slate-history": "^0.100.0",
+    "slate-hyperscript": "^0.100.0",
+    "slate-react": "^0.100.0",
+    "zustand": "^4.4.4"
   }
 }

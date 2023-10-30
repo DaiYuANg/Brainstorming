@@ -1,1 +1,1 @@
-export {Button} from './stories'
+export { Button } from './stories';
