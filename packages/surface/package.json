@@ -2,19 +2,10 @@
   "name": "@brainstorming/surface-ui",
   "version": "0.0.0",
   "private": true,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "type": "module",
-  "main": "./dist/surface.umd.js",
-  "module": "./dist/surface.es.js",
-  "types": "./dist/index.d.ts",
-  "scripts": {
-    "build": "tsc && vite build",
-    "build-storybook": "storybook build",
-    "dev": "vite",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "postinstall": "pnpm build"
-  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -23,15 +14,21 @@
     },
     "./dist/style.css": "./dist/index.css"
   },
+  "main": "./dist/surface.umd.js",
+  "module": "./dist/surface.es.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "engines": {
-    "node": "20"
+  "scripts": {
+    "build": "tsc && vite build",
+    "build-storybook": "storybook build",
+    "dev": "vite",
+    "postinstall": "pnpm build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006"
   },
-  "sideEffects": [
-    "**/*.css"
-  ],
   "devDependencies": {
     "@storybook/addon-a11y": "^7.5.2",
     "@storybook/addon-essentials": "^7.5.2",
@@ -74,5 +71,8 @@
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "engines": {
+    "node": "20"
   }
 }
