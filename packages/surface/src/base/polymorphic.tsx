@@ -1,15 +1,26 @@
-import {ComponentType, HTMLProps, ReactElement, ReactNode} from "react";
-import {JSX} from "react/jsx-runtime";
-import IntrinsicElements = JSX.IntrinsicElements;
+import { ElementType, forwardRef, HTMLAttributes } from 'react';
+import {
+  PolymorphicComponentPropWithRef,
+  PolymorphicRef,
+} from './polymorphic.types.ts';
 
-interface DynamicComponentProps {
-    as: keyof IntrinsicElements | ComponentType;
-    children: ReactNode;
-}
+type PolymorphicProps<E extends ElementType = 'div'> =
+  PolymorphicComponentPropWithRef<E> & HTMLAttributes<HTMLDivElement>;
 
-const Polymorphic = ({ as: Element, children, ...rest }: DynamicComponentProps & HTMLProps<any>): ReactElement=> {
-    // 使用指定的Element作为根元素，并传递其余属性
-    return <div {...rest}>{children}</div>;
-}
+const PolymorphicComponent = forwardRef(
+  <E extends ElementType = 'div'>(
+    pp?: PolymorphicProps<E>,
+    ref?: PolymorphicRef<E>,
+  ) => {
+    const Root = pp?.as || 'div';
+    return (
+      <>
+        <Root className={pp?.className} ref={ref}>
+          {pp?.children}
+        </Root>
+      </>
+    );
+  },
+);
 
-export {Polymorphic}
+export { PolymorphicComponent };

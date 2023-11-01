@@ -10,6 +10,7 @@
   "lint-staged": {
     "*.js": "eslint --cache --fix"
   },
+
   "devDependencies": {
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
@@ -26,7 +27,7 @@
     "rollup-plugin-graph": "^2.0.0",
     "rollup-plugin-visualizer": "^5.9.2",
     "sass": "^1.69.5",
-    "terser": "^5.23.0",
+    "terser": "^5.24.0",
     "typescript": "^5.2.2",
     "vite": "^4.5.0"
   },

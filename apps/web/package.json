@@ -33,15 +33,15 @@
     "react-accessible-treeview": "^2.8.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^13.3.1",
-    "react-router-dom": "^6.17.0",
+    "react-router-dom": "^6.18.0",
     "rxjs": "^7.8.1",
     "ua-parser-js": "^1.0.37"
   },
   "devDependencies": {
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^6.9.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
     "@vitejs/plugin-react-swc": "^3.4.1",
     "eslint": "^8.52.0",
     "eslint-plugin-react-hooks": "^4.6.0",

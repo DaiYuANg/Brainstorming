@@ -1,5 +1,4 @@
-import { Button } from './Button';
-import './header.css';
+import { Button } from '../control/Button.tsx';
 
 type User = {
   name: string;
@@ -19,9 +18,10 @@ export const Header = ({
   onCreateAccount,
 }: HeaderProps) => (
   <header>
-    <div className='storybook-header'>
+    <div className='bg-blue-400'>
       <div>
         <svg
+          className={['w-3'].join()}
           width='32'
           height='32'
           viewBox='0 0 32 32'

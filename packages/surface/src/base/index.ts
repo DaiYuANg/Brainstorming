@@ -1,3 +1,5 @@
-import { Polymorphic } from "./polymorphic";
+import { PolymorphicComponent } from './polymorphic';
 
-export {Polymorphic}
+export { PolymorphicComponent };
+
+export * from './polymorphic.types.ts';
