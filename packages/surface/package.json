@@ -18,16 +18,18 @@
   "module": "./dist/surface.es.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "tsc && vite build",
     "build-storybook": "storybook build",
-    "dev": "vite",
     "postinstall": "pnpm build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
     "storybook": "storybook dev -p 6006"
+  },
+  "dependencies": {
+    "@brainstorming/utils": "workspace:*"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^7.5.2",
@@ -48,6 +50,7 @@
     "@vitest/ui": "^0.34.6",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.52.0",
+    "rxjs": "^7.8.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
     "eslint-plugin-storybook": "^0.6.15",

@@ -1,10 +1,10 @@
 // @ts-check
-// Note: ut annotations allow ut checking and IDEs autocompletion
+// Note: react annotations allow react checking and IDEs autocompletion
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
-/** @ut {import('@docusaurus/types').Config} */
+/** @react {import('@docusaurus/types').Config} */
 const config = {
   title: 'Brainstorming',
   tagline: 'Dinosaurs are cool',
@@ -35,7 +35,7 @@ const config = {
   presets: [
     [
       'classic',
-      /** @ut {import('@docusaurus/preset-classic').Options} */
+      /** @react {import('@docusaurus/preset-classic').Options} */
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
@@ -59,7 +59,7 @@ const config = {
   ],
 
   themeConfig:
-    /** @ut {import('@docusaurus/preset-classic').ThemeConfig} */
+    /** @react {import('@docusaurus/preset-classic').ThemeConfig} */
     {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',

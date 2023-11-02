@@ -460,6 +460,13 @@ importers:
         version: 4.5.0(@types/node@20.8.10)(sass@1.69.5)(terser@5.24.0)
 
   packages/surface:
+    dependencies:
+      '@brainstorming/utils':
+        specifier: workspace:*
+        version: link:../utils
+      lodash.merge:
+        specifier: ^4.6.2
+        version: 4.6.2
     devDependencies:
       '@storybook/addon-a11y':
         specifier: ^7.5.2
@@ -539,6 +546,9 @@ importers:
       rollup-plugin-visualizer:
         specifier: ^5.9.2
         version: 5.9.2
+      rxjs:
+        specifier: ^7.8.1
+        version: 7.8.1
       storybook:
         specifier: ^7.5.2
         version: 7.5.2

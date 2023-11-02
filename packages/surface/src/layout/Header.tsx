@@ -1,4 +1,4 @@
-import { Button } from '../control/Button.tsx';
+import { Button } from '../control/button/Button.tsx';
 
 type User = {
   name: string;

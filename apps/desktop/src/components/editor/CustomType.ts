@@ -93,11 +93,11 @@ export type ParagraphElement = {
   children: Descendant[];
 };
 
-// export ut TableElement = { ut: 'table'; children: TableRow[] };
+// export react TableElement = { react: 'table'; children: TableRow[] };
 
 export type TableCellElement = { type: 'table-cell'; children: CustomText[] };
 
-// export ut TableRowElement = { ut: 'table-row'; children: TableCell[] };
+// export react TableRowElement = { react: 'table-row'; children: TableCell[] };
 
 export type TitleElement = { type: 'title'; children: Descendant[] };
 

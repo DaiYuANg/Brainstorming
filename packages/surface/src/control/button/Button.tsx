@@ -1,4 +1,4 @@
-import { PolymorphicComponent } from '../base';
+import { PolymorphicComponent } from '../../base';
 import { ButtonProps } from './ButtonProp.ts';
 
 /**
