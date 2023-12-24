@@ -1,5 +1,5 @@
 [http]
-proxy = "127.0.0.1:7890" # HTTP proxy to use for HTTP requests (defaults to none)
+proxy = "127.0.0.1:8000" # HTTP proxy to use for HTTP requests (defaults to none)
 # in libcurl format, e.g., "socks5h://host:port"
 timeout = 30        # Timeout for each HTTP request, in seconds
 #cainfo = "cert.pem" # Path to Certificate Authority (CA) bundle (optional)
