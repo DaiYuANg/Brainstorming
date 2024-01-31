@@ -1,5 +1,5 @@
 import './button.css';
-
+import { Button as BaseButton } from '@mui/base/Button';
 interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
@@ -37,15 +37,17 @@ export const Button = ({
     ? 'storybook-button--primary'
     : 'storybook-button--secondary';
   return (
-    <button
+    <BaseButton
       type='button'
-      className={['storybook-button', `storybook-button--${size}`, mode].join(
+      className={['storybook-button','bg-sky-500 hover:bg-sky-700',`
+      transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300
+      `,`storybook-button--${size}`, mode].join(
         ' ',
       )}
       style={{ backgroundColor }}
       {...props}
     >
       {label}
-    </button>
+    </BaseButton>
   );
 };

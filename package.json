@@ -11,27 +11,27 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
-    "@types/react": "^18.2.42",
-    "@types/react-dom": "^18.2.17",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
     "concurrently": "^8.2.2",
-    "eslint": "^8.55.0",
+    "eslint": "^8.56.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "markdownlint": "^0.31.1",
-    "prettier": "^3.1.0",
+    "prettier": "^3.2.4",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "prettier-plugin-packagejson": "^2.4.7",
+    "prettier-plugin-packagejson": "^2.4.10",
     "react-devtools": "^4.28.5",
     "rimraf": "^5.0.5",
     "rollup-plugin-graph": "^2.0.0",
-    "rollup-plugin-visualizer": "^5.10.0",
-    "sass": "^1.69.5",
-    "terser": "^5.25.0",
-    "typescript": "^5.3.2",
-    "vite": "^4.5.1"
+    "rollup-plugin-visualizer": "^5.12.0",
+    "sass": "^1.70.0",
+    "terser": "^5.27.0",
+    "typescript": "^5.3.3",
+    "vite": "^4.5.2"
   },
   "engines": {
-    "node": "20.9.0",
+    "node": "^20.9.0",
     "pnpm": "^8.9.2"
   }
 }

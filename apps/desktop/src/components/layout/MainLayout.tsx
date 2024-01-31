@@ -2,7 +2,6 @@ import { AppShell } from '@mantine/core';
 import { useState } from 'react';
 import { useLayoutStore } from '../../store/LayoutStore.ts';
 import { LayoutHeader } from './LayoutHeader.tsx';
-import { LayoutMain } from './LayoutMain.tsx';
 import { LayoutNavbar } from './LayoutNavbar.tsx';
 
 export const MainLayout = () => {
@@ -29,7 +28,7 @@ export const MainLayout = () => {
         >
           <LayoutHeader />
           <LayoutNavbar toggleOpen={toggleOpen} />
-          <LayoutMain toggleSide={toggleOpen} open={open} />
+          {/*<LayoutMain toggleSide={toggleOpen} open={open} />*/}
         </AppShell>
       </div>
     </>
