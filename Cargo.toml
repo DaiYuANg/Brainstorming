@@ -1,6 +1,6 @@
 [workspace]
 members=[
-    'apps/desktop/src-tauri',
+    'packages/desktop/src-tauri',
     'crates/sync_server',
     'crates/cerebra',
     'i18n/en'

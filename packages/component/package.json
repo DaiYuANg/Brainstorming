@@ -1,19 +1,21 @@
 {
-  "name": "brainstorming-layout",
+  "name": "@brainstorming/components",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "exports": {
-    "types": "./index.d.ts",
-    "import": "./dist/counter.js",
-    "require": "./dist/counter.umd.cjs"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/components.es.js",
+      "require": "./dist/components.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
-  "main": "./dist/counter.umd.cjs",
-  "module": "./dist/counter.js",
-  "types": "./index.d.ts",
+  "main": "./dist/components.umd.js",
+  "module": "./dist/components.es.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "index.d.ts"
+    "dist"
   ],
   "scripts": {
     "build": "tsc && vite build",
@@ -22,30 +24,34 @@
     "storybook": "storybook dev -p 6006"
   },
   "devDependencies": {
-    "@storybook/addon-essentials": "^7.6.13",
-    "@storybook/addon-interactions": "^7.6.13",
-    "@storybook/addon-links": "^7.6.13",
-    "@storybook/addon-mdx-gfm": "7.6.11",
-    "@storybook/addon-onboarding": "^1.0.11",
-    "@storybook/blocks": "^7.6.13",
-    "@storybook/react": "^7.6.13",
-    "@storybook/react-vite": "^7.6.13",
-    "@storybook/testing-library": "^0.2.2",
+    "@mantine/core": "^7.5.2",
+    "@mantine/hooks": "^7.5.2",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/addon-interactions": "^8.0.0",
+    "@storybook/addon-links": "^8.0.0",
+    "@storybook/addon-mdx-gfm": "^8.0.0",
+    "@storybook/addon-onboarding": "^8.0.0",
+    "@storybook/addon-styling-webpack": "^0.0.6",
+    "@storybook/blocks": "^8.0.0",
+    "@storybook/preview-api": "^8.0.0",
+    "@storybook/react": "^8.0.0",
+    "@storybook/react-vite": "^8.0.0",
+    "@storybook/test": "^8.0.0",
     "@vitejs/plugin-react": "^4.2.1",
-    "@vitest/ui": "^1.2.2",
-    "autoprefixer": "^10.4.17",
+    "@vitest/ui": "^1.4.0",
+    "autoprefixer": "^10.4.18",
     "postcss": "^8.4.35",
+    "postcss-preset-mantine": "^1.13.0",
+    "postcss-simple-vars": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.70.0",
-    "storybook": "^7.6.13",
+    "sass": "^1.72.0",
+    "storybook": "^8.0.0",
+    "storybook-dark-mode": "^4.0.0",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.2",
     "vite": "^4.5.2",
-    "vite-plugin-dts": "^3.7.2",
-    "vitest": "^1.2.2"
-  },
-  "dependencies": {
-    "@mui/base": "5.0.0-beta.36"
+    "vite-plugin-dts": "^3.7.3",
+    "vitest": "^1.4.0"
   }
 }

@@ -1,3 +1,4 @@
+import { BButton } from '@brainstorming/components';
 import { useMantineColorScheme } from '@mantine/core';
 import { useHotkeys } from '@mantine/hooks';
 import { ApplicationSpotlight, ContextMenu, MainLayout } from './components';
@@ -13,6 +14,7 @@ function App(): JSX.Element {
   return (
     <>
       <ContextMenu />
+      <BButton label={''} />
       <MainLayout data-tauri-drag-region />
       <ApplicationSpotlight />
     </>

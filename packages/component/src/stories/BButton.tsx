@@ -1,5 +1,5 @@
+import { Button } from '@mantine/core';
 import './button.css';
-import { Button as BaseButton } from '@mui/base/Button';
 interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
@@ -26,7 +26,7 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({
+export const BButton = ({
   primary = false,
   size = 'medium',
   backgroundColor,
@@ -37,17 +37,21 @@ export const Button = ({
     ? 'storybook-button--primary'
     : 'storybook-button--secondary';
   return (
-    <BaseButton
+    <Button
       type='button'
-      className={['storybook-button','bg-sky-500 hover:bg-sky-700',`
+      className={[
+        'storybook-button',
+        'bg-sky-500 hover:bg-sky-700',
+        `
       transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300
-      `,`storybook-button--${size}`, mode].join(
-        ' ',
-      )}
+      `,
+        `storybook-button--${size}`,
+        mode,
+      ].join(' ')}
       style={{ backgroundColor }}
       {...props}
     >
       {label}
-    </BaseButton>
+    </Button>
   );
 };

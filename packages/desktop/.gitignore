@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 *.js
 stats.html
+!postcss.config.js

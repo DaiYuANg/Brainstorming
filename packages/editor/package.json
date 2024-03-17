@@ -9,9 +9,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "react": "^18.2.0",
     "slate": "^0.100.0",
     "slate-history": "^0.100.0",
     "slate-hyperscript": "^0.100.0",
-    "slate-react": "^0.100.1"
+    "slate-react": "^0.100.1",
+    "vite": "^4.5.2"
   }
 }

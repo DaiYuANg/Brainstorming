@@ -1,4 +1,4 @@
-import { Button } from './Button';
+import { BButton } from './BButton.tsx';
 import './header.css';
 
 type User = {
@@ -50,12 +50,12 @@ export const Header = ({
             <span className='welcome'>
               Welcome, <b>{user.name}</b>!
             </span>
-            <Button size='small' onClick={onLogout} label='Log out' />
+            <BButton size='small' onClick={onLogout} label='Log out' />
           </>
         ) : (
           <>
-            <Button size='small' onClick={onLogin} label='Log in' />
-            <Button
+            <BButton size='small' onClick={onLogin} label='Log in' />
+            <BButton
               primary
               size='small'
               onClick={onCreateAccount}

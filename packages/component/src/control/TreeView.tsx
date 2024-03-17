@@ -1,6 +1,3 @@
+const TreeView = () => {};
 
-const TreeView = ()=>{
-
-}
-
-export {TreeView}
+export { TreeView };

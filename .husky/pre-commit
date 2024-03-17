@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm format && cargo fmt
+pnpm format
+cargo fmt
+git add .

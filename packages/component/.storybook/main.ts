@@ -7,7 +7,9 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
-    '@storybook/addon-mdx-gfm'
+    '@storybook/addon-mdx-gfm',
+    '@storybook/addon-styling-webpack', // Add this line only if you are not using Vite
+    'storybook-dark-mode',
   ],
   framework: {
     name: '@storybook/react-vite',

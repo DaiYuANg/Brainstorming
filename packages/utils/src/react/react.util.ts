@@ -6,4 +6,4 @@ const typesHelper = () => {
 const cl = (...className: string[]) => {
   return className.join(' ');
 };
-export { typesHelper,cl };
+export { cl, typesHelper };
