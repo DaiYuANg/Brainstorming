@@ -1,0 +1,14 @@
+.node-label {
+    cursor: pointer;
+}
+
+.children.collapsed {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-out; /* 控制高度的过渡动画 */
+}
+
+.children.expanded {
+    height: auto;
+    transition: height 0.3s ease-in; /* 控制高度的过渡动画 */
+}

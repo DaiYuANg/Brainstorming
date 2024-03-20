@@ -1,1 +1,1 @@
-export * from './TreeView.tsx';
+export * from './tree';

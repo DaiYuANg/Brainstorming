@@ -10,6 +10,7 @@ const config: StorybookConfig = {
     '@storybook/addon-mdx-gfm',
     '@storybook/addon-styling-webpack', // Add this line only if you are not using Vite
     'storybook-dark-mode',
+    'storybook-css-modules',
   ],
   framework: {
     name: '@storybook/react-vite',
