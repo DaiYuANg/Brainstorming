@@ -1,8 +1,6 @@
+import '@mantine/core/styles.css';
 import type { Preview } from '@storybook/react';
 import '../src/style.scss';
-// Import styles of packages that you've installed.
-// All packages except `@mantine/hooks` require styles imports
-import '@mantine/core/styles.css';
 
 import { MantineProvider, useMantineColorScheme } from '@mantine/core';
 import { addons } from '@storybook/preview-api';

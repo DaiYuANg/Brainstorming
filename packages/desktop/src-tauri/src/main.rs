@@ -3,7 +3,6 @@
 mod actions;
 mod tauri_mod;
 
-use tauri_plugin_log::LogTarget;
 use window_shadows::set_shadow;
 use window_vibrancy::{apply_blur, apply_vibrancy, NSVisualEffectMaterial};
 #[tauri::command(async)]
@@ -31,11 +30,6 @@ fn main() {
                 .expect("Unsupported platform! 'apply_blur' is only supported on Windows");
             Ok(())
         })
-        .plugin(
-            tauri_plugin_log::Builder::default()
-                .targets([LogTarget::LogDir, LogTarget::Stdout, LogTarget::Webview])
-                .build(),
-        )
         .invoke_handler(tauri::generate_handler![greet])
         .invoke_handler(tauri::generate_handler![
             actions::actions::create_brainstorming
