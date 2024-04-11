@@ -1,65 +1,37 @@
 {
-  //  "build": {
-  //    "beforeDevCommand": "pnpm dev",
-  //    "beforeBuildCommand": "pnpm build",
-  //    "devPath": "http://localhost:1420",
-  //    "distDir": "../dist",
-  //    "withGlobalTauri": false
-  //  },
-  //  "package": {
-  //    "productName": "desktop",
-  //    "version": "0.0.0"
-  //  },
-  //  "tauri": {
-  //    "allowlist": {
-  //      "fs": {
-  //        "createDir": true,
-  //        "readDir": true,
-  //        "readFile": true,
-  //        "writeFile": true,
-  //        "scope": ["$APPCONFIG", "$APPCONFIG/*"]
-  //      },
-  //      "path": {
-  //        "all": true
-  //      },
-  //      "all": false,
-  //      "os": {
-  //        "all": true
-  //      },
-  //      "shell": {
-  //        "all": false,
-  //        "open": true
-  //      },
-  //      "window": {
-  //        "startDragging": true,
-  //        "minimize": true,
-  //        "close": true,
-  //        "hide": true,
-  //        "maximize": true
-  //      }
-  //    },
-  //    "bundle": {
-  //      "active": true,
-  //      "targets": "all",
-  //      "identifier": "org.brainstorm",
-  //      "icon": []
-  //    },
-  //    "security": {
-  //      "csp": null
-  //    },
-  //    "windows": [
-  //      {
-  //        "fullscreen": false,
-  //        "transparent": true,
-  //        "resizable": true,
-  //        "title": "desktop-alternative",
-  //        "width": 1000,
-  //        "decorations": false,
-  //        "height": 800
-  //      }
-  //    ],
-  //    "macOSPrivateApi": true
-  //  }
-  "runner": {},
-  "devUrl": {}
+  "productName": "desktop",
+  "version": "0.1.0",
+  "identifier": "com.tauri.dev",
+  "build": {
+    "frontendDist": "../build",
+    "devUrl": "http://localhost:1420",
+    "beforeDevCommand": "pnpm dev",
+    "beforeBuildCommand": "pnpm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "desktop",
+        "width": 800,
+        "height": 600,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  },
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json"
 }

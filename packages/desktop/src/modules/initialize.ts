@@ -1,4 +1,4 @@
-import { Platform, platform } from '@tauri-apps/api/os';
+import { Platform, platform } from '@tauri-apps/plugin-os';
 
 interface GlobalShare {
   os: Platform;

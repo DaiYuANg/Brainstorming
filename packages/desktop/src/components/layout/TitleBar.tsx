@@ -1,9 +1,9 @@
-import { platform } from '@tauri-apps/api/os';
-import { appWindow } from '@tauri-apps/api/window';
+import { getCurrent } from '@tauri-apps/api/window';
+import { platform } from '@tauri-apps/plugin-os';
 import './TitleBar.css';
 
 const os = await platform();
-
+const appWindow = getCurrent();
 const TitleBar = () => {
   const minimizeWindow = () => {
     appWindow.minimize().then((r: any) => {
@@ -18,7 +18,7 @@ const TitleBar = () => {
   };
 
   const closeWindow = () => {
-    if (os === 'darwin') {
+    if (os === 'macos') {
       appWindow.hide().then((r) => {
         console.log(r);
       });
