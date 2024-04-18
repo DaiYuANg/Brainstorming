@@ -12,7 +12,6 @@
     "resources:default",
     "image:default",
     "menu:default",
-    "tray:default",
-    "os:allow-arch"
+    "tray:default"
   ]
 }

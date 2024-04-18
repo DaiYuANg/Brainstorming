@@ -25,6 +25,7 @@ import { SHORTCUTS, withShortcuts } from './WithShortcuts.ts';
 interface CoreEditorProps {
   initialValue: Array<Descendant>;
 }
+
 const insertCustomCursor = (editor) => {
   const customCursor = { type: 'customCursor', children: [{ text: '|' }] };
   Transforms.insertNodes(editor, customCursor);
@@ -111,7 +112,7 @@ const CoreEditor = (props: CoreEditorProps) => {
     // setTop(xy.y);
     // setLeft(xy.x);
   }, []);
-  const handleBeforeInput = (event) => {
+  const handleBeforeInput = (event: any) => {
     if (event.inputType === 'insertText') {
       event.preventDefault();
       insertCustomCursor(editor);

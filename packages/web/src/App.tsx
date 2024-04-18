@@ -1,9 +1,9 @@
-import { Container } from '@mantine/core';
+import { Layout } from '@brainstorming/components';
 
 function App() {
   return (
     <>
-      <Container />
+      <Layout />
     </>
   );
 }

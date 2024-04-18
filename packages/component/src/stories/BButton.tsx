@@ -1,5 +1,6 @@
 import { Button } from '@mantine/core';
 import './button.css';
+
 interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
@@ -55,3 +56,5 @@ export const BButton = ({
     </Button>
   );
 };
+
+export type { ButtonProps };

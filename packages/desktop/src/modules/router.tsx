@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+
 const EditorPage = lazy(() =>
   import('../pages/EditorPage.tsx').then(({ EditorPage }) => ({
     default: EditorPage,
@@ -17,4 +18,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-export { router };
+export { EditorPage, router };

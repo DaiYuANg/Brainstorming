@@ -1,6 +1,6 @@
-import { useMantineColorScheme } from '@mantine/core';
+import { Button, useMantineColorScheme } from '@mantine/core';
 import { useHotkeys } from '@mantine/hooks';
-import { ApplicationSpotlight, ContextMenu, MainLayout } from './components';
+import { ApplicationSpotlight, ContextMenu } from './components';
 
 function App(): JSX.Element {
   const color = useMantineColorScheme();
@@ -13,7 +13,8 @@ function App(): JSX.Element {
   return (
     <>
       <ContextMenu />
-      <MainLayout data-tauri-drag-region />
+      <Button>test</Button>
+      {/*<MainLayout data-tauri-drag-region />*/}
       <ApplicationSpotlight />
     </>
   );

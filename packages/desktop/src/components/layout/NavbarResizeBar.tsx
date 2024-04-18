@@ -9,7 +9,7 @@ const NavbarResizeBar = () => {
 
   const handleMouseDown = useCallback(
     (event: React.MouseEvent<HTMLDivElement>) => {
-      const startX = event.clientX;
+      // const startX = event.clientX;
       if (store.navbarWidth < minNavbarWidth) return;
       fromEvent(document, 'mousemove').pipe(
         takeUntil(fromEvent(document, 'mouseup')),

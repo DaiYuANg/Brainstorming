@@ -11,8 +11,8 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
-    "@types/react": "^18.2.74",
-    "@types/react-dom": "^18.2.23",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "husky": "^8.0.3",
@@ -20,19 +20,19 @@
     "markdownlint": "^0.31.1",
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
-    "prettier-plugin-packagejson": "^2.4.14",
+    "prettier-plugin-packagejson": "^2.5.0",
     "react-devtools": "^4.28.5",
     "rimraf": "^5.0.5",
     "rollup-plugin-graph": "^2.0.0",
     "rollup-plugin-visualizer": "^5.12.0",
-    "sass": "^1.72.0",
-    "terser": "^5.30.2",
-    "typescript": "^5.4.3",
+    "sass": "^1.75.0",
+    "terser": "^5.30.3",
+    "typescript": "^5.4.5",
     "vite": "^4.5.3"
   },
-  "packageManager": "pnpm@8.15.1",
+  "packageManager": "pnpm@9.0.2",
   "engines": {
     "node": "^20.9.0",
-    "pnpm": "^8.9.2"
+    "pnpm": "^9.0.2"
   }
 }

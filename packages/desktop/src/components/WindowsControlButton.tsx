@@ -8,7 +8,7 @@ const WindowsControlButton = () => {
   return (
     <Group gap={'xs'}>
       <ActionIcon
-        onClick={window.electronAPI.minimizeWindow}
+        // onClick={window.electronAPI.minimizeWindow}
         variant={'transparent'}
       >
         <IconMinus
@@ -20,7 +20,7 @@ const WindowsControlButton = () => {
         />
       </ActionIcon>
       <ActionIcon
-        onClick={window.electronAPI.maximizeWindow}
+        // onClick={window.electronAPI.maximizeWindow}
         variant={'transparent'}
       >
         <IconSquare
@@ -32,7 +32,7 @@ const WindowsControlButton = () => {
         />
       </ActionIcon>
       <ActionIcon
-        onClick={window.electronAPI.closeWindow}
+        // onClick={window.electronAPI.closeWindow}
         variant={'transparent'}
       >
         <IconX
