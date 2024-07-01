@@ -1,14 +1,40 @@
-.node-label {
-    cursor: pointer;
+.root {
+    font-family: var(--mantine-font-family-monospace), sans-serif;
+    font-size: 13px;
+    transition: height 0.3s ease-out;
 }
 
-.children.collapsed {
-    height: 0;
+.item {
+    transition: height 0.3s ease;
     overflow: hidden;
-    transition: height 0.3s ease-out; /* 控制高度的过渡动画 */
 }
 
-.children.expanded {
-    height: auto;
-    transition: height 0.3s ease-in; /* 控制高度的过渡动画 */
+.label {
+    transition: height 0.3s ease;
+    padding-block: 3px;
+
+    &[data-hovered] {
+        @mixin where-light {
+            background-color: var(--mantine-color-gray-0);
+        }
+
+        @mixin where-dark {
+            background-color: var(--mantine-color-dark-6);
+            color: var(--mantine-color-white);
+        }
+    }
+
+    &[data-selected] {
+        font-weight: 700;
+
+        @mixin light {
+            background-color: var(--mantine-color-blue-0);
+            color: var(--mantine-color-black);
+        }
+
+        @mixin dark {
+            background-color: alpha(var(--mantine-color-blue-8), 0.35);
+            color: var(--mantine-color-blue-0);
+        }
+    }
 }

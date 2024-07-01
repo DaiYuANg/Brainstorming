@@ -1,5 +1,8 @@
 {
-  "extends": ["@brainstorming/tsconfig/tsconfig.node.json"],
-  "compilerOptions": {},
-  "include": ["vite.config.ts"]
+  "extends": "@electron-toolkit/tsconfig/tsconfig.node.json",
+  "include": ["electron.vite.config.*", "src/main/**/*", "src/preload/**/*"],
+  "compilerOptions": {
+    "composite": true,
+    "types": ["electron-vite/node"]
+  }
 }

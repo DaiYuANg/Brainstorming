@@ -1,3 +1,0 @@
-const createWorkspace = () => {};
-
-export { createWorkspace };

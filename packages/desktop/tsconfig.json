@@ -1,12 +1,7 @@
 {
-  "extends": ["@brainstorming/tsconfig/tsconfig.base.json"],
-  "compilerOptions": {
-    "jsx": "react-jsx"
-  },
-  "include": ["src"],
+  "files": [],
   "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.web.json" }
   ]
 }
