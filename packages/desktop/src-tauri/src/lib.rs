@@ -11,7 +11,7 @@ pub fn run() {
     tauri::Builder::default()
         .setup(|app| {
             let win_builder = WebviewWindowBuilder::new(app, "main", WebviewUrl::default())
-                // .title("Transparent Titlebar Window")
+                .title("Brainstorming")
                 .inner_size(800.0, 600.0);
 
             // set transparent title bar only when building for macOS
@@ -30,9 +30,9 @@ pub fn run() {
                 unsafe {
                     let bg_color = NSColor::colorWithRed_green_blue_alpha_(
                         nil,
-                        50.0 / 255.0,
-                        158.0 / 255.0,
-                        163.5 / 255.0,
+                        00.0 / 255.0,
+                        128.0 / 255.0,
+                        123.5 / 255.0,
                         1.0,
                     );
                     ns_window.setBackgroundColor_(bg_color);
@@ -42,6 +42,7 @@ pub fn run() {
             Ok(())
         })
         .plugin(tauri_plugin_shell::init())
+        .plugin(tauri_plugin_log::Builder::new().build())
         .invoke_handler(tauri::generate_handler![greet])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

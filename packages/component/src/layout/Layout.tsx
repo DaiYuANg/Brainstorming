@@ -1,30 +1,27 @@
-import { AppShell, Burger, Group, Skeleton } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-import { FC } from 'react';
+import { AppShell } from '@mantine/core';
+import { FC, forwardRef, ReactNode } from 'react';
 import './Layout.css';
 
-export const Layout: FC = () => {
-  const [opened, { toggle }] = useDisclosure();
-  return (
-    <AppShell
-      header={{ height: 0 }}
-      navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: !opened } }}
-      padding='md'
-    >
-      <AppShell.Header>
-        <Group h='100%' px='md'>
-          <Burger opened={opened} onClick={toggle} hiddenFrom='sm' size='sm' />
-        </Group>
-      </AppShell.Header>
-      <AppShell.Navbar p='md'>
-        Navbar
-        {Array(15)
-          .fill(0)
-          .map((_, index) => (
-            <Skeleton key={index} h={28} mt='sm' animate={false} />
-          ))}
-      </AppShell.Navbar>
-      <AppShell.Main>Main</AppShell.Main>
-    </AppShell>
-  );
+type LayoutProps = {
+  navbar?: ReactNode;
+  content?: ReactNode;
 };
+
+const Layout: FC<LayoutProps> = forwardRef(
+  ({ navbar, content }: LayoutProps) => {
+    return (
+      <AppShell
+        header={{ height: 0 }}
+        navbar={{ width: 300, breakpoint: 'sm', collapsed: { desktop: false } }}
+        padding='md'
+        withBorder={true}
+      >
+        <AppShell.Navbar p='md'>{navbar}</AppShell.Navbar>
+        <AppShell.Main>{content}</AppShell.Main>
+      </AppShell>
+    );
+  },
+);
+
+export { Layout };
+export type { LayoutProps };

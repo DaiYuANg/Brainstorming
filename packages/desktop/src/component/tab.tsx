@@ -5,13 +5,16 @@ import {
   ScrollArea,
   Tabs,
 } from '@mantine/core';
+import { useDocumentTitle } from '@mantine/hooks';
 import { IconPlus } from '@tabler/icons-react';
+import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router';
 import { useTabStore } from '../store/TabStore.tsx';
 
 const Tab = () => {
   const { activeTab, tabs, setActiveTab, addTab, removeTab } = useTabStore();
   const navigate = useNavigate();
+  useDocumentTitle(activeTab);
   const handleTabChange = (tabId: string | null) => {
     console.log('tab change');
     console.log(tabId);
@@ -23,6 +26,10 @@ const Tab = () => {
     });
     setActiveTab(tabId);
   };
+
+  useEffect(() => {
+    handleTabChange(activeTab);
+  }, []);
   return (
     <>
       <Tabs value={activeTab} onChange={handleTabChange}>

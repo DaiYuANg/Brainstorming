@@ -1,9 +1,17 @@
 import { Layout } from '@brainstorming/components';
+import { Box } from '@mantine/core';
 
 function App() {
   return (
     <>
-      <Layout />
+      <Layout
+        navbar={
+          <>
+            <Box>test</Box>
+          </>
+        }
+        content={<Box>test</Box>}
+      />
     </>
   );
 }

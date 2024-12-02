@@ -1,4 +1,7 @@
-const SHORTCUTS = {
+import { BaseElement } from 'slate';
+import { RenderElementProps } from 'slate-react';
+
+const SHORTCUTS: { [key: string]: string } = {
   '*': 'list-item',
   '-': 'list-item',
   '+': 'list-item',
@@ -11,8 +14,13 @@ const SHORTCUTS = {
   '######': 'heading-six',
 };
 
-const Element = ({ attributes, children, element }) => {
-  switch (element.type) {
+const MarkdownElement = ({
+  attributes,
+  children,
+  element,
+}: RenderElementProps) => {
+  const elementWithType = element as BaseElement & { type: string }; // 类型断言
+  switch (elementWithType.type) {
     case 'block-quote':
       return <blockquote {...attributes}>{children}</blockquote>;
     case 'bulleted-list':
@@ -36,4 +44,4 @@ const Element = ({ attributes, children, element }) => {
   }
 };
 
-export { Element, SHORTCUTS };
+export { MarkdownElement, SHORTCUTS };

@@ -1,8 +1,8 @@
-import { createBrowserRouter } from 'react-router';
+import { createMemoryRouter } from 'react-router';
 import { Layout } from '../component/layout.tsx';
 import { Editor } from '../page/editor.tsx';
 
-const router = createBrowserRouter([
+const router = createMemoryRouter([
   {
     path: '/',
     element: <Layout />,
