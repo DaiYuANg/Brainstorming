@@ -1,9 +1,12 @@
 import { Box } from '@mantine/core';
+import {
+  MarkdownElement,
+  SHORTCUTS,
+} from '@renderer/slate/MarkdownElement.tsx';
+import { SlateBuilder } from '@renderer/slate/SlateBuilder.ts';
 import { useCallback, useMemo } from 'react';
 import { Editor, Element as SlateElement, Node as SlateNode } from 'slate';
 import { Editable, ReactEditor, RenderElementProps, Slate } from 'slate-react';
-import { MarkdownElement, SHORTCUTS } from '../slate/MarkdownElement.tsx';
-import { SlateBuilder } from '../slate/SlateBuilder.ts';
 
 type CoreEditorProps = {
   id?: string;
@@ -23,42 +26,38 @@ const CoreEditor = ({ id }: CoreEditorProps) => {
         .build() as ReactEditor,
     [],
   );
-  const handleDOMBeforeInput = useCallback(
-    (_e: InputEvent) => {
-      queueMicrotask(() => {
-        const pendingDiffs = ReactEditor.androidPendingDiffs(editor);
+  const handleDOMBeforeInput = useCallback(() => {
+    queueMicrotask(() => {
+      const pendingDiffs = ReactEditor.androidPendingDiffs(editor);
 
-        const scheduleFlush = pendingDiffs?.some(({ diff, path }) => {
-          if (!diff.text.endsWith(' ')) {
-            return false;
-          }
-
-          const { text } = SlateNode.leaf(editor, path);
-          const beforeText = text.slice(0, diff.start) + diff.text.slice(0, -1);
-          if (!(beforeText in SHORTCUTS)) {
-            return;
-          }
-
-          const blockEntry = Editor.above(editor, {
-            at: path,
-            match: (n) =>
-              SlateElement.isElement(n) && Editor.isBlock(editor, n),
-          });
-          if (!blockEntry) {
-            return false;
-          }
-
-          const [, blockPath] = blockEntry;
-          return Editor.isStart(editor, Editor.start(editor, path), blockPath);
-        });
-
-        if (scheduleFlush) {
-          ReactEditor.androidScheduleFlush(editor);
+      const scheduleFlush = pendingDiffs?.some(({ diff, path }) => {
+        if (!diff.text.endsWith(' ')) {
+          return false;
         }
+
+        const { text } = SlateNode.leaf(editor, path);
+        const beforeText = text.slice(0, diff.start) + diff.text.slice(0, -1);
+        if (!(beforeText in SHORTCUTS)) {
+          return;
+        }
+
+        const blockEntry = Editor.above(editor, {
+          at: path,
+          match: (n) => SlateElement.isElement(n) && Editor.isBlock(editor, n),
+        });
+        if (!blockEntry) {
+          return false;
+        }
+
+        const [, blockPath] = blockEntry;
+        return Editor.isStart(editor, Editor.start(editor, path), blockPath);
       });
-    },
-    [editor],
-  );
+
+      if (scheduleFlush) {
+        ReactEditor.androidScheduleFlush(editor);
+      }
+    });
+  }, [editor]);
   const initialValue = [
     {
       type: 'paragraph',

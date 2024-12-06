@@ -12,30 +12,30 @@ class SlateBuilder {
   }
 
   // 创建一个新的编辑器
-  public static create() {
+  public static create(): SlateBuilder {
     return new SlateBuilder(createEditor()); // 创建编辑器实例并返回
   }
 
   // 添加 React 插件
-  public withReactPlugin() {
+  public withReactPlugin(): SlateBuilder {
     this.editor = withReact(this.editor);
     return this; // 链式调用
   }
 
   // 添加 History 插件
-  public withHistoryPlugin() {
+  public withHistoryPlugin(): SlateBuilder {
     this.editor = withHistory(this.editor);
     return this; // 链式调用
   }
 
   // 你可以在此处添加更多插件，比如 withBold、withItalic 等
-  public withMarkdownPlugin() {
+  public withMarkdownPlugin(): SlateBuilder {
     this.editor = withMarkdown(this.editor);
     return this; // 链式调用
   }
 
   // 返回构建好的编辑器实例
-  public build() {
+  public build(): Editor {
     return this.editor;
   }
 }
