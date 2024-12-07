@@ -1,18 +1,21 @@
-import { Box } from '@mantine/core';
-import {
-  MarkdownElement,
-  SHORTCUTS,
-} from '@renderer/slate/MarkdownElement.tsx';
-import { SlateBuilder } from '@renderer/slate/SlateBuilder.ts';
 import { useCallback, useMemo } from 'react';
 import { Editor, Element as SlateElement, Node as SlateNode } from 'slate';
 import { Editable, ReactEditor, RenderElementProps, Slate } from 'slate-react';
-
-type CoreEditorProps = {
-  id?: string;
-};
-
-const CoreEditor = ({ id }: CoreEditorProps) => {
+import { MarkdownElement } from '../slate/MarkdownElement.tsx';
+import { SHORTCUTS } from '../slate/Shortcuts.ts';
+import { SlateBuilder } from '../slate/SlateBuilder.ts';
+import { BrainstormingEditorProps } from './EditorProps.ts';
+import { HoverToolbar } from './HoverToolbar.tsx';
+const initialValue = [
+  {
+    type: 'paragraph',
+    children: [
+      { text: 'This is editable plain text, just like a <textarea>!' },
+    ],
+  },
+];
+const BrainstormingEditor = (props: BrainstormingEditorProps) => {
+  console.log(props.id);
   const renderElement = useCallback(
     (props: RenderElementProps) => <MarkdownElement {...props} />,
     [],
@@ -58,25 +61,18 @@ const CoreEditor = ({ id }: CoreEditorProps) => {
       }
     });
   }, [editor]);
-  const initialValue = [
-    {
-      type: 'paragraph',
-      children: [{ text: `A line of text in a paragraph` }],
-    },
-  ];
 
   return (
-    <Box key={id}>
-      <Slate editor={editor} initialValue={initialValue}>
-        <Editable
-          renderElement={renderElement}
-          onDOMBeforeInput={handleDOMBeforeInput}
-          placeholder='Write some markdown...'
-          spellCheck
-        />
-      </Slate>
-    </Box>
+    <Slate editor={editor} initialValue={initialValue}>
+      <HoverToolbar />
+      <Editable
+        renderElement={renderElement}
+        onDOMBeforeInput={handleDOMBeforeInput}
+        placeholder='Write some markdown...'
+        spellCheck
+      />
+    </Slate>
   );
 };
 
-export { CoreEditor };
+export default BrainstormingEditor;

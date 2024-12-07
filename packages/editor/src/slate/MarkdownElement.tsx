@@ -1,18 +1,6 @@
+import { Blockquote, List, Text, Title } from '@mantine/core';
 import { BaseElement } from 'slate';
 import { RenderElementProps } from 'slate-react';
-
-const SHORTCUTS: { [key: string]: string } = {
-  '*': 'list-item',
-  '-': 'list-item',
-  '+': 'list-item',
-  '>': 'block-quote',
-  '#': 'heading-one',
-  '##': 'heading-two',
-  '###': 'heading-three',
-  '####': 'heading-four',
-  '#####': 'heading-five',
-  '######': 'heading-six',
-};
 
 const MarkdownElement = ({
   attributes,
@@ -22,26 +10,50 @@ const MarkdownElement = ({
   const elementWithType = element as BaseElement & { type: string }; // 类型断言
   switch (elementWithType.type) {
     case 'block-quote':
-      return <blockquote {...attributes}>{children}</blockquote>;
+      return <Blockquote {...attributes}>{children}</Blockquote>;
     case 'bulleted-list':
-      return <ul {...attributes}>{children}</ul>;
+      return <List {...attributes}>{children}</List>;
     case 'heading-one':
-      return <h1 {...attributes}>{children}</h1>;
+      return (
+        <Title order={1} {...attributes}>
+          {children}
+        </Title>
+      );
     case 'heading-two':
-      return <h2 {...attributes}>{children}</h2>;
+      return (
+        <Title order={2} {...attributes}>
+          {children}
+        </Title>
+      );
     case 'heading-three':
-      return <h3 {...attributes}>{children}</h3>;
+      return (
+        <Title order={3} {...attributes}>
+          {children}
+        </Title>
+      );
     case 'heading-four':
-      return <h4 {...attributes}>{children}</h4>;
+      return (
+        <Title order={4} {...attributes}>
+          {children}
+        </Title>
+      );
     case 'heading-five':
-      return <h5 {...attributes}>{children}</h5>;
+      return (
+        <Title order={5} {...attributes}>
+          {children}
+        </Title>
+      );
     case 'heading-six':
-      return <h6 {...attributes}>{children}</h6>;
+      return (
+        <Title order={6} {...attributes}>
+          {children}
+        </Title>
+      );
     case 'list-item':
-      return <li {...attributes}>{children}</li>;
+      return <List.Item {...attributes}>{children}</List.Item>;
     default:
-      return <p {...attributes}>{children}</p>;
+      return <Text {...attributes}>{children}</Text>;
   }
 };
 
-export { MarkdownElement, SHORTCUTS };
+export { MarkdownElement };

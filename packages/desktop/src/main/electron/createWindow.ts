@@ -1,5 +1,6 @@
 import { is } from '@electron-toolkit/utils';
 import { BrowserWindow, shell } from 'electron';
+import log from 'electron-log/main';
 import { join } from 'path';
 import icon from '../../../resources/icon.png?asset';
 
@@ -14,6 +15,7 @@ const createWindow = (): void => {
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false,
+      webSecurity: false,
     },
     ...(process.platform !== 'darwin' ? { titleBarOverlay: true } : {}),
   });
@@ -23,7 +25,7 @@ const createWindow = (): void => {
   });
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
-    shell.openExternal(details.url);
+    shell.openExternal(details.url).then((r) => log.log(r));
     return { action: 'deny' };
   });
 

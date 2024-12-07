@@ -1,8 +1,8 @@
 import { electronApp, optimizer } from '@electron-toolkit/utils';
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, session } from 'electron';
 import { createWindow } from './createWindow';
 
-const OnAppReady = () => {
+const OnAppReady = (): void => {
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.branstorming');
 
@@ -17,7 +17,14 @@ const OnAppReady = () => {
   ipcMain.on('ping', () => console.log('pong'));
 
   createWindow();
-
+  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+    callback({
+      responseHeaders: {
+        ...details.responseHeaders,
+        'Content-Security-Policy': ['*'],
+      },
+    });
+  });
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.

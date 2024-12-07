@@ -7,7 +7,7 @@ import {
   Element as SlateElement,
   Transforms,
 } from 'slate';
-import { SHORTCUTS } from './MarkdownElement.tsx';
+import { SHORTCUTS } from './Shortcuts.ts';
 
 type MarkdownNode = {
   type: string;

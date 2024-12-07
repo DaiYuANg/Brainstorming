@@ -11,7 +11,7 @@
     "build:mac": "electron-vite build && electron-builder --mac",
     "build:unpack": "npm run build && electron-builder --dir",
     "build:win": "npm run build && electron-builder --win",
-    "dev": "electron-vite dev -w",
+    "dev": "concurrently react-devtools electron-vite dev -w",
     "format": "prettier --write .",
     "postinstall": "electron-builder install-app-deps",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
@@ -21,6 +21,7 @@
     "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false"
   },
   "dependencies": {
+    "@brainstorming/editor": "workspace:*",
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
     "@mantine/carousel": "^7.14.3",

@@ -1,10 +1,15 @@
+import { BrainstormingEditor } from '@brainstorming/editor';
+import { ReactElement } from 'react';
 import { useParams } from 'react-router';
-import { CoreEditor } from '../component/CoreEditor.tsx';
 
-const Editor = () => {
+const Editor = (): ReactElement => {
   const { id } = useParams<{ id: string }>();
   console.log(id);
-  return <CoreEditor id={id} />;
+  return (
+    <>
+      <BrainstormingEditor />
+    </>
+  );
 };
 
 export { Editor };
