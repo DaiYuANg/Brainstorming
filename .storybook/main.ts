@@ -1,24 +1,23 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: [
+    '../stories/**/*.mdx',
+    '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    '../packages/component/src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    '../packages/component/src/**/*.mdx',
+  ],
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
+    '@storybook/addon-essentials',
+    '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    '@storybook/addon-mdx-gfm',
     '@storybook/addon-styling-webpack', // Add this line only if you are not using Vite
     'storybook-dark-mode',
-    '@storybook/addon-themes',
-    'storybook-css-modules',
   ],
   framework: {
     name: '@storybook/react-vite',
     options: {},
-  },
-  docs: {
-    autodocs: 'tag',
   },
 };
 export default config;

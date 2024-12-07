@@ -2,15 +2,29 @@
   "name": "@brainstorming/root",
   "version": "1.0.0",
   "scripts": {
+    "build-storybook": "storybook build",
     "clean": "rimraf ./node_modules **/**/node_modules **/*/dist",
     "format": "prettier --write \"**/*.{js,ts,cjs,tsx,jsx,scss,html,yaml,md,json}\" --ignore-path .prettierignore",
     "preinstall": "npx only-allow pnpm",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "storybook dev -p 6006"
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.2",
+    "@mantine/core": "^7.10.2",
+    "@mantine/hooks": "^7.10.2",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-onboarding": "^8.4.7",
+    "@storybook/addon-styling-webpack": "^1.0.1",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/preview-api": "^8.4.7",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-vite": "^8.4.7",
+    "@storybook/test": "^8.4.7",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "concurrently": "^8.2.2",
@@ -21,11 +35,16 @@
     "prettier": "^3.3.2",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-packagejson": "^2.5.0",
+    "prop-types": "^15.8.1",
+    "react": "^18.3.1",
     "react-devtools": "^4.28.5",
+    "react-dom": "^18.3.1",
     "rimraf": "^5.0.7",
     "rollup-plugin-graph": "^2.0.0",
     "rollup-plugin-visualizer": "^5.12.0",
     "sass": "^1.77.6",
+    "storybook": "^8.4.7",
+    "storybook-dark-mode": "^4.0.2",
     "terser": "^5.31.1",
     "typescript": "^5.5.2",
     "vite": "^4.5.3"
