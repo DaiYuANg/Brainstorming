@@ -24,6 +24,7 @@
     "@brainstorming/editor": "workspace:*",
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^3.0.0",
+    "@excalidraw/excalidraw": "^0.17.6",
     "@mantine/carousel": "^7.14.3",
     "@mantine/charts": "^7.14.3",
     "@mantine/code-highlight": "^7.14.3",

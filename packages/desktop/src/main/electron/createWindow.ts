@@ -36,6 +36,13 @@ const createWindow = (): void => {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'));
   }
+
+  mainWindow.webContents.session.webRequest.onBeforeSendHeaders(
+    (details, callback) => {
+      details.requestHeaders['Content-Security-Policy'] = '*';
+      callback({ cancel: false, requestHeaders: details.requestHeaders });
+    },
+  );
 };
 
 export { createWindow };

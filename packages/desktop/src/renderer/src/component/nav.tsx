@@ -37,7 +37,7 @@ const data = [
 ];
 const Nav = (): ReactElement => {
   return (
-    <Box mt={15}>
+    <Box>
       <TextInput
         placeholder='Search'
         size='xs'

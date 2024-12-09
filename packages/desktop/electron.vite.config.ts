@@ -11,6 +11,13 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()],
   },
   renderer: {
+    define: {
+      process: {
+        env: {
+          IS_PREACT: false,
+        },
+      },
+    },
     resolve: {
       alias: {
         '@renderer': resolve('src/renderer/src'),
@@ -22,5 +29,14 @@ export default defineConfig({
         /* options here */
       }),
     ],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            excalidraw: ['@excalidraw/excalidraw'],
+          },
+        },
+      },
+    },
   },
 });

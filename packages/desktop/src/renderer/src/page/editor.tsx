@@ -1,4 +1,5 @@
 import { BrainstormingEditor } from '@brainstorming/editor';
+import '@brainstorming/editor/dist/index.css';
 import { ReactElement } from 'react';
 import { useParams } from 'react-router';
 
@@ -7,7 +8,7 @@ const Editor = (): ReactElement => {
   console.log(id);
   return (
     <>
-      <BrainstormingEditor />
+      <BrainstormingEditor type={'paragraph'} />
     </>
   );
 };

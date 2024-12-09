@@ -1,0 +1,7 @@
+.header {
+  -webkit-app-region: drag
+}
+
+.navbar *{
+  -webkit-app-region: no-drag
+}
