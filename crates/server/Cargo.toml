@@ -1,0 +1,11 @@
+[package]
+name = "server"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.42.0", features = ["full"] }
+actix-web = { version = "4.9.0" }
+env_logger = "0.11.5"
+utoipa = "5.2.0"
+utoipa-swagger-ui = { version = "8", features = ["actix-web"] }

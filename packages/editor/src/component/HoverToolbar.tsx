@@ -1,15 +1,8 @@
 import { ActionIcon, Group } from '@mantine/core';
 import { IconCopy } from '@tabler/icons-react';
-import { ReactNode, useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
+import { useEffect, useRef } from 'react';
 import { Editor, Range } from 'slate';
 import { useFocused, useSlate } from 'slate-react';
-
-const Portal = ({ children }: { children?: ReactNode }) => {
-  return typeof document === 'object'
-    ? createPortal(children, document.body)
-    : null;
-};
 
 const HoverToolbar = () => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -47,14 +40,12 @@ const HoverToolbar = () => {
   });
 
   return (
-    <Portal>
-      <Group ref={ref}>
-        <ActionIcon>
-          <IconCopy />
-        </ActionIcon>
-      </Group>
-    </Portal>
+    <Group ref={ref}>
+      <ActionIcon>
+        <IconCopy />
+      </ActionIcon>
+    </Group>
   );
 };
 
-export { HoverToolbar, Portal };
+export { HoverToolbar };

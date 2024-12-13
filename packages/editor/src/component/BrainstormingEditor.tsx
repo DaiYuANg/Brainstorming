@@ -1,15 +1,12 @@
-import { Box } from '@mantine/core';
+import { EditorLayout } from './EditorLayout.tsx';
 import { BrainstormingEditorProps } from './EditorProps.ts';
-import { GraphEditor } from './GraphEditor.tsx';
-import { TextEditor } from './TextEditor.tsx';
-import { Toolbar } from './Toolbar.tsx';
+import { EditorProvider } from './EditorProvider.tsx';
 
-const BrainstormingEditor = ({ type }: BrainstormingEditorProps) => {
+const BrainstormingEditor = ({ type = 'text' }: BrainstormingEditorProps) => {
   return (
-    <Box pos='relative'>
-      <Toolbar />
-      {type === 'text' ? <TextEditor /> : <GraphEditor />}
-    </Box>
+    <EditorProvider type={type}>
+      <EditorLayout />
+    </EditorProvider>
   );
 };
 

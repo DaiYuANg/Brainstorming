@@ -1,27 +1,28 @@
-import { AppShell } from '@mantine/core';
-import { FC, forwardRef, ReactNode } from 'react';
-import './Layout.css';
-
-type LayoutProps = {
-  navbar?: ReactNode;
-  content?: ReactNode;
-};
+import { FC, forwardRef } from 'react';
+import { LayoutComponent } from './LayoutComponent.tsx';
+import { LayoutProvider } from './LayoutContextProvider.tsx';
+import { LayoutProps } from './LayoutProps';
 
 const Layout: FC<LayoutProps> = forwardRef(
-  ({ navbar, content }: LayoutProps) => {
+  (
+    {
+      navbar,
+      content,
+      header,
+      defaultNavbarWidth,
+      defaultHeaderHeight,
+    }: LayoutProps,
+    _ref,
+  ) => {
     return (
-      <AppShell
-        header={{ height: 0 }}
-        navbar={{ width: 300, breakpoint: 'sm', collapsed: { desktop: false } }}
-        padding='md'
-        withBorder={true}
+      <LayoutProvider
+        defaultNavbarWidth={defaultNavbarWidth}
+        defaultHeaderHeight={defaultHeaderHeight}
       >
-        <AppShell.Navbar p='md'>{navbar}</AppShell.Navbar>
-        <AppShell.Main>{content}</AppShell.Main>
-      </AppShell>
+        <LayoutComponent header={header} navbar={navbar} content={content} />
+      </LayoutProvider>
     );
   },
 );
 
 export { Layout };
-export type { LayoutProps };

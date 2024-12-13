@@ -1,16 +1,19 @@
 import {
   ActionIcon,
   ActionIconGroup,
+  Divider,
   Group,
   rem,
   Switch,
   useMantineTheme,
 } from '@mantine/core';
 import { IconGraph, IconTextCaption } from '@tabler/icons-react';
+import { useEditor } from '../hook/useEditor.ts';
 import classes from './Toolbar.module.css';
 
 const TypeSwitch = () => {
   const theme = useMantineTheme();
+  const { setType } = useEditor();
   const sunIcon = (
     <IconTextCaption
       style={{ width: rem(16), height: rem(16) }}
@@ -28,13 +31,25 @@ const TypeSwitch = () => {
   );
 
   return (
-    <Switch size='md' color='dark.4' onLabel={sunIcon} offLabel={moonIcon} />
+    <Switch
+      size='md'
+      onChange={(e) => {
+        if (e.target.checked) {
+          setType('paragraph');
+        } else {
+          setType('text');
+        }
+      }}
+      color='dark.4'
+      onLabel={sunIcon}
+      offLabel={moonIcon}
+    />
   );
 };
 
 const Toolbar = () => {
   return (
-    <>
+    <div>
       <Group className={classes.floatingToolbar}>
         <TypeSwitch />
         <ActionIconGroup>
@@ -46,7 +61,8 @@ const Toolbar = () => {
           </ActionIcon>
         </ActionIconGroup>
       </Group>
-    </>
+      <Divider />
+    </div>
   );
 };
 

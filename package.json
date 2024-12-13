@@ -13,6 +13,8 @@
     "*.js": "eslint --cache --fix"
   },
   "devDependencies": {
+    "@brainstorming/components": "workspace:*",
+    "@brainstorming/editor": "workspace:*",
     "@chromatic-com/storybook": "^3.2.2",
     "@mantine/core": "^7.10.2",
     "@mantine/hooks": "^7.10.2",
@@ -27,6 +29,7 @@
     "@storybook/test": "^8.4.7",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.4",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "husky": "^8.0.3",

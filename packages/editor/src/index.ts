@@ -11,4 +11,6 @@ export {
   SlateBuilder,
   withMarkdown,
 };
+
+export type * from './component';
 export type { MarkdownNode };

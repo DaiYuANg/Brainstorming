@@ -1,3 +1,0 @@
-const ThreeColumnLayout = () => {};
-
-export { ThreeColumnLayout };

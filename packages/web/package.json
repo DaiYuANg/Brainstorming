@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@brainstorming/components": "workspace:*",
+    "@brainstorming/editor": "workspace:*",
     "@fontsource/jetbrains-mono": "^5.1.1",
     "@mantine/core": "^7.14.3",
     "@mantine/dates": "^7.14.3",
@@ -34,7 +35,6 @@
     "react-dom": "^18.3.1",
     "react-i18next": "^13.5.0",
     "react-router": "^7.0.1",
-    "rxjs": "^7.8.1",
     "ua-parser-js": "^1.0.39"
   },
   "devDependencies": {
