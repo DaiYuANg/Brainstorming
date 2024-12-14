@@ -1,0 +1,19 @@
+.cursor {
+  animation: blink 1s step-start infinite;
+  transition: top 0.2s ease, left 0.2s ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: black;
+  width: 2px;
+  height: 1rem;
+  pointer-events: none;
+  display: none;
+  user-select: none;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

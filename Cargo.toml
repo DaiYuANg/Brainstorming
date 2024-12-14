@@ -1,5 +1,19 @@
 [workspace]
+resolver = "2"
 members = [
+  "crates/data-structure",
   "crates/server",
   'packages/desktop/src-tauri'
 ]
+
+[workspace.dependencies]
+serde = { version = "1", features = ["derive"] }
+git2 = { version = "0.19.0", features = ["default"] }
+serde_json = { version = "1.0.133" }
+
+[workspace.package]
+version = "0.0.1"
+authors = [
+  "DaiYuANg"
+]
+description = "Brainstorming"

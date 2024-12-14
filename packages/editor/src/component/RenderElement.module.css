@@ -1,0 +1,9 @@
+.selected-empty-element {
+  position: relative;
+}
+.selected-empty-element:after {
+  content: " Use '/' to create question";
+  color: #aaa;
+  position: absolute;
+  top: 0;
+}

@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
 type LayoutComponentProps = Partial<{
-  header?: ReactNode;
+  header: ReactNode;
   navbar: ReactNode;
   content: ReactNode;
 }>;

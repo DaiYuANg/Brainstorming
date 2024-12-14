@@ -5,10 +5,9 @@ import { useParams } from 'react-router';
 
 const Editor = (): ReactElement => {
   const { id } = useParams<{ id: string }>();
-  console.log(id);
   return (
     <>
-      <BrainstormingEditor type={'text'} />
+      <BrainstormingEditor id={id} type={'text'} />
     </>
   );
 };

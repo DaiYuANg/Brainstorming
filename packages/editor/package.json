@@ -16,10 +16,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "slate": "^0.100.0",
-    "slate-history": "^0.100.0",
+    "slate": "^0.112.0",
+    "slate-history": "^0.110.3",
     "slate-hyperscript": "^0.100.0",
-    "slate-react": "^0.100.1"
+    "slate-react": "^0.112.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

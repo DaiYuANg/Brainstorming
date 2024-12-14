@@ -1,12 +1,27 @@
 import { Blockquote, List, Text, Title } from '@mantine/core';
-import { BaseElement } from 'slate';
-import { RenderElementProps } from 'slate-react';
+import { BaseElement, Range } from 'slate';
+import { RenderElementProps, useSelected, useSlate } from 'slate-react';
+import classes from './RenderElement.module.css';
 
-const MarkdownElement = ({
+const RenderElement = ({
   attributes,
   children,
   element,
 }: RenderElementProps) => {
+  const editor = useSlate();
+  const selection = editor.selection;
+  let isSelectionCollapsed = true;
+  if (selection !== null)
+    isSelectionCollapsed = Range.isCollapsed(editor.selection);
+
+  const selected = useSelected();
+
+  const isEmpty = () => {
+    console.log('children', children);
+    console.log(children[0].props.text);
+    return children[0].props.text.text === '';
+  };
+
   const elementWithType = element as BaseElement & { type: string }; // 类型断言
   switch (elementWithType.type) {
     case 'block-quote':
@@ -52,8 +67,19 @@ const MarkdownElement = ({
     case 'list-item':
       return <List.Item {...attributes}>{children}</List.Item>;
     default:
-      return <Text {...attributes}>{children}</Text>;
+      return (
+        <Text
+          className={
+            selected && isEmpty() && isSelectionCollapsed
+              ? classes.selectedEmptyElement
+              : ''
+          }
+          {...attributes}
+        >
+          {children}
+        </Text>
+      );
   }
 };
 
-export { MarkdownElement };
+export { RenderElement };

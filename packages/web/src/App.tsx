@@ -1,19 +1,8 @@
-import { Layout } from '@brainstorming/components';
-import { Box } from '@mantine/core';
+import { RouterProvider } from 'react-router';
+import { router } from './modules';
 
 function App() {
-  return (
-    <>
-      <Layout
-        navbar={
-          <>
-            <Box>test</Box>
-          </>
-        }
-        content={<Box>test</Box>}
-      />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

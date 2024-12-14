@@ -8,7 +8,11 @@ const GraphEditor = () => {
 
   return (
     <Box h={500}>
-      <Excalidraw theme={excalidrawScheme} />
+      <Excalidraw
+        zenModeEnabled={true}
+        gridModeEnabled={true}
+        theme={excalidrawScheme}
+      />
     </Box>
   );
 };

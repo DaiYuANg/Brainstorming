@@ -1,8 +1,10 @@
+import { Container } from '@mantine/core';
 import { useCallback, useMemo } from 'react';
+import { Descendant } from 'slate';
 import { Editable, ReactEditor, RenderElementProps, Slate } from 'slate-react';
 import { useMarkdownCompatible } from '../hook/useMarkdownCompatible.ts';
-import { MarkdownElement } from '../slate/MarkdownElement.tsx';
 import { SlateBuilder } from '../slate/SlateBuilder.ts';
+import { RenderElement } from './RenderElement.tsx';
 import { SelfPaintedCursor } from './SelfPaintedCursor.tsx';
 
 const initialValue = [
@@ -15,7 +17,7 @@ const initialValue = [
 ];
 const TextEditor = () => {
   const renderElement = useCallback(
-    (props: RenderElementProps) => <MarkdownElement {...props} />,
+    (props: RenderElementProps) => <RenderElement {...props} />,
     [],
   );
   const editor = useMemo(
@@ -28,21 +30,31 @@ const TextEditor = () => {
     [],
   );
   const markdownCompatible = useMarkdownCompatible(editor);
+
+  const onValueChange = (values: Descendant[]) => {
+    console.log(values);
+  };
   return (
-    <>
-      <Slate editor={editor} initialValue={initialValue}>
+    <Container fluid>
+      <Slate
+        editor={editor}
+        onValueChange={onValueChange}
+        initialValue={initialValue}
+      >
         <Editable
           style={{
             caretColor: 'transparent',
+            position: 'relative',
           }}
           renderElement={renderElement}
           onDOMBeforeInput={markdownCompatible}
           placeholder='Write some markdown...'
           spellCheck
+          autoFocus
         />
         <SelfPaintedCursor />
       </Slate>
-    </>
+    </Container>
   );
 };
 
