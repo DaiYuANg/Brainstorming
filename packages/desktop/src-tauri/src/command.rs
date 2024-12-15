@@ -7,7 +7,8 @@ pub fn greet(name: &str) -> String {
   format!("Hello, {}! You've been greeted from Rust!", name)
 }
 
-fn save_document_to_file(document: &Document, path: &str) -> std::io::Result<()> {
+#[tauri::command]
+pub fn save_document_to_file(document: &Document, path: &str) -> std::io::Result<()> {
   // 将文档序列化为二进制数据
   let serialized = serde_json::to_value(&document)?.to_string();
 

@@ -1,14 +1,9 @@
 import { useCallback } from 'react';
-import {
-  BaseEditor,
-  Editor,
-  Element as SlateElement,
-  Node as SlateNode,
-} from 'slate';
+import { Editor, Element as SlateElement, Node as SlateNode } from 'slate';
 import { ReactEditor } from 'slate-react';
 import { SHORTCUTS } from '../slate/Shortcuts.ts';
 
-const useMarkdownCompatible = (editor: BaseEditor) => {
+const useMarkdownCompatible = (editor: Editor) => {
   return useCallback(() => {
     queueMicrotask(() => {
       const pendingDiffs = ReactEditor.androidPendingDiffs(editor);

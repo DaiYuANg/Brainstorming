@@ -1,5 +1,6 @@
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { visualizer } from 'rollup-plugin-visualizer';
+import { defineConfig, PluginOption } from 'vite';
 import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 // https://vite.dev/config/
@@ -11,6 +12,7 @@ export default defineConfig({
       tsconfigPath: './tsconfig.app.json',
     }),
     libInjectCss(),
+    visualizer() as PluginOption,
   ],
   build: {
     lib: {

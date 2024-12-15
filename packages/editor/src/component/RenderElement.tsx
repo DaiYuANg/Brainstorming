@@ -11,8 +11,11 @@ const RenderElement = ({
   const editor = useSlate();
   const selection = editor.selection;
   let isSelectionCollapsed = true;
-  if (selection !== null)
-    isSelectionCollapsed = Range.isCollapsed(editor.selection);
+  if (selection !== null) {
+    isSelectionCollapsed = Range.isCollapsed(
+      editor.range(selection.anchor, selection),
+    );
+  }
 
   const selected = useSelected();
 
