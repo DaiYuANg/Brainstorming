@@ -28,7 +28,6 @@ export default defineConfig({
         'react/jsx-runtime',
         '@mantine/core',
         '@mantine/hook',
-        '@excalidraw/excalidraw',
       ],
       output: {
         globals: {

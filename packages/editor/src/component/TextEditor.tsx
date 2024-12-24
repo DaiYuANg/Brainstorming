@@ -1,25 +1,17 @@
 import { Container } from '@mantine/core';
-import { useCallback, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Descendant } from 'slate';
-import { Editable, ReactEditor, RenderElementProps, Slate } from 'slate-react';
-import { useMarkdownCompatible } from '../hook/useMarkdownCompatible.ts';
+import { ReactEditor, Slate } from 'slate-react';
 import { SlateBuilder } from '../slate/SlateBuilder.ts';
-import { RenderElement } from './RenderElement.tsx';
-import { SelfPaintedCursor } from './SelfPaintedCursor.tsx';
+import { ContentEdit } from './ContentEdit.tsx';
 
 const initialValue = [
   {
     type: 'paragraph',
-    children: [
-      { text: 'This is editable plain text, just like a <textarea>!' },
-    ],
+    children: [{ text: 'Type "/" to open the command menu.' }],
   },
 ];
 const TextEditor = () => {
-  const renderElement = useCallback(
-    (props: RenderElementProps) => <RenderElement {...props} />,
-    [],
-  );
   const editor = useMemo(
     () =>
       SlateBuilder.create()
@@ -29,7 +21,6 @@ const TextEditor = () => {
         .build() as ReactEditor,
     [],
   );
-  const markdownCompatible = useMarkdownCompatible(editor);
 
   const onValueChange = (values: Descendant[]) => {
     console.log(values);
@@ -41,18 +32,8 @@ const TextEditor = () => {
         onValueChange={onValueChange}
         initialValue={initialValue}
       >
-        <Editable
-          style={{
-            caretColor: 'transparent',
-            position: 'relative',
-          }}
-          renderElement={renderElement}
-          onDOMBeforeInput={markdownCompatible}
-          placeholder='Write some markdown...'
-          spellCheck
-          autoFocus
-        />
-        <SelfPaintedCursor />
+        <ContentEdit />
+        {/*<SelfPaintedCursor />*/}
       </Slate>
     </Container>
   );

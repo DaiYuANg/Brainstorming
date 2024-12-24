@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { editorType } from './EditorProps.ts';
+import { editorType } from '../component/EditorProps.ts';
 
 type EditorContextProp = {
   type?: editorType;

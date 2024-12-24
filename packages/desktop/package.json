@@ -1,5 +1,5 @@
 {
-  "name": "desktop1",
+  "name": "brainstorming",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -14,7 +14,6 @@
   "dependencies": {
     "@brainstorming/components": "workspace:*",
     "@brainstorming/editor": "workspace:*",
-    "@excalidraw/excalidraw": "catalog:",
     "@mantine/carousel": "catalog:",
     "@mantine/charts": "catalog:",
     "@mantine/code-highlight": "catalog:",
@@ -28,6 +27,7 @@
     "@mantine/nprogress": "catalog:",
     "@mantine/spotlight": "catalog:",
     "@mantine/tiptap": "catalog:",
+    "@mantinex/dev-icons": "^1.1.0",
     "@tabler/icons-react": "catalog:",
     "@tauri-apps/api": "catalog:",
     "@tauri-apps/plugin-opener": "catalog:",
@@ -47,15 +47,15 @@
   "devDependencies": {
     "@tauri-apps/cli": "catalog:",
     "@types/node": "catalog:",
-    "@types/react": "^18.3.1",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "@vitejs/plugin-react": "^4.3.4",
-    "postcss": "^8.4.49",
-    "postcss-preset-mantine": "^1.17.0",
+    "postcss": "catalog:",
+    "postcss-preset-mantine": "catalog:",
     "postcss-simple-vars": "catalog:",
     "react-devtools": "catalog:",
-    "typescript": "~5.6.2",
+    "typescript": "catalog:",
     "unplugin-turbo-console": "catalog:",
-    "vite": "^6.0.3"
+    "vite": "catalog:"
   }
 }

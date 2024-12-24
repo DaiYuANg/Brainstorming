@@ -8,8 +8,15 @@
     "opener:default",
     "os:default",
     "core:window:default",
-    "core:window:allow-start-dragging",
-    "webview:allow-internal-toggle-devtools"
+    "core:webview:default",
+    "core:window:allow-inner-position",
+    "core:app:default",
+    "core:event:default",
+    "core:image:default",
+    "core:menu:default",
+    "core:path:default",
+    "core:resources:default",
+    "core:tray:default"
   ],
   "capabilities": [],
   "webviews": []

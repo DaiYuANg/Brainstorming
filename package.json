@@ -16,8 +16,8 @@
     "@brainstorming/components": "workspace:*",
     "@brainstorming/editor": "workspace:*",
     "@chromatic-com/storybook": "catalog:",
-    "@mantine/core": "^7.10.2",
-    "@mantine/hooks": "^7.10.2",
+    "@mantine/core": "catalog:",
+    "@mantine/hooks": "catalog:",
     "@storybook/addon-essentials": "catalog:",
     "@storybook/addon-interactions": "catalog:",
     "@storybook/addon-onboarding": "catalog:",
@@ -49,8 +49,8 @@
     "storybook": "catalog:",
     "storybook-dark-mode": "catalog:",
     "terser": "catalog:",
-    "typescript": "^5.5.2",
-    "vite": "^6.0.3"
+    "typescript": "catalog:",
+    "vite": "catalog:"
   },
   "packageManager": "pnpm@9.5.0",
   "engines": {

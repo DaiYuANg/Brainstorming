@@ -38,19 +38,19 @@
     "ua-parser-js": "catalog:"
   },
   "devDependencies": {
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "@typescript-eslint/eslint-plugin": "catalog:",
     "@typescript-eslint/parser": "catalog:",
     "@vitejs/plugin-react-swc": "catalog:",
     "eslint": "^8.57.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "catalog:",
-    "postcss": "^8.4.49",
-    "postcss-preset-mantine": "^1.17.0",
+    "postcss": "catalog:",
+    "postcss-preset-mantine": "catalog:",
     "postcss-simple-vars": "catalog:",
-    "typescript": "^5.7.2",
-    "vite": "^4.5.5",
+    "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-turbo-console": "catalog:"
   }
 }

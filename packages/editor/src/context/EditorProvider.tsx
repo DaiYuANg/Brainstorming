@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react';
+import { editorType } from '../component/EditorProps.ts';
 import { EditorContext } from './EditorContext.tsx';
-import { editorType } from './EditorProps.ts';
 
 type EditorProviderProps = {
   children: ReactNode;

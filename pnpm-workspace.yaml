@@ -8,7 +8,6 @@ catalog:
   '@chromatic-com/storybook': ^3.2.2
   '@commitlint/cli': ^19.3.0
   '@eslint/js': ^9.15.0
-  '@excalidraw/excalidraw': ^0.17.6
   '@fontsource/jetbrains-mono': ^5.1.1
   '@mantine/core': ^7.15.2
   '@mantine/hooks': ^7.15.2
@@ -23,7 +22,6 @@ catalog:
   '@mantine/nprogress': ^7.15.2
   '@mantine/spotlight': ^7.15.2
   '@mantine/tiptap': ^7.15.2
-  '@reactivex/rxjs': ^6.6.7
   '@storybook/addon-essentials': ^8.4.7
   '@storybook/addon-interactions': ^8.4.7
   '@storybook/addon-onboarding': ^8.4.7
@@ -41,6 +39,8 @@ catalog:
   '@tiptap/pm': ^2.10.3
   '@tiptap/react': ^2.10.3
   '@tiptap/starter-kit': ^2.10.3
+  '@types/react': ^18.3.1
+  '@types/react-dom': ^18.3.1
   '@types/node': ^22.10.2
   '@typescript-eslint/eslint-plugin': ^6.21.0
   '@typescript-eslint/parser': ^6.21.0
@@ -58,7 +58,7 @@ catalog:
   i18next: ^23.16.8
   lint-staged: ^14.0.1
   lodash-es: ^4.17.21
-  markdownlint: ^0.31.1
+  markdownlint: ^0.37.2
   mitt: ^3.0.1
   postcss-simple-vars: ^7.0.1
   prettier: ^3.3.2
@@ -92,3 +92,7 @@ catalog:
   vite-plugin-turbo-console: ^0.1.0
   vitest: ^1.6.0
   zustand: ^5.0.2
+  vite: ^6.0.1
+  typescript: ^5.7.2
+  postcss: ^8.4.49
+  postcss-preset-mantine: ^1.17.0

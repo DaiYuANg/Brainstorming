@@ -1,6 +1,6 @@
+import { EditorProvider } from '../context/EditorProvider.tsx';
 import { EditorLayout } from './EditorLayout.tsx';
 import { BrainstormingEditorProps } from './EditorProps.ts';
-import { EditorProvider } from './EditorProvider.tsx';
 
 const BrainstormingEditor = ({ type = 'text' }: BrainstormingEditorProps) => {
   return (
@@ -10,4 +10,4 @@ const BrainstormingEditor = ({ type = 'text' }: BrainstormingEditorProps) => {
   );
 };
 
-export default BrainstormingEditor;
+export { BrainstormingEditor };

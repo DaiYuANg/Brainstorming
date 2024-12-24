@@ -6,17 +6,16 @@ import {
   NavLink,
   Text,
   TextInput,
-  Tree,
 } from '@mantine/core';
 import {
   IconBulb,
   IconCheckbox,
-  IconChevronDown,
   IconChevronRight,
   IconSearch,
   IconUser,
 } from '@tabler/icons-react';
 import { ReactElement } from 'react';
+import { NavWorkspaceTree } from './NavWorkspaceTree.tsx';
 
 const links = [
   { icon: <IconBulb />, label: 'Activity', notifications: 3 },
@@ -24,20 +23,9 @@ const links = [
   { icon: <IconUser />, label: 'Contacts' },
 ];
 
-const data = [
-  {
-    value: 'src',
-    label: 'src',
-    children: [
-      { value: 'src/components', label: 'components' },
-      { value: 'src/hooks', label: 'hooks' },
-    ],
-  },
-  { value: 'package.json', label: 'package.json' },
-];
 const Nav = (): ReactElement => {
   return (
-    <Box>
+    <Box p={'sm'}>
       <TextInput
         placeholder='Search'
         size='xs'
@@ -68,26 +56,7 @@ const Nav = (): ReactElement => {
       <Divider />
       <Card>
         <Text>Workspace</Text>
-        <Tree
-          data={data}
-          levelOffset={23}
-          renderNode={({ node, expanded, hasChildren, elementProps }) => (
-            <NavLink
-              {...elementProps}
-              rightSection={
-                hasChildren && (
-                  <IconChevronDown
-                    size={18}
-                    style={{
-                      transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
-                    }}
-                  />
-                )
-              }
-              label={node.label}
-            />
-          )}
-        />
+        <NavWorkspaceTree />
       </Card>
     </Box>
   );

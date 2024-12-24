@@ -5,14 +5,6 @@ import { defineConfig } from 'vite';
 const host = process.env.TAURI_DEV_HOST;
 
 export default defineConfig(async () => ({
-  define: {
-    process: {
-      env: {
-        IS_PREACT: false,
-        MODE: process.env.MODE,
-      },
-    },
-  },
   plugins: [
     react(),
     TurboConsole({
@@ -22,9 +14,7 @@ export default defineConfig(async () => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          excalidraw: ['@excalidraw/excalidraw'],
-        },
+        manualChunks: {},
       },
     },
   },

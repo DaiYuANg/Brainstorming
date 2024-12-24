@@ -10,7 +10,6 @@ if (typeof window !== 'undefined') {
     log: true, // logs render info to console (default: false)
   });
 }
-console.log(process);
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <MantineProvider defaultColorScheme={'auto'}>
