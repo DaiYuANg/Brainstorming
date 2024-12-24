@@ -1,7 +1,13 @@
-use actix_web::{get, middleware, rt, web, App, HttpRequest, HttpServer};
+mod api;
+mod modules;
+mod post;
+mod config;
+
+use crate::modules::AutoFacModule;
+use actix_web::{get, web, App, HttpRequest, HttpServer};
 use env_logger::Env;
+use std::sync::Arc;
 use utoipa::OpenApi;
-use utoipa_swagger_ui::SwaggerUi;
 
 #[get("/")]
 async fn index(req: HttpRequest) -> &'static str {
@@ -11,21 +17,15 @@ async fn index(req: HttpRequest) -> &'static str {
 
 #[tokio::main]
 async fn main() -> std::io::Result<()> {
-  // #[derive(OpenApi)]
-  // #[openapi(
-  //   paths(coord_f64, coord_u64),
-  //   components(schemas(MyObject<f64>, MyObject<u64>))
-  // )]
-  // struct ApiDoc;
-
+  let module = Arc::new(AutoFacModule::builder().build());
   env_logger::init_from_env(Env::default().default_filter_or("info"));
-  HttpServer::new(|| App::new()
-    // .service(
-    //   SwaggerUi::new("/swagger-ui/{_:.*}")
-    //     .url("/api-docs/openapi.json", ApiDoc::openapi()),
-    // )
-    .service(index))
-    .bind(("127.0.0.1", 8080))?
-    .run()
-    .await
+  HttpServer::new(move || {
+    App::new()
+      .app_data(module.clone())
+      .service(index)
+      .route("/echo", web::get().to(api::ws::echo))
+  })
+  .bind(("127.0.0.1", 8080))?
+  .run()
+  .await
 }

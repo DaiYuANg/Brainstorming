@@ -16,34 +16,34 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "slate": "^0.112.0",
-    "slate-history": "^0.110.3",
-    "slate-hyperscript": "^0.100.0",
-    "slate-react": "^0.112.0"
+    "slate": "catalog:",
+    "slate-history": "catalog:",
+    "slate-hyperscript": "catalog:",
+    "slate-react": "catalog:"
   },
   "devDependencies": {
-    "@eslint/js": "^9.15.0",
-    "@excalidraw/excalidraw": "^0.17.6",
-    "@mantine/core": "^7.14.3",
-    "@mantine/hooks": "^7.14.3",
-    "@tabler/icons-react": "^2.47.0",
+    "@eslint/js": "catalog:",
+    "@excalidraw/excalidraw": "catalog:",
+    "@mantine/core": "catalog:",
+    "@mantine/hooks": "catalog:",
+    "@tabler/icons-react": "catalog:",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.15.0",
     "eslint-plugin-react-hooks": "^5.0.0",
-    "eslint-plugin-react-refresh": "^0.4.14",
-    "globals": "^15.12.0",
+    "eslint-plugin-react-refresh": "catalog:",
+    "globals": "catalog:",
     "postcss": "^8.4.49",
     "postcss-preset-mantine": "^1.17.0",
-    "postcss-simple-vars": "^7.0.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "rollup-plugin-visualizer": "^5.12.0",
+    "postcss-simple-vars": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "rollup-plugin-visualizer": "catalog:",
     "typescript": "~5.6.2",
-    "typescript-eslint": "^8.15.0",
+    "typescript-eslint": "catalog:",
     "vite": "^6.0.1",
-    "vite-plugin-dts": "^3.9.1",
-    "vite-plugin-lib-inject-css": "^2.1.1"
+    "vite-plugin-dts": "catalog:",
+    "vite-plugin-lib-inject-css": "catalog:"
   }
 }

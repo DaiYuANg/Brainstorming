@@ -1,11 +1,6 @@
-import { createMemoryRouter } from 'react-router';
-import { LoginPage } from '../../views';
+import { createBrowserRouter } from 'react-router';
+import { routers } from './routers.tsx';
 
-const router = createMemoryRouter([
-  {
-    path: '/login',
-    element: <LoginPage />,
-  },
-]);
+const router = createBrowserRouter(routers);
 
 export { router };

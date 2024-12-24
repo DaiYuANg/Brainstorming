@@ -6,11 +6,10 @@ import { LayoutNavbar } from './LayoutNavbar.tsx';
 import { useLayout } from './useLayout.ts';
 
 const LayoutComponent = ({ navbar, content, header }: LayoutComponentProps) => {
-  console.log(navbar);
-  const { navbarWidth, navbarOpened } = useLayout();
+  const { navbarWidth, navbarOpened, headerHeight } = useLayout();
   return (
     <AppShell
-      header={{ height: 0 }}
+      header={{ height: headerHeight }}
       navbar={{
         width: navbarWidth,
         breakpoint: 'sm',

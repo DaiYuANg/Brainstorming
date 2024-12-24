@@ -22,26 +22,26 @@
     "build:watch": "tsc && vite build --watch"
   },
   "dependencies": {
-    "@reactivex/rxjs": "^6.6.7"
+    "@reactivex/rxjs": "catalog:"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
+    "@commitlint/cli": "catalog:",
     "@mantine/core": "^7.10.2",
     "@mantine/hooks": "^7.10.2",
-    "@tabler/icons-react": "^2.47.0",
+    "@tabler/icons-react": "catalog:",
     "@vitejs/plugin-react": "^4.3.1",
-    "@vitest/ui": "^1.6.0",
-    "autoprefixer": "^10.4.19",
+    "@vitest/ui": "catalog:",
+    "autoprefixer": "catalog:",
     "postcss": "^8.4.38",
     "postcss-preset-mantine": "^1.15.0",
-    "postcss-simple-vars": "^7.0.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "sass": "^1.77.6",
-    "tailwindcss": "^3.4.4",
+    "postcss-simple-vars": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "sass": "catalog:",
+    "tailwindcss": "catalog:",
     "typescript": "^5.5.2",
     "vite": "^4.5.3",
-    "vite-plugin-dts": "^3.9.1",
-    "vitest": "^1.6.0"
+    "vite-plugin-dts": "catalog:",
+    "vitest": "catalog:"
   }
 }

@@ -7,6 +7,21 @@ edition = "2021"
 tokio = { version = "1.42.0", features = ["full"] }
 actix-web = { version = "4.9.0" }
 env_logger = "0.11.5"
+serde = { workspace = true }
+shaku = { workspace = true }
+async-trait = "0.1.83"
 utoipa = "5.2.0"
 git2 = { workspace = true }
 utoipa-swagger-ui = { version = "8", features = ["actix-web"] }
+sea-orm = { workspace = true, features = [
+  "runtime-tokio",
+  "sqlx-sqlite",
+  "sqlx-mysql",
+  "sqlx-postgres",
+  "debug-print",
+  "rust_decimal",
+  "macros"
+] }
+futures-util = "0.3.31"
+actix-ws = "0.3.0"
+figment = { workspace = true, features = ["env", "toml", "serde_json"] }
