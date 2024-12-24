@@ -1,4 +1,6 @@
 import { MantineProvider } from '@mantine/core';
+import { ContextMenuProvider } from 'mantine-contextmenu';
+import 'mantine-contextmenu/styles.layer.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { scan } from 'react-scan';
@@ -13,7 +15,9 @@ if (typeof window !== 'undefined') {
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <MantineProvider defaultColorScheme={'auto'}>
-      <App />
+      <ContextMenuProvider>
+        <App />
+      </ContextMenuProvider>
     </MantineProvider>
   </React.StrictMode>,
 );

@@ -10,7 +10,13 @@
     "frontendDist": "../dist"
   },
   "app": {
-    "windows": [],
+    "windows": [
+      {
+        "title": "desktop",
+        "width": 1000,
+        "height": 800
+      }
+    ],
     "security": {
       "csp": null
     }
