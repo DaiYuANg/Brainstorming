@@ -58,6 +58,8 @@ const ContentEdit = () => {
         if (editor.selection) {
           const domRange = ReactEditor.toDOMRange(editor, editor.selection);
           const rect = domRange.getBoundingClientRect();
+          window.getSelection()?.getRangeAt(0)?.getBoundingClientRect();
+          // window.getSelection()?.getRangeAt(0).getBoundingClientRect()
           console.log('slate rect', rect);
         }
         const { selection } = editor;

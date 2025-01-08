@@ -15,10 +15,10 @@ name = "desktop_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
-tauri-build = { version = "2", features = ['tauri-codegen'] }
+tauri-build = { version = "2.0.3", features = ['tauri-codegen'] }
 
 [dependencies]
-tauri = { version = "2.1.1", features = ['default','devtools','compression'] }
+tauri = { version = "2.1.1", features = ['default','devtools','compression','tracing'] }
 tauri-plugin-opener = "2.2.2"
 tokio = { version = "1.42.0", features = ["default", "rt", "rt-multi-thread", "macros"] }
 git2 = { workspace = true }
