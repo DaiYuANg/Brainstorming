@@ -23,7 +23,7 @@ const TextEditor = () => {
   );
 
   const onValueChange = (values: Descendant[]) => {
-    console.log(values);
+    console.log('editor values', values);
   };
   return (
     <Container fluid>
@@ -33,7 +33,6 @@ const TextEditor = () => {
         initialValue={initialValue}
       >
         <ContentEdit />
-        {/*<SelfPaintedCursor />*/}
       </Slate>
     </Container>
   );

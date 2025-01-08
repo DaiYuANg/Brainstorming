@@ -1,25 +1,19 @@
-import { KeyboardEvent, useCallback, useState } from 'react';
-import { BaseEditor, Editor, Element, Transforms } from 'slate';
 import {
-  Editable,
-  ReactEditor,
-  RenderElementProps,
-  useSlate,
-} from 'slate-react';
+  autoUpdate,
+  flip,
+  inline,
+  shift,
+  useDismiss,
+  useFloating,
+  useInteractions,
+} from '@floating-ui/react';
+import { KeyboardEvent, useCallback, useState } from 'react';
+import { Transforms } from 'slate';
+import { Editable, RenderElementProps, useSlate } from 'slate-react';
 import { useMarkdownCompatible } from '../hook/useMarkdownCompatible.ts';
 import { CommandMenu } from './CommandMenu.tsx';
 import { RenderElement } from './RenderElement.tsx';
 
-type CustomElement = { type: string; children: CustomText[] };
-type CustomText = { text: string };
-
-declare module 'slate' {
-  interface CustomTypes {
-    Editor: BaseEditor & ReactEditor;
-    Element: CustomElement;
-    Text: CustomText;
-  }
-}
 const ContentEdit = () => {
   const editor = useSlate();
   const renderElement = useCallback(
@@ -27,74 +21,54 @@ const ContentEdit = () => {
     [],
   );
   const markdownCompatible = useMarkdownCompatible(editor);
-  const [menuOpened, setMenuOpened] = useState(false);
-  const [menuPosition, setMenuPosition] = useState<{
-    top: number;
-    left: number;
-  }>({
-    top: 0,
-    left: 0,
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { refs, floatingStyles, context } = useFloating({
+    placement: 'bottom-start',
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    middleware: [inline(), flip(), shift()],
+    whileElementsMounted: autoUpdate,
+    transform: true,
   });
-  const isBlockActive = (editor: Editor, format: string): boolean => {
-    const [match] = Editor.nodes(editor, {
-      match: (n) => (n as CustomElement).type === format,
+
+  const dismiss = useDismiss(context);
+
+  const { getFloatingProps } = useInteractions([dismiss]);
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key !== '/') {
+      return;
+    }
+
+    const selection = window.getSelection();
+    const range =
+      typeof selection?.rangeCount === 'number' && selection.rangeCount > 0
+        ? selection.getRangeAt(0)
+        : null;
+
+    if (!range) {
+      return;
+    }
+
+    refs.setReference({
+      getBoundingClientRect: () => range.getBoundingClientRect(),
+      getClientRects: () => range.getClientRects(),
     });
-    return !!match;
+    setIsOpen(true);
   };
 
-  const toggleBlock = (editor: Editor, format: string): void => {
-    const isActive = isBlockActive(editor, format);
-    Transforms.setNodes(
-      editor,
-      { type: isActive ? 'paragraph' : format },
-      { match: (n) => Editor.isBlock(editor, n as Element) },
-    );
+  const handleCommandSelect = (command: string) => {
+    // 插入所选命令
+    Transforms.insertText(editor, command);
+    setIsOpen(false);
   };
 
-  const handleKeyDown = useCallback(
-    (event: KeyboardEvent<HTMLDivElement>) => {
-      if (event.key === '/') {
-        event.preventDefault();
-        if (editor.selection) {
-          const domRange = ReactEditor.toDOMRange(editor, editor.selection);
-          const rect = domRange.getBoundingClientRect();
-          window.getSelection()?.getRangeAt(0)?.getBoundingClientRect();
-          // window.getSelection()?.getRangeAt(0).getBoundingClientRect()
-          console.log('slate rect', rect);
-        }
-        const { selection } = editor;
-        if (selection) {
-          console.log(
-            'select range0',
-            window.getSelection()?.getRangeAt(0).getClientRects(),
-          );
-          const domRange = window
-            .getSelection()
-            ?.getRangeAt(0)
-            .getBoundingClientRect();
-          if (domRange) {
-            console.log('domRange', domRange);
-            setMenuPosition({
-              top: domRange.top + window.scrollY + 20,
-              left: domRange.left + window.scrollX,
-            });
-            setMenuOpened(true);
-          }
-        }
-      }
-    },
-    [editor],
-  );
-
-  const handleCommandSelect = (format: string) => {
-    toggleBlock(editor, format);
-    setMenuOpened(false);
-  };
   return (
     <>
       <Editable
         style={{
-          // caretColor: 'transparent',
           position: 'relative',
         }}
         onKeyDown={handleKeyDown}
@@ -104,13 +78,16 @@ const ContentEdit = () => {
         spellCheck
         autoFocus
       />
-      {menuOpened && (
+      {isOpen && (
         <div
+          ref={refs.setFloating}
           style={{
-            position: 'absolute',
-            top: `${menuPosition.top}px`,
-            left: `${menuPosition.left}px`,
+            ...floatingStyles,
+            background: 'black',
+            color: 'white',
+            padding: 4,
           }}
+          {...getFloatingProps()}
         >
           <CommandMenu onCommandSelect={handleCommandSelect} />
         </div>

@@ -25,7 +25,7 @@ const RenderElement = ({
     return children[0].props.text.text === '';
   };
 
-  const elementWithType = element as BaseElement & { type: string }; // 类型断言
+  const elementWithType = element as BaseElement & { type: string };
   switch (elementWithType.type) {
     case 'block-quote':
       return <Blockquote {...attributes}>{children}</Blockquote>;
