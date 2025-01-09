@@ -2,8 +2,10 @@ import { Container } from '@mantine/core';
 import { useMemo } from 'react';
 import { Descendant } from 'slate';
 import { ReactEditor, Slate } from 'slate-react';
+import { useBrainstormingEditor } from '../hook/useBrainstormingEditor.ts';
 import { SlateBuilder } from '../slate/SlateBuilder.ts';
 import { ContentEdit } from './ContentEdit.tsx';
+import { BNode } from './EditorProps.ts';
 
 const initialValue = [
   {
@@ -12,6 +14,8 @@ const initialValue = [
   },
 ];
 const TextEditor = () => {
+  const { onChange } = useBrainstormingEditor();
+
   const editor = useMemo(
     () =>
       SlateBuilder.create()
@@ -24,7 +28,13 @@ const TextEditor = () => {
 
   const onValueChange = (values: Descendant[]) => {
     console.log('editor values', values);
+    onChange?.(values);
+    values.forEach((value) => {
+      const a = value as BNode;
+      console.log(a);
+    });
   };
+
   return (
     <Container fluid>
       <Slate

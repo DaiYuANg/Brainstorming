@@ -34,7 +34,7 @@
     "react-accessible-treeview": "catalog:",
     "react-dom": "catalog:",
     "react-i18next": "catalog:",
-    "react-router": "^7.0.1",
+    "react-router": "catalog:",
     "ua-parser-js": "catalog:"
   },
   "devDependencies": {

@@ -1,4 +1,5 @@
 import { MantineProvider } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
 import { ContextMenuProvider } from 'mantine-contextmenu';
 import 'mantine-contextmenu/styles.layer.css';
 import React from 'react';
@@ -16,7 +17,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <MantineProvider defaultColorScheme={'auto'}>
       <ContextMenuProvider>
-        <App />
+        <ModalsProvider>
+          <App />
+        </ModalsProvider>
       </ContextMenuProvider>
     </MantineProvider>
   </React.StrictMode>,

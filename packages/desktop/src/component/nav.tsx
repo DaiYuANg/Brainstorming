@@ -1,12 +1,4 @@
-import {
-  Box,
-  Card,
-  Code,
-  Divider,
-  NavLink,
-  Text,
-  TextInput,
-} from '@mantine/core';
+import { Box, Code, Divider, NavLink, Text, TextInput } from '@mantine/core';
 import {
   IconBulb,
   IconCheckbox,
@@ -16,6 +8,7 @@ import {
 } from '@tabler/icons-react';
 import { ReactElement } from 'react';
 import { NavWorkspaceTree } from './NavWorkspaceTree.tsx';
+import { Settings } from './Settings.tsx';
 
 const links = [
   { icon: <IconBulb />, label: 'Activity', notifications: 3 },
@@ -54,10 +47,11 @@ const Nav = (): ReactElement => {
         ))}
       </Box>
       <Divider />
-      <Card>
-        <Text>Workspace</Text>
-        <NavWorkspaceTree />
-      </Card>
+      <Text>Workspace</Text>
+      <NavWorkspaceTree />
+      <div className={['pb-5 mt-5 border-t-2'].join(' ')}>
+        <Settings />
+      </div>
     </Box>
   );
 };

@@ -31,7 +31,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.4",
     "concurrently": "catalog:",
-    "eslint": "^8.57.0",
+    "eslint": "^9.17.0",
     "husky": "catalog:",
     "lint-staged": "catalog:",
     "markdownlint": "catalog:",

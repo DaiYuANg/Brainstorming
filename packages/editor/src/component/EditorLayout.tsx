@@ -1,13 +1,13 @@
 import { Box } from '@mantine/core';
-import { useEditor } from '../hook/useEditor.ts';
+import { useBrainstormingEditor } from '../hook/useBrainstormingEditor.ts';
 import { GraphEditor } from './GraphEditor.tsx';
 import { TextEditor } from './TextEditor.tsx';
 
 const EditorLayout = () => {
-  const { type } = useEditor();
+  const { type } = useBrainstormingEditor();
+  console.log('internal', type);
   return (
     <Box pos='relative'>
-      {/*<Toolbar />*/}
       {type === 'text' ? <TextEditor /> : <GraphEditor />}
     </Box>
   );

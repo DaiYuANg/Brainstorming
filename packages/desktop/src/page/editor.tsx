@@ -1,24 +1,22 @@
-import { BrainstormingEditor } from '@brainstorming/editor';
+import {
+  BrainstormingEditor,
+  Descendant,
+  editorType,
+} from '@brainstorming/editor';
 import '@brainstorming/editor/dist/index.css';
+import { Button } from '@mantine/core';
 import { IconCopy, IconDownload } from '@tabler/icons-react';
-import { getCurrentWindow } from '@tauri-apps/api/window';
 import { useContextMenu } from 'mantine-contextmenu';
-import { ReactElement } from 'react';
+import { ReactElement, useState } from 'react';
 import { useParams } from 'react-router';
+
 const Editor = (): ReactElement => {
   const { id } = useParams<{ id: string }>();
-  const current = getCurrentWindow();
-  current.outerPosition().then((r) => {
-    console.log('window position', r);
-  });
   const { showContextMenu } = useContextMenu();
-  // if (rect) {
-  //   const { x: windowX, y: windowY } = getCurrentWindow().innerPosition();
-  //   return {
-  //     top: rect.top + windowY,
-  //     left: rect.left + windowX,
-  //   };
-  // }
+  const [type, setType] = useState<editorType>('text');
+  const onChange = (v: Descendant[]) => {
+    console.log('outside', v);
+  };
   return (
     <div
       onContextMenu={showContextMenu([
@@ -40,7 +38,19 @@ const Editor = (): ReactElement => {
         },
       ])}
     >
-      <BrainstormingEditor id={id} type={'text'} />
+      <Button
+        onClick={() => {
+          console.log(type);
+          console.log(type === 'text');
+          if (type === 'text') {
+            setType('paragraph');
+          }
+          console.log('outside', type);
+        }}
+      >
+        switch
+      </Button>
+      <BrainstormingEditor onChange={onChange} id={id} type={type} />
     </div>
   );
 };

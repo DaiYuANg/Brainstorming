@@ -1,6 +1,7 @@
 import { Blockquote, List, Text, Title } from '@mantine/core';
 import { BaseElement, Range } from 'slate';
 import { RenderElementProps, useSelected, useSlate } from 'slate-react';
+import { BElement } from './Element.ts';
 import classes from './RenderElement.module.css';
 
 const RenderElement = ({
@@ -25,7 +26,7 @@ const RenderElement = ({
     return children[0].props.text.text === '';
   };
 
-  const elementWithType = element as BaseElement & { type: string };
+  const elementWithType = element as BaseElement & { type: BElement };
   switch (elementWithType.type) {
     case 'block-quote':
       return <Blockquote {...attributes}>{children}</Blockquote>;
@@ -33,7 +34,11 @@ const RenderElement = ({
       return <List {...attributes}>{children}</List>;
     case 'heading-one':
       return (
-        <Title order={1} {...attributes}>
+        <Title
+          order={1}
+          className={classes.selectedEmptyElement}
+          {...attributes}
+        >
           {children}
         </Title>
       );

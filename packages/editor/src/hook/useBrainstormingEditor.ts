@@ -1,11 +1,13 @@
 import { useContext } from 'react';
 import { EditorContext } from '../context/EditorContext.tsx';
 
-const useEditor = () => {
+const useBrainstormingEditor = () => {
   const context = useContext(EditorContext);
   if (!context) {
-    throw new Error('useEditor must be used within a ProductProvider');
+    throw new Error(
+      'useBrainstormingEditor must be used within a ProductProvider',
+    );
   }
   return context;
 };
-export { useEditor };
+export { useBrainstormingEditor };

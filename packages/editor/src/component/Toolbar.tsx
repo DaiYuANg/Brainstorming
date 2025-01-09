@@ -8,12 +8,12 @@ import {
   useMantineTheme,
 } from '@mantine/core';
 import { IconGraph, IconTextCaption } from '@tabler/icons-react';
-import { useEditor } from '../hook/useEditor.ts';
+import { useBrainstormingEditor } from '../hook/useBrainstormingEditor.ts';
 import classes from './Toolbar.module.css';
 
 const TypeSwitch = () => {
   const theme = useMantineTheme();
-  const { setType } = useEditor();
+  const { setType } = useBrainstormingEditor();
   const sunIcon = (
     <IconTextCaption
       style={{ width: rem(16), height: rem(16) }}

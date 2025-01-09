@@ -1,20 +1,20 @@
 import { ReactNode, useState } from 'react';
-import { editorType } from '../component/EditorProps.ts';
+import { BrainstormingEditorProps, editorType } from '../component';
 import { EditorContext } from './EditorContext.tsx';
 
 type EditorProviderProps = {
   children: ReactNode;
-  type: editorType;
-};
+} & BrainstormingEditorProps;
 
-const EditorProvider = ({ children, type }: EditorProviderProps) => {
-  const [editorType, setEditorType] = useState<editorType>(type);
+const EditorProvider = ({ children, type, onChange }: EditorProviderProps) => {
+  const [editorType, setEditorType] = useState<editorType | undefined>(type);
 
   return (
     <EditorContext.Provider
       value={{
         type: editorType,
         setType: setEditorType,
+        onChange: onChange,
       }}
     >
       {children}

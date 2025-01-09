@@ -60,8 +60,15 @@ const ContentEdit = () => {
   };
 
   const handleCommandSelect = (command: string) => {
-    // 插入所选命令
-    Transforms.insertText(editor, command);
+    // Transforms.insertText(editor, command);
+    console.log(command);
+    Transforms.insertNodes(editor, {
+      children: [
+        {
+          text: '',
+        },
+      ],
+    });
     setIsOpen(false);
   };
 
