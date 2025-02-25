@@ -43,10 +43,10 @@ const LayoutNavbar = ({ content }: LayoutNavbarProps) => {
     (e: MouseEvent) => {
       if (highlightBorder) {
         document.addEventListener('selectstart', disableUserSelect);
-        dragStartX.current = e.clientX; // 记录鼠标起始位置
-        initialWidth.current = navbarWidth; // 记录初始宽度
+        dragStartX.current = e.clientX;
+        initialWidth.current = navbarWidth;
         setIsDragging(true);
-        document.body.style.userSelect = 'none'; // 禁用文本选择
+        document.body.style.userSelect = 'none';
       }
     },
     [highlightBorder, navbarWidth],
@@ -55,7 +55,7 @@ const LayoutNavbar = ({ content }: LayoutNavbarProps) => {
   const mouseUp = useCallback(() => {
     setIsDragging(false);
     document.removeEventListener('selectstart', disableUserSelect);
-    document.body.style.userSelect = ''; // 恢复文本选择
+    document.body.style.userSelect = '';
   }, []);
 
   const disableUserSelect = (e: Event) => {
@@ -79,7 +79,7 @@ const LayoutNavbar = ({ content }: LayoutNavbarProps) => {
       style={{
         transition: 'box-shadow 0.3s ease',
         boxShadow: highlightBorder ? 'inset -2px 0 0 0 gray' : 'none',
-        width: navbarWidth, // 设置动态宽度
+        width: navbarWidth,
       }}
       ref={navbarRef}
     >

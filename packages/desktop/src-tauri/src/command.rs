@@ -9,13 +9,10 @@ pub fn greet(name: &str) -> String {
 
 #[tauri::command]
 pub fn save_document_to_file(document: &Document, path: &str) -> std::io::Result<()> {
-  // 将文档序列化为二进制数据
   let serialized = serde_json::to_value(&document)?.to_string();
 
-  // 打开文件（如果不存在会创建）
   let mut file = File::create(path)?;
 
-  // 将二进制数据写入文件
   file.write_all((&serialized).as_ref())?;
 
   Ok(())

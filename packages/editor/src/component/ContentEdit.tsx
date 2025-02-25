@@ -60,12 +60,12 @@ const ContentEdit = () => {
   };
 
   const handleCommandSelect = (command: string) => {
-    // Transforms.insertText(editor, command);
     console.log(command);
     Transforms.insertNodes(editor, {
       children: [
         {
-          text: '',
+          type: command,
+          text: 'Heading',
         },
       ],
     });

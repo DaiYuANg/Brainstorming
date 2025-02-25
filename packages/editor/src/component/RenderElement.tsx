@@ -9,6 +9,7 @@ const RenderElement = ({
   children,
   element,
 }: RenderElementProps) => {
+  console.debug('render element');
   const editor = useSlate();
   const selection = editor.selection;
   let isSelectionCollapsed = true;
