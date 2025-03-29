@@ -12,5 +12,6 @@ export {
   withMarkdown,
 };
 
+export type * from 'slate';
 export type * from './component';
 export type { MarkdownNode };

@@ -1,3 +1,4 @@
+use redb::{Database, TableDefinition};
 use crate::command::greet;
 use crate::git_service::{GitService, GitServiceImpl};
 use shaku::HasComponent;
@@ -17,6 +18,8 @@ module! {
 }
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+  const TABLE: TableDefinition<&str, u64> = TableDefinition::new("my_data");
+  let db = Database::create("bs.redb");
   let module = MyModule::builder().build();
   let git_service: &dyn GitService = module.resolve_ref();
   tauri::Builder::default()

@@ -1,0 +1,3 @@
+class BrainstormingEditor {}
+
+export { BrainstormingEditor };
